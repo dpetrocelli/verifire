@@ -435,6 +435,59 @@ img {
     .unlu-header .course-bar { padding: 8px 18px; }
 }
 
+/* ============ DARK MODE ============ */
+[data-theme="dark"] {
+    --brand: #A97EE8;
+    --brand-mid: #8B5CF6;
+    --brand-deep: #C4B5FD;
+    --brand-soft: #2D1F45;
+    --brand-light: #7C3AED;
+    --white: #1A1A2E;
+    --off-white: #141422;
+    --gray: #9CA3AF;
+    --dark-gray: #E2E8F0;
+    --light-gray: #2D2D45;
+    --accent-warn: #F4B400;
+}
+[data-theme="dark"] body {
+    color: var(--dark-gray);
+    background: var(--off-white);
+}
+[data-theme="dark"] .toc-sidebar,
+[data-theme="dark"] .content {
+    background: var(--white);
+}
+[data-theme="dark"] tr:nth-child(even) td {
+    background: #1E1E33;
+}
+[data-theme="dark"] tr:hover td {
+    background: var(--brand-soft);
+}
+[data-theme="dark"] code {
+    background: var(--brand-soft);
+    color: var(--brand-deep);
+    border-color: var(--light-gray);
+}
+[data-theme="dark"] blockquote {
+    background: var(--brand-soft);
+    color: var(--dark-gray);
+}
+
+/* Dark mode toggle button */
+.dark-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 4px 10px;
+    line-height: 1;
+    color: var(--brand-soft);
+    transition: background 0.15s;
+    flex-shrink: 0;
+}
+.dark-toggle:hover { background: rgba(255, 255, 255, 0.22); }
+
 /* ============ PRINT ============ */
 @media print {
     body { background: var(--white); }
@@ -443,6 +496,7 @@ img {
     .layout { display: block; }
     .content { padding: 0; }
     a { color: var(--brand-deep); }
+    .dark-toggle { display: none; }
 }
 </style>
 
@@ -493,6 +547,7 @@ img {
     <span class="course">Tesis · Ing. en Computación · UNC</span>
     <span class="year">2026</span>
     <div class="view-switcher" role="tablist" aria-label="Versión del documento"><button type="button" data-view="summary" class="active">Resumen</button><button type="button" data-view="full">Completa</button></div>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Alternar modo oscuro" title="Modo oscuro">🌙</button>
     <span class="instructor">Alex A. Hernando · Dir. Dr. David Petrocelli</span>
   </div>
 </header>
@@ -3133,6 +3188,38 @@ Flatten → Dense(32) → Dense(2) → Softmax
     // Initial state
     document.addEventListener('DOMContentLoaded', function () {
         applyView(initialView());
+    });
+})();
+
+// Dark mode
+(function () {
+    var root = document.documentElement;
+    var toggle = document.getElementById('dark-toggle');
+
+    function applyTheme(dark) {
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (toggle) toggle.textContent = dark ? '☀️' : '🌙';
+        try { localStorage.setItem('verifire-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    }
+
+    function prefersDark() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function initialDark() {
+        try {
+            var stored = localStorage.getItem('verifire-theme');
+            if (stored === 'dark') return true;
+            if (stored === 'light') return false;
+        } catch (e) {}
+        return prefersDark();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        applyTheme(initialDark());
+        document.getElementById('dark-toggle').addEventListener('click', function () {
+            applyTheme(root.getAttribute('data-theme') !== 'dark');
+        });
     });
 })();
 </script>
