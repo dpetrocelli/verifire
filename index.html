@@ -598,7 +598,7 @@ img {
 <h2 id="1-qué-propone">1. Qué propone</h2>
 <p>Diseñar e implementar <strong>VeriFire</strong>, una plataforma SaaS multi-tenant donde cualquier nodo IoT puede demostrar criptográficamente que ejecutó correctamente un modelo de machine learning sobre datos reales — sin revelar el dato crudo en la cadena pública; en backends cloud/K8s el witness viaja cifrado a un worker autorizado. La prueba se verifica en una blockchain (Base L2) y dispara un reward económico al operador.</p>
 <p><strong>Caso de uso ancla:</strong> detección temprana de incendios en las Sierras de Córdoba mediante una red de cámaras de bajo costo (Raspberry Pi 4 + cámara). En 2024 se quemaron ~70.000 ha; los sistemas actuales (satélites) tienen latencia de 35–60 min — una red densa edge puede detectar humo en minutos.</p>
-<p><strong>Aporte académico real:</strong> <em>no</em> es el clasificador de incendios. Es la <strong>plataforma multi-backend</strong> que permite que el mismo protocolo zkML corra en cuatro clases de hardware (Edge ARM · Cloud CPU · K8s CPU · Cloud GPU) verificadas por un único contrato on-chain.</p>
+<p><strong>Aporte académico real:</strong> <em>no</em> es el clasificador de incendios. Es la <strong>plataforma multi-backend</strong> que permite que el mismo protocolo zkML corra en tres clases de hardware (Edge ARM · K8s CPU · Cloud GPU) verificadas por un único contrato on-chain.</p>
 <hr />
 <h2 id="2-por-qué-es-novedoso">2. Por qué es novedoso</h2>
 <p>Cada uno de los 5 campos involucrados (Blockchain, zkML, AI/Cloud-native, SaaS multi-tenant, Edge IoT) tiene literatura madura por separado. La novedad está en la <strong>intersección de los cinco</strong>, donde no hay implementación académica publicada.</p>
@@ -668,7 +668,7 @@ img {
 </tbody>
 </table>
 <hr />
-<h2 id="4-cuatro-backends-un-contrato">4. Cuatro backends, un contrato</h2>
+<h2 id="4-tres-backends-un-contrato">4. Tres backends, un contrato</h2>
 <table>
 <thead>
 <tr>
@@ -687,25 +687,19 @@ img {
 </tr>
 <tr>
 <td>2</td>
-<td>Cloud VM</td>
-<td>x86 CPU</td>
-<td>GCP free tier (e2-micro / e2-small)</td>
-</tr>
-<tr>
-<td>3</td>
 <td>K8s managed</td>
 <td>x86 CPU paralelo</td>
 <td>GKE Autopilot, 3 pods con KEDA</td>
 </tr>
 <tr>
-<td>4</td>
+<td>3</td>
 <td>Cloud GPU VM</td>
 <td>GPU (CUDA)</td>
 <td>Vast.ai · EZKL CUDA (sin infraestructura K8s)</td>
 </tr>
 </tbody>
 </table>
-<p>La separación CPU vs GPU permite <strong>comparar el tiempo de proof generation lado a lado</strong> con EZKL CUDA vs CPU — un benchmark cross-hardware reproducible a bajo costo (~$30 en Vast.ai), sin la complejidad de infraestructura K8s GPU.</p>
+<p>Los tres backends son cualitativamente distintos entre sí: cómputo en el dispositivo edge, cluster CPU paralelo escalable, y aceleración GPU. El benchmark cross-platform compara EZKL en estos tres casos — reproducible a bajo costo (~$30 en Vast.ai para el GPU), con K8s como baseline x86 cloud.</p>
 <hr />
 <h2 id="5-hipótesis-falsables-principales">5. Hipótesis falsables principales</h2>
 <table>
@@ -761,7 +755,7 @@ img {
 </tr>
 <tr>
 <td>4</td>
-<td>Benchmark cross-platform (4 backends × 6 modelos) + workshop paper submited</td>
+<td>Benchmark cross-platform (3 backends × 1 modelo) + workshop paper submited</td>
 </tr>
 <tr>
 <td>7</td>
@@ -786,10 +780,9 @@ img {
 <h2 id="7-recursos-clave">7. Recursos clave</h2>
 <ul>
 <li><strong>3 Raspberry Pi 4</strong> + cámaras (~$360 USD).</li>
-<li><strong>GCP Compute Engine free tier</strong> (cloud worker $0).</li>
 <li><strong>Cluster k3s on-prem</strong> sobre hardware reutilizado del laboratorio ($0) o GKE Autopilot (~$200 USD).</li>
 <li><strong>Vast.ai GPU on-demand</strong> para experimentos GPU (~$30 USD).</li>
-<li><strong>Total: ~$770–1.000 USD</strong> (vs ~$870–1.100 de presupuesto inicial — el GCP free tier reduce el cloud worker a cero).</li>
+<li><strong>Total: ~$770–1.000 USD</strong></li>
 </ul>
 <hr />
 <h2 id="8-trabajo-previo-del-autor">8. Trabajo previo del autor</h2>
@@ -905,7 +898,7 @@ img {
 <p>Esta tesis propone el diseño, implementación y evaluación de <strong>VeriFire</strong>, una plataforma Software-as-a-Service multi-tenant que combina inferencia de machine learning verificable con pruebas zkML (Zero-Knowledge Machine Learning) para habilitar redes DePIN (Decentralized Physical Infrastructure Networks). En estas redes cada operador puede demostrar criptográficamente que ejecutó correctamente una inferencia sobre datos reales —sin revelar el dato crudo—, la prueba se verifica en cadena y activa un reward económico diferenciado por clase de nodo.</p>
 <p>El aporte central es una <strong>arquitectura desacoplada</strong> entre dónde se ejecuta el cómputo (edge IoT, cloud VM, cluster Kubernetes) y cómo se verifica (un único contrato on-chain agnóstico al backend). Un mismo protocolo de input-binding criptográfico admite tres clases de &ldquo;Compute Backend&rdquo; con distintos trade-offs de privacidad, costo y escalabilidad, todas verificadas uniformemente en una red EVM (Base L2). Esta arquitectura habilita escalar a múltiples regiones y tenants como SaaS, y a operadores de cómputo heterogéneos (desde Raspberry Pi de un hobbyista hasta clusters K8s corporativos).</p>
 <p>El <strong>caso de uso ancla</strong> es la detección temprana de incendios en las Sierras de Córdoba mediante una red de cámaras de bajo costo, problema socialmente relevante (~70.000 hectáreas quemadas en 2024). El <strong>aporte académico</strong>, sin embargo, no es el sistema de detección sino la dupla protocolo + plataforma transferible a cualquier DePIN de sensing.</p>
-<p>La metodología incluye benchmark experimental cross-platform (ARM edge vs x86 cloud GCP vs pod K8s) del trade-off accuracy / latencia / RAM / costo de gas; implementación end-to-end (firmware, operador K8s, control plane SaaS, smart contracts) en una red piloto multi-backend; análisis de seguridad del mecanismo y modelado económico del reward por clase. Los aportes esperados se publican como tres papers complementarios: workshop sobre zkML cross-platform, paper de plataforma cloud-native, y paper completo de la red DePIN.</p>
+<p>La metodología incluye benchmark experimental cross-platform (ARM edge vs pod K8s vs GPU Vast.ai) del trade-off accuracy / latencia / RAM / costo de gas; implementación end-to-end (firmware, operador K8s, control plane SaaS, smart contracts) en una red piloto multi-backend; análisis de seguridad del mecanismo y modelado económico del reward por clase. Los aportes esperados se publican como tres papers complementarios: workshop sobre zkML cross-platform, paper de plataforma cloud-native, y paper completo de la red DePIN.</p>
 <hr />
 <h2 id="3-área-temática">3. Área temática</h2>
 <h3 id="área-principal">Área principal</h3>
@@ -1031,7 +1024,7 @@ img {
 <tr>
 <td>zkML / Criptografía</td>
 <td>15 %</td>
-<td>Circuito SNARK de inferencia via EZKL (Halo2); protocolo de input-signing (hash binding entrada → proof) independiente del backend de cómputo; benchmark cross-platform (ARM vs x86 vs GPU); análisis del threat model criptográfico.</td>
+<td>Circuito SNARK de inferencia via EZKL (Halo2); protocolo de input-signing (hash binding entrada → proof) independiente del backend de cómputo; benchmark cross-platform (ARM edge vs K8s vs GPU); análisis del threat model criptográfico.</td>
 </tr>
 </tbody>
 </table>
@@ -1052,7 +1045,7 @@ img {
 - Política de upgrade en producción del modelo y del verifier: se documenta en la tesis (qué pasa cuando se reentrena el modelo y cambia el <code>IEZKLVerifier</code>, qué grace period existe, cómo se invalidan los proofs viejos), pero no se ejercita en operación real porque el modelo no se reentrena durante el piloto.
 - Gobernanza de acceso permissionless: en esta versión el registro de nodos y tenants pasa por el control plane centralizado (modelo permissioned). La descentralización completa del onboarding —donde cualquier operador pudiera sumarse sin aprobación del CP— es trabajo futuro que requiere mecanismos de stake o reputación on-chain.</p>
 <h3 id="65-justificación-cuantitativa-de-la-red-piloto">6.5 Justificación cuantitativa de la red piloto</h3>
-<p>La elección de <strong>3 nodos edge + 1 cloud worker + 1 cluster K8s mínimo</strong> no es arbitraria: es el mínimo capaz de validar las propiedades centrales del sistema sin sobre-dimensionar.</p>
+<p>La elección de <strong>3 nodos edge + 1 cluster K8s mínimo</strong> no es arbitraria: es el mínimo capaz de validar las propiedades centrales del sistema sin sobre-dimensionar.</p>
 <table>
 <thead>
 <tr>
@@ -1186,7 +1179,7 @@ img {
 <p>La intersección <strong>★ donde se cruzan los cinco campos</strong>, materializada en cinco contribuciones (C1–C5) que se detallan en §11.1:</p>
 <ol>
 <li><strong>Protocolo zkML multi-backend</strong> con doble firma (Blockchain ∩ zkML ∩ Cloud-native).</li>
-<li><strong>Benchmark cross-platform</strong> en cuatro clases de hardware (zkML ∩ Edge ∩ Cloud-native ∩ AI).</li>
+<li><strong>Benchmark cross-platform</strong> en tres clases de hardware (zkML ∩ Edge ∩ Cloud-native ∩ AI).</li>
 <li><strong>Plataforma SaaS de referencia</strong> open-source (Cloud-native ∩ SaaS ∩ Blockchain ∩ Edge).</li>
 <li><strong>Metodología de circuitos zkML &ldquo;backend-aware&rdquo;</strong> (zkML ∩ AI ∩ Edge).</li>
 <li><strong>Patrón arquitectónico DePIN heterogéneo</strong> (Blockchain ∩ Cloud-native ∩ SaaS).</li>
@@ -1195,7 +1188,7 @@ img {
 <ul>
 <li><strong>Cross-disciplinar:</strong> requiere dominar cinco campos que normalmente viven en silos académicos distintos (criptografía, sistemas distribuidos, ML embebido, blockchain, cloud-native).</li>
 <li><strong>Hardware-in-the-loop:</strong> la mayoría de los papers de zkML no tocan hardware real; los que lo hacen no abordan multi-backend.</li>
-<li><strong>Costo experimental:</strong> correr 4 backends × 6 modelos × 30 réplicas + red piloto operacional 2–3 meses requiere una inversión coordinada que rara vez se justifica para un solo paper.</li>
+<li><strong>Costo experimental:</strong> correr 3 backends × 30 réplicas + red piloto operacional 2–3 meses requiere una inversión coordinada que rara vez se justifica para un solo paper.</li>
 <li><strong>Caso de uso anclado en realidad:</strong> muchas propuestas teóricas no se molestan en validar contra un dominio social concreto (incendios CBA), lo cual deja la novedad sin &ldquo;pegada&rdquo; práctica.</li>
 </ul>
 <h4 id="riesgo-controlado-del-aporte">Riesgo controlado del aporte</h4>
@@ -1220,9 +1213,9 @@ img {
 <h3 id="74-objetivos-específicos">7.4 Objetivos específicos</h3>
 <ol>
 <li><strong>OE1</strong> — Formalizar el protocolo VeriFire multi-backend (input-binding, doble firma, contrato multi-clase) y su threat model.</li>
-<li><strong>OE2</strong> — Realizar el primer benchmark cross-platform (ARM edge / x86 cloud / Kubernetes) de proof generation con EZKL para clasificadores binarios cuantizados.</li>
+<li><strong>OE2</strong> — Realizar el primer benchmark cross-platform (ARM edge / Kubernetes managed / GPU) de proof generation con EZKL para clasificadores binarios cuantizados.</li>
 <li><strong>OE3</strong> — Implementar la plataforma de referencia open-source: light client edge, cloud worker, operador Kubernetes (CRDs + Helm chart), control plane SaaS multi-tenant, smart contracts.</li>
-<li><strong>OE4</strong> — Desplegar y operar una red piloto multi-backend (3 RPi + cloud worker GCP + cluster K8s mínimo) durante 2–3 meses con dos tenants ficticios.</li>
+<li><strong>OE4</strong> — Desplegar y operar una red piloto multi-backend (3 RPi + cluster K8s mínimo) durante 2–3 meses con dos tenants ficticios.</li>
 <li><strong>OE5</strong> — Analizar la seguridad del mecanismo (Sybil, replay, worker malicioso) y modelar las condiciones económicas para que cada clase de backend tenga incentivo positivo.</li>
 <li><strong>OE6</strong> — Producir tres publicaciones académicas: workshop zkML cross-platform, paper de plataforma cloud-native, paper completo de red DePIN.</li>
 </ol>
@@ -1600,7 +1593,7 @@ img {
 <li><strong>Fase analítica</strong> (seguridad del mecanismo, modelado económico).</li>
 </ul>
 <h3 id="92-arquitectura-técnica-de-la-solución">9.2 Arquitectura técnica de la solución</h3>
-<p><strong>Cuatro backends, un protocolo, un contrato.</strong> La separación entre backends <em>CPU-based</em> y <em>GPU-based</em> es deliberada: permite cuantificar el impacto del acelerador en el proof time del mismo modelo y traza una curva de costo-rendimiento que es parte del aporte (C2).</p>
+<p><strong>Tres backends, un protocolo, un contrato.</strong> Los tres backends son cualitativamente distintos: cómputo on-device en el edge, cluster CPU paralelo escalable y aceleración GPU. El K8s managed CPU cubre el caso x86 cloud (los pods corren en x86), por lo que agregar una VM CPU adicional sería redundante. La separación K8s-CPU vs GPU-CUDA es la que permite cuantificar el speedup del acelerador y traza la curva de costo-rendimiento que es parte del aporte (C2).</p>
 <table>
 <thead>
 <tr>
@@ -1623,32 +1616,23 @@ img {
 </tr>
 <tr>
 <td>2</td>
-<td><strong>Cloud VM (CPU)</strong></td>
-<td>x86 CPU</td>
-<td>GCP Compute Engine free tier (e2-micro / e2-small, AMD/Intel)</td>
-<td>Proof en CPU x86 con más RAM que el edge; el nodo edge envía el witness firmado</td>
-<td>Parcial</td>
-</tr>
-<tr>
-<td>3</td>
 <td><strong>Kubernetes managed (CPU)</strong></td>
 <td>x86 CPU paralelizado</td>
 <td>GKE Autopilot o EKS (workers CPU-only)</td>
-<td>Proof distribuido entre pods CPU, auto-escalable, multi-tenant; representa el caso típico &ldquo;cluster corporativo sin GPU&rdquo;</td>
+<td>Proof distribuido entre pods CPU, auto-escalable, multi-tenant; actúa como baseline x86 cloud y como el caso típico &ldquo;cluster corporativo sin GPU&rdquo;</td>
 <td>Parcial + aislamiento por namespace</td>
 </tr>
 <tr>
-<td>4</td>
+<td>3</td>
 <td><strong>Cloud GPU VM</strong></td>
 <td>GPU (CUDA)</td>
 <td>Vast.ai · EZKL CUDA habilitado (sin infraestructura K8s)</td>
-<td>Proof acelerado por GPU; permite <strong>comparar el mismo modelo EZKL CPU vs CUDA</strong> y trazar la curva de aceleración para modelos ≤ 5 M params</td>
+<td>Proof acelerado por GPU; permite <strong>comparar el mismo modelo EZKL K8s-CPU vs CUDA</strong> y trazar la curva de aceleración para modelos ≤ 5 M params</td>
 <td>Parcial + aislamiento por namespace</td>
 </tr>
 </tbody>
 </table>
 <p>El control plane SaaS hace de orquestador (registro, capability attestation, routing, dashboard). El contrato verificador on-chain es agnóstico al backend y diferencia el reward según la clase declarada.</p>
-<p><strong>Por qué cuatro backends y no tres:</strong> la dimensión <em>CPU vs GPU</em> es ortogonal a la dimensión <em>edge vs cloud vs cluster</em>. Sin la cuarta clase no se puede medir cuánto acelera la GPU el proof generation respecto a un cluster CPU equivalente con el mismo modelo. Esa medición es justamente la que habilita decir &ldquo;para modelos &gt; N parámetros, K8s+GPU es la única clase viable&rdquo; — y eso es un resultado publicable.</p>
 <h3 id="93-arquitectura-de-servicios-y-escalabilidad">9.3 Arquitectura de servicios y escalabilidad</h3>
 <p>La plataforma VeriFire se organiza en <strong>cuatro planos de servicio</strong> desplegados como microservicios independientes, cada uno con su modelo de escalabilidad y su responsabilidad acotada. La separación responde al principio de loose coupling: cualquier plano puede actualizarse, escalarse o reemplazarse sin tocar a los otros.</p>
 <h4 id="931-planos-de-servicio">9.3.1 Planos de servicio</h4>
@@ -1676,7 +1660,7 @@ img {
 </tr>
 <tr>
 <td><strong>3. Compute plane (proof workers)</strong></td>
-<td>Cloud Worker Service (CPU) · K8s Operator (<code>InferenceJob</code> controller) · Worker Pods (CPU y GPU) · Model Serving (<code>ModelServing</code> CRD)</td>
+<td>K8s Operator (<code>InferenceJob</code> controller) · Worker Pods (CPU y GPU) · Model Serving (<code>ModelServing</code> CRD) · GPU Worker (Vast.ai)</td>
 <td>Generación de proofs zkML en CPU o GPU según el job; serving de modelos para inferencia delegada</td>
 <td>KEDA + HPA con métricas custom (queue depth, GPU utilization). El operador despacha pods según resource hints del job y la afinidad CPU/GPU.</td>
 </tr>
@@ -1689,7 +1673,7 @@ img {
 </tbody>
 </table>
 <h4 id="932-diagrama-de-servicios">9.3.2 Diagrama de servicios</h4>
-<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitectura de servicios de VeriFire en cuatro planos: data plane edge, control plane SaaS, compute plane proof workers (cloud CPU, K8s CPU, Cloud GPU VM) y on-chain plane Base L2." style="width:100%;max-width:900px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitectura de servicios de VeriFire en cuatro planos: data plane edge, control plane SaaS, compute plane proof workers (K8s CPU, Cloud GPU VM) y on-chain plane Base L2." style="width:100%;max-width:900px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E0F58"/>
@@ -1735,46 +1719,38 @@ img {
     <text x="460" y="291" text-anchor="middle" font-size="10">Redis (cache + queue)</text>
   </g>
 
-  <!-- Arrow Control → Compute (3 splits) -->
+  <!-- Arrow Control → Compute (2 splits) -->
   <line x1="450" y1="310" x2="450" y2="340" stroke="#2E0F58" stroke-width="2"/>
   <text x="465" y="328" font-size="10" fill="#6029A8">dispatch InferenceJob (CPU vs GPU según resource hints + SLA)</text>
-  <line x1="160" y1="340" x2="740" y2="340" stroke="#2E0F58" stroke-width="2"/>
-  <line x1="160" y1="340" x2="160" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="450" y1="340" x2="450" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="740" y1="340" x2="740" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="310" y1="340" x2="600" y2="340" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="310" y1="340" x2="310" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="600" y1="340" x2="600" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- Plane 3: Compute plane (3 sub-planes) -->
+  <!-- Plane 3: Compute plane (2 sub-planes) -->
   <rect x="40" y="385" width="820" height="160" rx="12" fill="#FAFAFC" stroke="#38A169" stroke-width="2"/>
   <text x="60" y="410" font-size="13" font-weight="700" fill="#1E3A5F">3. COMPUTE PLANE (Proof Workers)</text>
   <text x="60" y="427" font-size="11" fill="#38A169">CRDs InferenceJob · ModelServing · KEDA + HPA · NVIDIA GPU operator</text>
 
   <g>
-    <rect x="60" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#DD6B20" stroke-width="1.5"/>
-    <text x="180" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#DD6B20">3a. Cloud Worker (CPU)</text>
-    <text x="180" y="478" text-anchor="middle" font-size="10" fill="#2D3748">GCP free tier · single VM</text>
-    <text x="180" y="494" text-anchor="middle" font-size="10" fill="#2D3748">baseline · pool fijo</text>
-    <text x="180" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove with x86 CPU</text>
+    <rect x="100" y="440" width="300" height="90" rx="8" fill="#FFFFFF" stroke="#3182CE" stroke-width="1.5"/>
+    <text x="250" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#3182CE">3a. K8s managed (CPU)</text>
+    <text x="250" y="478" text-anchor="middle" font-size="10" fill="#2D3748">GKE Autopilot · 3 pods · baseline x86</text>
+    <text x="250" y="494" text-anchor="middle" font-size="10" fill="#2D3748">KEDA scale on queue depth</text>
+    <text x="250" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove distributed across pods</text>
 
-    <rect x="330" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#3182CE" stroke-width="1.5"/>
-    <text x="450" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#3182CE">3b. K8s managed (CPU)</text>
-    <text x="450" y="478" text-anchor="middle" font-size="10" fill="#2D3748">GKE Autopilot · 3 pods</text>
-    <text x="450" y="494" text-anchor="middle" font-size="10" fill="#2D3748">KEDA scale on queue depth</text>
-    <text x="450" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove distributed across pods</text>
-
-    <rect x="600" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#E53E3E" stroke-width="1.5"/>
-    <text x="720" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#E53E3E">3c. Cloud GPU VM</text>
-    <text x="720" y="478" text-anchor="middle" font-size="10" fill="#2D3748">Vast.ai · EZKL CUDA</text>
-    <text x="720" y="494" text-anchor="middle" font-size="10" fill="#2D3748">RTX 3090 · GPU proving</text>
-    <text x="720" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove with GPU acceleration</text>
+    <rect x="480" y="440" width="300" height="90" rx="8" fill="#FFFFFF" stroke="#E53E3E" stroke-width="1.5"/>
+    <text x="630" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#E53E3E">3b. Cloud GPU VM</text>
+    <text x="630" y="478" text-anchor="middle" font-size="10" fill="#2D3748">Vast.ai · EZKL CUDA</text>
+    <text x="630" y="494" text-anchor="middle" font-size="10" fill="#2D3748">RTX 3090 · GPU proving</text>
+    <text x="630" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove with GPU acceleration</text>
   </g>
 
   <!-- Arrows Compute → On-chain -->
-  <line x1="180" y1="530" x2="180" y2="565" stroke="#2E0F58" stroke-width="2"/>
-  <line x1="450" y1="530" x2="450" y2="565" stroke="#2E0F58" stroke-width="2"/>
-  <line x1="720" y1="530" x2="720" y2="565" stroke="#2E0F58" stroke-width="2"/>
-  <line x1="180" y1="565" x2="720" y2="565" stroke="#2E0F58" stroke-width="2"/>
-  <line x1="450" y1="565" x2="450" y2="600" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="465" y="585" font-size="10" fill="#6029A8">submitInference(proof, sigInput, sigWorker, class)</text>
+  <line x1="250" y1="530" x2="250" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="630" y1="530" x2="630" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="250" y1="565" x2="630" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="440" y1="565" x2="440" y2="600" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="455" y="585" font-size="10" fill="#6029A8">submitInference(proof, sigInput, sigWorker, class)</text>
 
   <!-- Plane 4: On-chain -->
   <rect x="40" y="610" width="820" height="90" rx="12" fill="#2E0F58" stroke="#7E3FBF" stroke-width="2"/>
@@ -1807,10 +1783,9 @@ img {
 </ul>
 <h5 id="compute-plane-proof-workers">Compute plane (proof workers)</h5>
 <ul>
-<li><strong>Cloud Worker (single VM):</strong> baseline, no escala — sirve como referencia de costo. El control plane lo trata como un pool fijo de capacidad.</li>
-<li><strong>K8s managed CPU (GKE Autopilot):</strong> escala con KEDA según queue depth de jobs CPU. Min 1 / max N pods según presupuesto del tenant. Costo lineal con jobs procesados.</li>
-<li><strong>Cloud GPU VM (Vast.ai):</strong> instancia bajo demanda con EZKL CUDA habilitado — no hay K8s ni autoscaling; el control plane la trata como un worker fijo de alta capacidad reservada para benchmarks GPU. Se activa solo para el experimento de comparación CPU vs GPU.</li>
-<li><strong>Routing entre planes:</strong> el Job Router decide CPU vs GPU según resource hints del modelo y SLA del tenant. Política default: jobs de benchmark → GPU VM; carga operacional → CPU paralelizado.</li>
+<li><strong>K8s managed CPU (GKE Autopilot):</strong> escala con KEDA según queue depth de jobs CPU. Min 1 / max N pods según presupuesto del tenant. Costo lineal con jobs procesados. Actúa como baseline x86 cloud.</li>
+<li><strong>Cloud GPU VM (Vast.ai):</strong> instancia bajo demanda con EZKL CUDA habilitado — no hay K8s ni autoscaling; el control plane la trata como un worker fijo de alta capacidad reservada para benchmarks GPU. Se activa solo para el experimento de comparación K8s-CPU vs GPU.</li>
+<li><strong>Routing entre planes:</strong> el Job Router decide CPU vs GPU según resource hints del modelo y SLA del tenant. Política default: jobs de benchmark → GPU VM; carga operacional → K8s CPU paralelizado.</li>
 </ul>
 <h5 id="on-chain-plane">On-chain plane</h5>
 <ul>
@@ -1991,18 +1966,17 @@ img {
 <h3 id="95-diseño-experimental">9.5 Diseño experimental</h3>
 <h4 id="experimento-1-benchmark-de-proving-cross-platform-oe2">Experimento 1 — Benchmark de Proving cross-platform (OE2)</h4>
 <ul>
-<li><strong>Variable independiente:</strong> arquitectura del modelo (6 variantes) × plataforma (4 backends: Edge ARM / Cloud CPU / K8s managed CPU / Cloud GPU VM).</li>
-<li><strong>Variables dependientes:</strong> proof time, peak RAM, proof size, gas cost, costo monetario por proof, <strong>speed-up CPU↔GPU</strong> (ratio aislado dentro del runtime K8s).</li>
-<li><strong>Réplicas:</strong> 30 pruebas por celda. Total: 6 modelos × 4 backends × 30 = 720 mediciones.</li>
+<li><strong>Variable independiente:</strong> plataforma (3 backends: Edge ARM / K8s managed CPU / Cloud GPU VM).</li>
+<li><strong>Variables dependientes:</strong> proof time, peak RAM, proof size, gas cost, costo monetario por proof, <strong>speed-up K8s-CPU↔GPU</strong>.</li>
+<li><strong>Réplicas:</strong> 30 pruebas por backend. Total: 3 backends × 30 = 90 mediciones.</li>
 <li><strong>Plataformas:</strong><ul>
 <li><strong>Edge ARM:</strong> RPi 4B 4 GB, Raspbian 64-bit.</li>
-<li><strong>Cloud CPU:</strong> GCP Compute Engine e2-small, Debian 12, 2 vCPU x86, 2 GB RAM (free tier).</li>
-<li><strong>K8s managed CPU:</strong> GKE Autopilot, 3 pods con limits 4 vCPU / 8 GB sin GPU.</li>
+<li><strong>K8s managed CPU:</strong> GKE Autopilot, 3 pods con limits 4 vCPU / 8 GB sin GPU. Actúa como baseline x86 cloud.</li>
 <li><strong>Cloud GPU VM:</strong> Vast.ai, 1 instancia con EZKL CUDA habilitado (RTX 3090 o equivalente).</li>
 </ul>
 </li>
-<li><strong>Métrica:</strong> superficie de Pareto 3D accuracy / latencia / costo + curva de speed-up CPU→GPU por modelo.</li>
-<li><strong>Aporte:</strong> primera comparación lado-a-lado de zkML en estas cuatro clases de hardware, separando la contribución del <em>acelerador GPU</em> vs la <em>paralelización entre pods CPU</em> vs el <em>baseline single-host</em>.</li>
+<li><strong>Métrica:</strong> proof time por backend + curva de speed-up K8s-CPU→GPU.</li>
+<li><strong>Aporte:</strong> primera comparación lado-a-lado de zkML en estas tres clases de hardware, separando la contribución del <em>acelerador GPU</em> vs la <em>paralelización entre pods CPU</em> vs el <em>cómputo on-device edge</em>.</li>
 </ul>
 <h4 id="experimento-2-accuracy-del-clasificador">Experimento 2 — Accuracy del clasificador</h4>
 <ul>
@@ -2012,7 +1986,7 @@ img {
 </ul>
 <h4 id="experimento-3-integración-end-to-end-multi-backend-oe4">Experimento 3 — Integración end-to-end multi-backend (OE4)</h4>
 <ul>
-<li><strong>Topología:</strong> 3 nodos RPi edge + 1 cloud worker GCP + 1 cluster k3s mínimo (3 pods) con el protocolo completo.</li>
+<li><strong>Topología:</strong> 3 nodos RPi edge + 1 cluster k3s mínimo (3 pods) con el protocolo completo.</li>
 <li><strong>Multi-tenancy:</strong> control plane con dos tenants ficticios (&ldquo;ETAC-CBA&rdquo; y &ldquo;Defensa-Civil-AR&rdquo;) para validar aislamiento.</li>
 <li><strong>Período:</strong> 2–3 meses de operación continua en campus UNC.</li>
 <li><strong>Métricas:</strong> uptime por backend, latencia end-to-end por clase, costo de gas mensual, distribución de proofs por backend, métricas del operador K8s.</li>
@@ -2031,7 +2005,7 @@ img {
 <li><strong>Aporte:</strong> primera caracterización pública del proof generation throughput en un cluster K8s real.</li>
 </ul>
 <h3 id="96-modelos-a-evaluar">9.6 Modelo a evaluar</h3>
-<p>Se utiliza un <strong>único modelo para todos los backends</strong>: <strong>MobileNetV3-Small INT8</strong>. La elección permite aislar el efecto del backend de cómputo sin confundir la variable con cambios de arquitectura de modelo. El mismo modelo corre en los cuatro backends (Edge ARM, Cloud VM CPU, K8s managed CPU, Cloud GPU VM) y los proof times resultantes son la métrica principal del Experimento 1.</p>
+<p>Se utiliza un <strong>único modelo para todos los backends</strong>: <strong>MobileNetV3-Small INT8</strong>. La elección permite aislar el efecto del backend de cómputo sin confundir la variable con cambios de arquitectura de modelo. El mismo modelo corre en los tres backends (Edge ARM, K8s managed CPU, Cloud GPU VM) y los proof times resultantes son la métrica principal del Experimento 1.</p>
 <table>
 <thead>
 <tr>
@@ -2039,7 +2013,6 @@ img {
 <th>Params</th>
 <th>Accuracy target</th>
 <th>Edge ARM (RPi 4)</th>
-<th>Cloud CPU (GCP e2-small)</th>
 <th>K8s managed CPU (3 pods GKE)</th>
 <th>Cloud GPU VM (Vast.ai, RTX 3090)</th>
 </tr>
@@ -2050,7 +2023,6 @@ img {
 <td>~2.5M</td>
 <td>~94 %</td>
 <td>~10–20 min</td>
-<td>~2–4 min</td>
 <td>~30 s–1 min</td>
 <td>~10–20 s</td>
 </tr>
@@ -2074,11 +2046,6 @@ img {
 <td>Proof time edge ARM (RPi 4)</td>
 <td>&lt; 30 min para algún modelo</td>
 <td>&lt; 5 min para al menos un modelo</td>
-</tr>
-<tr>
-<td>Proof time cloud CPU (GCP e2-small)</td>
-<td>&lt; 5 min para modelo edge-tier</td>
-<td>&lt; 1 min</td>
 </tr>
 <tr>
 <td>Proof time K8s managed CPU (3 pods)</td>
@@ -2214,11 +2181,6 @@ Flatten → Dense(32) → Dense(2) → Softmax
 </thead>
 <tbody>
 <tr>
-<td>GCP Compute Engine e2-micro / e2-small (cloud worker base)</td>
-<td>$0 (free tier always-free + créditos $300 GCP)</td>
-<td>Sí — cuenta personal con free tier</td>
-</tr>
-<tr>
 <td>Vast.ai GPU on-demand para ablation (~30 hs)</td>
 <td>~$30 USD</td>
 <td>Créditos existentes</td>
@@ -2270,7 +2232,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tr>
 <td><strong>Fase 1 — Benchmark cross-platform</strong></td>
 <td>2–4</td>
-<td>Curación y etiquetado del dataset; fine-tuning de las 6 arquitecturas; ejecución de Experimentos 1 + 2 sobre los 4 backends; <strong>paper parcial</strong> (workshop): <em>&ldquo;Cross-platform Benchmarking of zkML Provers across Edge, Cloud and Kubernetes Backends&rdquo;</em>; diseño formal del protocolo VeriFire multi-backend.</td>
+<td>Curación y etiquetado del dataset; entrenamiento y cuantización de MobileNetV3-Small INT8; ejecución de Experimentos 1 + 2 sobre los 3 backends; <strong>paper parcial</strong> (workshop): <em>&ldquo;Cross-platform Benchmarking of zkML Provers across Edge, Kubernetes and GPU Backends&rdquo;</em>; diseño formal del protocolo VeriFire multi-backend.</td>
 </tr>
 <tr>
 <td><strong>Fase 2 — Protocolo, contratos y operador K8s</strong></td>
@@ -2280,7 +2242,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tr>
 <td><strong>Fase 3 — Red piloto multi-backend</strong></td>
 <td>8–10</td>
-<td>Despliegue: 3 RPi en campus + 1 cloud worker GCP + cluster k3s on-prem; onboarding de 2 tenants; operación continua <strong>8 semanas</strong> (Experimento 3); stress testing del operador K8s (Experimento 5); recolección y análisis de datos operacionales; iteración del protocolo.</td>
+<td>Despliegue: 3 RPi en campus + cluster k3s on-prem; onboarding de 2 tenants; operación continua <strong>8 semanas</strong> (Experimento 3); stress testing del operador K8s (Experimento 5); recolección y análisis de datos operacionales; iteración del protocolo.</td>
 </tr>
 <tr>
 <td><strong>Fase 4 — Escritura y defensa</strong></td>
@@ -2402,7 +2364,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tr>
 <td>H2</td>
 <td>4</td>
-<td>Benchmark cross-platform completo (4 backends × 6 modelos) + workshop paper submited</td>
+<td>Benchmark cross-platform completo (3 backends × 1 modelo) + workshop paper submited</td>
 </tr>
 <tr>
 <td>H3</td>
@@ -2505,7 +2467,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <p><strong>Cinco contribuciones originales (C1–C5):</strong></p>
 <ul>
 <li><strong>C1 — Protocolo VeriFire multi-backend:</strong> diseño formal de un protocolo de Proof-of-Inference que admite múltiples clases de backend de cómputo bajo un mismo contrato verificador. Modelo de input signing extendido con doble firma (capture + worker) que establece un <em>binding triple</em>: entrada → cómputo → reward. Circuito zkML mínimo viable parametrizable en complejidad para correr en al menos tres clases de hardware. Interfaz del contrato verificador con clase de nodo on-chain y capability attestation.</li>
-<li><strong>C2 — Benchmark empírico cross-platform:</strong> primera evaluación sistemática (que se sepa) del trade-off zkML en múltiples clases de backend simultáneamente — proof time, peak RAM, proof size, gas cost, costo monetario por proof — sobre ARM Cortex-A72, x86 cloud VM y pod Kubernetes con resource limits configurables.</li>
+<li><strong>C2 — Benchmark empírico cross-platform:</strong> primera evaluación sistemática (que se sepa) del trade-off zkML en múltiples clases de backend simultáneamente — proof time, peak RAM, proof size, gas cost, costo monetario por proof — sobre ARM Cortex-A72, pod Kubernetes con resource limits configurables y GPU (CUDA) Vast.ai.</li>
 <li><strong>C3 — Plataforma VeriFire SaaS de referencia (open-source):</strong> prototipo funcional end-to-end con light client edge, operador Kubernetes con CRDs y Helm chart, control plane SaaS multi-tenant, smart contracts en Base Sepolia/mainnet, observabilidad Prometheus + Grafana + OpenTelemetry, IaC con Terraform y Helm, dataset público de imágenes humo/fuego.</li>
 <li><strong>C4 — Metodología de diseño de circuitos zkML &ldquo;backend-aware&rdquo;:</strong> guía con reglas prácticas derivadas del benchmark — qué arquitecturas son proving-friendly en cada backend, dónde está el knee-point de cada plataforma, qué nivel de cuantización preserva la viabilidad del circuito, reglas de routing dado un modelo y un SLA de latencia.</li>
 <li><strong>C5 — Modelo arquitectónico de plataforma DePIN heterogénea:</strong> patrón de diseño reutilizable para DePINs de próxima generación, donde el contrato es agnóstico al backend y solo verifica integridad criptográfica + capability attestation.</li>
