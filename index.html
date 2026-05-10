@@ -653,7 +653,7 @@ img {
 <tr>
 <td>AI · Arquitectura escalable Cloud-Native + SaaS</td>
 <td>45 %</td>
-<td>Operador K8s (CRDs <code>InferenceJob</code>, <code>ModelServing</code>), KEDA + HPA, GPU-accelerated proving, control plane multi-tenant, model registry on-chain</td>
+<td>Jobs K8s nativos (un Job por inferencia); Deployment para model serving; KEDA + HPA; GPU-accelerated proving; control plane multi-tenant; model registry on-chain</td>
 </tr>
 <tr>
 <td>Edge AI / IoT</td>
@@ -759,7 +759,7 @@ img {
 </tr>
 <tr>
 <td>7</td>
-<td>Protocolo VeriFire v1.0 + operador K8s + control plane SaaS en testnet</td>
+<td>Protocolo VeriFire v1.0 + worker K8s + control plane SaaS en testnet</td>
 </tr>
 <tr>
 <td>10</td>
@@ -842,7 +842,7 @@ img {
 <main class="layout">
   <aside class="toc-sidebar">
     <p class="toc-title">Contenidos</p>
-    <ul><li><a href="#1-título">1. Título</a><ul></ul></li><li><a href="#2-resumen">2. Resumen</a><ul></ul></li><li><a href="#3-área-temática">3. Área temática</a><ul><li><a href="#área-principal">Área principal</a></li><li><a href="#subáreas">Subáreas</a></li><li><a href="#clasificación-ieee-taxonomy-2024">Clasificación IEEE Taxonomy 2024</a></li></ul></li><li><a href="#4-palabras-claves">4. Palabras clave (5)</a><ul></ul></li><li><a href="#5-fundamentación-de-la-investigación">5. Fundamentación de la investigación</a><ul><li><a href="#51-interés-social-el-problema-de-los-incendios-en-córdoba">5.1 Interés social: el problema de los incendios en Córdoba</a></li><li><a href="#52-interés-científico-el-problema-de-la-confianza-en-redes-distribuidas-de-sensores">5.2 Interés científico: el problema de la confianza en redes distribuidas de sensores</a></li><li><a href="#53-interés-técnico-cómputo-heterogéneo-y-plataformas-depin">5.3 Interés técnico: cómputo heterogéneo y plataformas DePIN</a></li><li><a href="#54-interés-personal-y-formativo">5.4 Interés personal y formativo</a></li></ul></li><li><a href="#6-descripción-del-tema-de-estudio">6. Descripción del tema de estudio</a><ul><li><a href="#61-definición-del-tema">6.1 Definición del tema</a></li><li><a href="#62-distribución-porcentual-del-aporte">6.2 Distribución porcentual del aporte</a></li><li><a href="#63-límites-del-tema">6.3 Límites del tema</a></li><li><a href="#65-justificación-cuantitativa-de-la-red-piloto">6.5 Justificación cuantitativa de la red piloto</a></li><li><a href="#67-deep-dive-del-aporte-dónde-está-la-novedad">6.7 Deep dive del aporte: dónde está la novedad</a></li></ul></li><li><a href="#7-planteamiento-del-problema-de-estudio-y-objetivos">7. Planteamiento del problema de estudio y objetivos</a><ul><li><a href="#71-pregunta-central-de-investigación">7.1 Pregunta central de investigación</a></li><li><a href="#72-preguntas-secundarias">7.2 Preguntas secundarias</a></li><li><a href="#73-objetivo-general">7.3 Objetivo general</a></li><li><a href="#74-objetivos-específicos">7.4 Objetivos específicos</a></li><li><a href="#75-justificación-del-problema">7.5 Justificación del problema</a></li></ul></li><li><a href="#8-trabajos-relacionados">8. Trabajos relacionados</a><ul><li><a href="#81-edge-ai-para-detección-de-incendios">8.1 Edge AI para detección de incendios</a></li><li><a href="#82-zkml-zero-knowledge-machine-learning">8.2 zkML: Zero-Knowledge Machine Learning</a></li><li><a href="#83-depin-redes-de-infraestructura-física-descentralizada">8.3 DePIN: Redes de infraestructura física descentralizada</a></li><li><a href="#84-kubernetes-operators-y-plataformas-multi-tenant-para-ai-workloads">8.4 Kubernetes operators y plataformas multi-tenant para AI workloads</a></li><li><a href="#85-cuadro-consolidado-de-proyectos-más-cercanos">8.5 Cuadro consolidado de proyectos más cercanos</a></li></ul></li><li><a href="#9-propuesta-metodológica">9. Propuesta metodológica</a><ul><li><a href="#91-enfoque-general">9.1 Enfoque general</a></li><li><a href="#92-arquitectura-técnica-de-la-solución">9.2 Arquitectura técnica de la solución</a></li><li><a href="#93-arquitectura-de-servicios-y-escalabilidad">9.3 Arquitectura de servicios y escalabilidad</a></li><li><a href="#94-stack-tecnológico">9.4 Stack tecnológico</a></li><li><a href="#95-diseño-experimental">9.5 Diseño experimental</a></li><li><a href="#96-modelos-a-evaluar">9.6 Modelo a evaluar</a></li><li><a href="#97-criterios-de-éxito">9.7 Criterios de éxito</a></li><li><a href="#98-alcance-mínimo-defendible">9.8 Alcance mínimo defendible</a></li><li><a href="#99-estrategias-de-mitigación-técnica">9.9 Estrategias de mitigación técnica</a></li></ul></li><li><a href="#10-recursos-involucrados-y-cronograma-de-trabajo">10. Recursos involucrados y cronograma de trabajo</a><ul><li><a href="#101-recursos-de-hardware">10.1 Recursos de hardware</a></li><li><a href="#102-recursos-de-cómputo-en-la-nube">10.2 Recursos de cómputo en la nube</a></li><li><a href="#103-recursos-de-software">10.3 Recursos de software</a></li><li><a href="#104-datasets">10.4 Datasets</a></li><li><a href="#105-recursos-humanos">10.5 Recursos humanos</a></li><li><a href="#107-cronograma-de-trabajo">10.7 Cronograma de trabajo</a></li><li><a href="#108-hitos-críticos">10.8 Hitos críticos</a></li><li><a href="#109-gestión-de-riesgos">10.9 Gestión de riesgos</a></li></ul></li><li><a href="#11-aportes-esperados">11. Aportes esperados</a><ul><li><a href="#111-aporte-académico">11.1 Aporte académico</a></li><li><a href="#112-aporte-técnico">11.2 Aporte técnico</a></li><li><a href="#113-aporte-social">11.3 Aporte social</a></li><li><a href="#114-aporte-económico-y-de-mercado">11.4 Aporte económico y de mercado</a></li><li><a href="#116-resultados-esperados-cuantitativos-hipótesis-falsables">11.6 Resultados esperados cuantitativos (hipótesis falsables)</a></li></ul></li><li><a href="#12-referencias-bibliográficas">12. Referencias bibliográficas</a><ul><li><a href="#zkml">zkML</a></li><li><a href="#edge-ai-fire-detection">Edge AI / Fire Detection</a></li><li><a href="#depin-y-blockchain-edge">DePIN y blockchain edge</a></li><li><a href="#kubernetes-y-plataformas-cloud-native">Kubernetes y plataformas cloud-native</a></li><li><a href="#contexto-local">Contexto local</a></li></ul></li><li><a href="#anexo-b-preguntas-frecuentes-conceptuales">Anexo B — Preguntas frecuentes conceptuales</a><ul><li><a href="#b1-cómo-ayuda-esto-a-prevenir-incendios">B.1 ¿Cómo ayuda esto a prevenir incendios?</a></li><li><a href="#b2-una-persona-externa-puede-aportar-con-cámara-o-cómputo-y-si-muestra-un-incendio-falso">B.2 ¿Una persona externa puede aportar con cámara o cómputo? ¿Y si muestra un incendio falso?</a></li><li><a href="#b3-por-qué-se-necesitan-varias-raspberry-pi-y-no-una-sola">B.3 ¿Por qué se necesitan varias Raspberry Pi y no una sola?</a></li><li><a href="#b4-el-sistema-crea-un-token-propio-o-usa-uno-existente">B.4 ¿El sistema crea un token propio o usa uno existente?</a></li><li><a href="#b5-quién-pone-el-dinero-que-reciben-los-operadores">B.5 ¿Quién pone el dinero que reciben los operadores?</a></li><li><a href="#b6-esto-sirve-solo-para-sierras-de-córdoba-o-escala-como-saas">B.6 ¿Esto sirve solo para Sierras de Córdoba o escala como SaaS?</a></li><li><a href="#b7-por-qué-tres-backends-no-es-over-engineering">B.7 ¿Por qué tres backends? ¿No es over-engineering?</a></li><li><a href="#b8-las-imágenes-se-almacenan-en-la-blockchain">B.8 ¿Las imágenes se almacenan en la blockchain?</a></li><li><a href="#b9-para-qué-probar-la-integridad-del-cómputo-si-asumo-que-la-imagen-es-real">B.9 ¿Para qué probar la integridad del cómputo si asumo que la imagen es real?</a></li></ul></li><li><a href="#anexo-c-glosario-técnico">Anexo C — Glosario técnico</a><ul></ul></li><li><a href="#anexo-d-plan-de-difusión-open-source">Anexo D — Plan de difusión open-source</a><ul><li><a href="#d1-licenciamiento">D.1 Licenciamiento</a></li><li><a href="#d2-repositorio">D.2 Repositorio</a></li><li><a href="#d3-política-de-contribuciones">D.3 Política de contribuciones</a></li></ul></li></ul>
+    <ul><li><a href="#1-título">1. Título</a><ul></ul></li><li><a href="#2-resumen">2. Resumen</a><ul></ul></li><li><a href="#3-área-temática">3. Área temática</a><ul><li><a href="#área-principal">Área principal</a></li><li><a href="#subáreas">Subáreas</a></li><li><a href="#clasificación-ieee-taxonomy-2024">Clasificación IEEE Taxonomy 2024</a></li></ul></li><li><a href="#4-palabras-claves">4. Palabras clave (5)</a><ul></ul></li><li><a href="#5-fundamentación-de-la-investigación">5. Fundamentación de la investigación</a><ul><li><a href="#51-interés-social-el-problema-de-los-incendios-en-córdoba">5.1 Interés social: el problema de los incendios en Córdoba</a></li><li><a href="#52-interés-científico-el-problema-de-la-confianza-en-redes-distribuidas-de-sensores">5.2 Interés científico: el problema de la confianza en redes distribuidas de sensores</a></li><li><a href="#53-interés-técnico-cómputo-heterogéneo-y-plataformas-depin">5.3 Interés técnico: cómputo heterogéneo y plataformas DePIN</a></li><li><a href="#54-interés-personal-y-formativo">5.4 Interés personal y formativo</a></li></ul></li><li><a href="#6-descripción-del-tema-de-estudio">6. Descripción del tema de estudio</a><ul><li><a href="#61-definición-del-tema">6.1 Definición del tema</a></li><li><a href="#62-distribución-porcentual-del-aporte">6.2 Distribución porcentual del aporte</a></li><li><a href="#63-límites-del-tema">6.3 Límites del tema</a></li><li><a href="#65-justificación-cuantitativa-de-la-red-piloto">6.5 Justificación cuantitativa de la red piloto</a></li><li><a href="#67-deep-dive-del-aporte-dónde-está-la-novedad">6.7 Deep dive del aporte: dónde está la novedad</a></li></ul></li><li><a href="#7-planteamiento-del-problema-de-estudio-y-objetivos">7. Planteamiento del problema de estudio y objetivos</a><ul><li><a href="#71-pregunta-central-de-investigación">7.1 Pregunta central de investigación</a></li><li><a href="#72-preguntas-secundarias">7.2 Preguntas secundarias</a></li><li><a href="#73-objetivo-general">7.3 Objetivo general</a></li><li><a href="#74-objetivos-específicos">7.4 Objetivos específicos</a></li><li><a href="#75-justificación-del-problema">7.5 Justificación del problema</a></li></ul></li><li><a href="#8-trabajos-relacionados">8. Trabajos relacionados</a><ul><li><a href="#81-edge-ai-para-detección-de-incendios">8.1 Edge AI para detección de incendios</a></li><li><a href="#82-zkml-zero-knowledge-machine-learning">8.2 zkML: Zero-Knowledge Machine Learning</a></li><li><a href="#83-depin-redes-de-infraestructura-física-descentralizada">8.3 DePIN: Redes de infraestructura física descentralizada</a></li><li><a href="#84-kubernetes-cloud-native-y-plataformas-multi-tenant-para-ai-workloads">8.4 Kubernetes cloud-native y plataformas multi-tenant para AI workloads</a></li><li><a href="#85-cuadro-consolidado-de-proyectos-más-cercanos">8.5 Cuadro consolidado de proyectos más cercanos</a></li></ul></li><li><a href="#9-propuesta-metodológica">9. Propuesta metodológica</a><ul><li><a href="#91-enfoque-general">9.1 Enfoque general</a></li><li><a href="#92-arquitectura-técnica-de-la-solución">9.2 Arquitectura técnica de la solución</a></li><li><a href="#93-arquitectura-de-servicios-y-escalabilidad">9.3 Arquitectura de servicios y escalabilidad</a></li><li><a href="#94-stack-tecnológico">9.4 Stack tecnológico</a></li><li><a href="#95-diseño-experimental">9.5 Diseño experimental</a></li><li><a href="#96-modelos-a-evaluar">9.6 Modelo a evaluar</a></li><li><a href="#97-criterios-de-éxito">9.7 Criterios de éxito</a></li><li><a href="#98-alcance-mínimo-defendible">9.8 Alcance mínimo defendible</a></li><li><a href="#99-estrategias-de-mitigación-técnica">9.9 Estrategias de mitigación técnica</a></li></ul></li><li><a href="#10-recursos-involucrados-y-cronograma-de-trabajo">10. Recursos involucrados y cronograma de trabajo</a><ul><li><a href="#101-recursos-de-hardware">10.1 Recursos de hardware</a></li><li><a href="#102-recursos-de-cómputo-en-la-nube">10.2 Recursos de cómputo en la nube</a></li><li><a href="#103-recursos-de-software">10.3 Recursos de software</a></li><li><a href="#104-datasets">10.4 Datasets</a></li><li><a href="#105-recursos-humanos">10.5 Recursos humanos</a></li><li><a href="#107-cronograma-de-trabajo">10.7 Cronograma de trabajo</a></li><li><a href="#108-hitos-críticos">10.8 Hitos críticos</a></li><li><a href="#109-gestión-de-riesgos">10.9 Gestión de riesgos</a></li></ul></li><li><a href="#11-aportes-esperados">11. Aportes esperados</a><ul><li><a href="#111-aporte-académico">11.1 Aporte académico</a></li><li><a href="#112-aporte-técnico">11.2 Aporte técnico</a></li><li><a href="#113-aporte-social">11.3 Aporte social</a></li><li><a href="#114-aporte-económico-y-de-mercado">11.4 Aporte económico y de mercado</a></li><li><a href="#116-resultados-esperados-cuantitativos-hipótesis-falsables">11.6 Resultados esperados cuantitativos (hipótesis falsables)</a></li></ul></li><li><a href="#12-referencias-bibliográficas">12. Referencias bibliográficas</a><ul><li><a href="#zkml">zkML</a></li><li><a href="#edge-ai-fire-detection">Edge AI / Fire Detection</a></li><li><a href="#depin-y-blockchain-edge">DePIN y blockchain edge</a></li><li><a href="#kubernetes-y-plataformas-cloud-native">Kubernetes y plataformas cloud-native</a></li><li><a href="#contexto-local">Contexto local</a></li></ul></li><li><a href="#anexo-b-preguntas-frecuentes-conceptuales">Anexo B — Preguntas frecuentes conceptuales</a><ul><li><a href="#b1-cómo-ayuda-esto-a-prevenir-incendios">B.1 ¿Cómo ayuda esto a prevenir incendios?</a></li><li><a href="#b2-una-persona-externa-puede-aportar-con-cámara-o-cómputo-y-si-muestra-un-incendio-falso">B.2 ¿Una persona externa puede aportar con cámara o cómputo? ¿Y si muestra un incendio falso?</a></li><li><a href="#b3-por-qué-se-necesitan-varias-raspberry-pi-y-no-una-sola">B.3 ¿Por qué se necesitan varias Raspberry Pi y no una sola?</a></li><li><a href="#b4-el-sistema-crea-un-token-propio-o-usa-uno-existente">B.4 ¿El sistema crea un token propio o usa uno existente?</a></li><li><a href="#b5-quién-pone-el-dinero-que-reciben-los-operadores">B.5 ¿Quién pone el dinero que reciben los operadores?</a></li><li><a href="#b6-esto-sirve-solo-para-sierras-de-córdoba-o-escala-como-saas">B.6 ¿Esto sirve solo para Sierras de Córdoba o escala como SaaS?</a></li><li><a href="#b7-por-qué-tres-backends-no-es-over-engineering">B.7 ¿Por qué tres backends? ¿No es over-engineering?</a></li><li><a href="#b8-las-imágenes-se-almacenan-en-la-blockchain">B.8 ¿Las imágenes se almacenan en la blockchain?</a></li><li><a href="#b9-para-qué-probar-la-integridad-del-cómputo-si-asumo-que-la-imagen-es-real">B.9 ¿Para qué probar la integridad del cómputo si asumo que la imagen es real?</a></li></ul></li><li><a href="#anexo-c-glosario-técnico">Anexo C — Glosario técnico</a><ul></ul></li><li><a href="#anexo-d-plan-de-difusión-open-source">Anexo D — Plan de difusión open-source</a><ul><li><a href="#d1-licenciamiento">D.1 Licenciamiento</a></li><li><a href="#d2-repositorio">D.2 Repositorio</a></li><li><a href="#d3-política-de-contribuciones">D.3 Política de contribuciones</a></li></ul></li></ul>
   </aside>
 
   <article class="content">
@@ -892,7 +892,7 @@ img {
 <p>Esta tesis propone el diseño, implementación y evaluación de <strong>VeriFire</strong>, una plataforma Software-as-a-Service multi-tenant que combina inferencia de machine learning verificable con pruebas zkML (Zero-Knowledge Machine Learning) para habilitar redes DePIN (Decentralized Physical Infrastructure Networks). En estas redes cada operador puede demostrar criptográficamente que ejecutó correctamente una inferencia sobre datos reales —sin revelar el dato crudo—, la prueba se verifica en cadena y activa un reward económico diferenciado por clase de nodo.</p>
 <p>El aporte central es una <strong>arquitectura desacoplada</strong> entre dónde se ejecuta el cómputo (edge IoT, cloud VM, cluster Kubernetes) y cómo se verifica (un único contrato on-chain agnóstico al backend). Un mismo protocolo de input-binding criptográfico admite tres clases de &ldquo;Compute Backend&rdquo; con distintos trade-offs de privacidad, costo y escalabilidad, todas verificadas uniformemente en una red EVM (Base L2). Esta arquitectura habilita escalar a múltiples regiones y tenants como SaaS, y a operadores de cómputo heterogéneos (desde Raspberry Pi de un hobbyista hasta clusters K8s corporativos).</p>
 <p>El <strong>caso de uso ancla</strong> es la detección temprana de incendios en las Sierras de Córdoba mediante una red de cámaras de bajo costo, problema socialmente relevante (~70.000 hectáreas quemadas en 2024). El <strong>aporte académico</strong>, sin embargo, no es el sistema de detección sino la dupla protocolo + plataforma transferible a cualquier DePIN de sensing.</p>
-<p>La metodología incluye benchmark experimental cross-platform (ARM edge vs pod K8s vs GPU Vast.ai) del trade-off accuracy / latencia / RAM / costo de gas; implementación end-to-end (firmware, operador K8s, control plane SaaS, smart contracts) en una red piloto multi-backend; análisis de seguridad del mecanismo y modelado económico del reward por clase. Los aportes esperados se publican como tres papers complementarios: workshop sobre zkML cross-platform, paper de plataforma cloud-native, y paper completo de la red DePIN.</p>
+<p>La metodología incluye benchmark experimental cross-platform (ARM edge vs pod K8s vs GPU Vast.ai) del trade-off accuracy / latencia / RAM / costo de gas; implementación end-to-end (firmware, worker K8s, control plane SaaS, smart contracts) en una red piloto multi-backend; análisis de seguridad del mecanismo y modelado económico del reward por clase. Los aportes esperados se publican como tres papers complementarios: workshop sobre zkML cross-platform, paper de plataforma cloud-native, y paper completo de la red DePIN.</p>
 <hr />
 <h2 id="3-área-temática">3. Área temática</h2>
 <h3 id="área-principal">Área principal</h3>
@@ -904,7 +904,7 @@ img {
 <li><strong>DePIN</strong> — Decentralized Physical Infrastructure Networks.</li>
 <li><strong>Inferencia verificable on-chain (zkML)</strong> — Zero-Knowledge Machine Learning aplicado a redes con incentivo económico.</li>
 <li><strong>Smart contracts y tokenomics</strong> — Solidity, Foundry, EVM, mecanismos de reward multi-clase.</li>
-<li><strong>Arquitecturas cloud-native (Kubernetes) y plataformas SaaS multi-tenant para AI</strong> — operadores K8s, model serving, auto-scaling, multi-tenancy.</li>
+<li><strong>Arquitecturas cloud-native (Kubernetes) y plataformas SaaS multi-tenant para AI</strong> — K8s cloud-native (Jobs, Deployments, KEDA), model serving, auto-scaling, multi-tenancy.</li>
 <li><strong>Edge AI / IoT</strong> — TinyML cuantizado, firmware en hardware resource-constrained.</li>
 <li><strong>Criptografía aplicada</strong> — Zero-Knowledge Proofs, SNARKs, protocolos de input-binding.</li>
 </ul>
@@ -1008,7 +1008,7 @@ img {
 <tr>
 <td>AI · Arquitectura Escalable Cloud-Native + Plataforma SaaS</td>
 <td>45 %</td>
-<td><strong>Capa K8s / cloud-native:</strong> operador para Proof Workers + serving de modelos (CRDs <code>InferenceJob</code> y <code>ModelServing</code>); Helm chart; auto-scaling horizontal con KEDA / HPA y métricas custom; multi-tenant isolation por namespace; model registry y versionado on-chain del modelo; observabilidad (Prometheus + Grafana + OpenTelemetry); GPU-accelerated proving (EZKL CUDA, benchmark vs CPU). <strong>Capa SaaS / sistemas distribuidos:</strong> control plane multi-tenant (REST API + dashboard); registro y onboarding de nodos heterogéneos; abstracción &ldquo;Compute Backend&rdquo; detrás de interfaz uniforme; routing de jobs según capacidad, latencia y costo; SLOs por tenant (definición de latencia P99 y availability — instrumentados con Prometheus).</td>
+<td><strong>Capa K8s / cloud-native:</strong> Jobs K8s nativos para proof generation (un Job por InferenceRequest); Deployment para model serving; Helm chart; auto-scaling horizontal con KEDA / HPA y métricas custom; multi-tenant isolation por namespace; model registry y versionado on-chain del modelo; observabilidad (Prometheus + Grafana + OpenTelemetry); GPU-accelerated proving (EZKL CUDA, benchmark vs CPU). <strong>Capa SaaS / sistemas distribuidos:</strong> control plane multi-tenant (REST API + dashboard); registro y onboarding de nodos heterogéneos; abstracción &ldquo;Compute Backend&rdquo; detrás de interfaz uniforme; routing de jobs según capacidad, latencia y costo; SLOs por tenant (definición de latencia P99 y availability — instrumentados con Prometheus).</td>
 </tr>
 <tr>
 <td>Edge AI / IoT</td>
@@ -1025,7 +1025,7 @@ img {
 <h3 id="63-límites-del-tema">6.3 Límites del tema</h3>
 <p><strong>Está incluido en el alcance:</strong>
 - Diseño formal del protocolo VeriFire (input-binding, doble firma, contrato multi-clase).
-- Implementación de referencia open-source: light client edge, cloud worker, operador K8s, control plane SaaS, smart contracts.
+- Implementación de referencia open-source: light client edge, cloud worker, worker K8s (Jobs nativos + Deployment), control plane SaaS, smart contracts.
 - Benchmark experimental en al menos dos backends de cómputo (edge + uno más).
 - Red piloto multi-backend operacional con dos tenants ficticios.
 - Análisis de seguridad del mecanismo y modelado económico.
@@ -1208,7 +1208,7 @@ img {
 <ol>
 <li><strong>OE1</strong> — Formalizar el protocolo VeriFire multi-backend (input-binding, doble firma, contrato multi-clase) y su threat model.</li>
 <li><strong>OE2</strong> — Realizar el primer benchmark cross-platform (ARM edge / Kubernetes managed / GPU) de proof generation con EZKL para clasificadores binarios cuantizados.</li>
-<li><strong>OE3</strong> — Implementar la plataforma de referencia open-source: light client edge, cloud worker, operador Kubernetes (CRDs + Helm chart), control plane SaaS multi-tenant, smart contracts.</li>
+<li><strong>OE3</strong> — Implementar la plataforma de referencia open-source: light client edge, cloud worker, worker Kubernetes (Jobs nativos + Helm chart), control plane SaaS multi-tenant, smart contracts.</li>
 <li><strong>OE4</strong> — Desplegar y operar una red piloto multi-backend (3 RPi + cluster K8s mínimo) durante 2–3 meses con dos tenants ficticios.</li>
 <li><strong>OE5</strong> — Analizar la seguridad del mecanismo (Sybil, replay, worker malicioso) y modelar las condiciones económicas para que cada clase de backend tenga incentivo positivo.</li>
 <li><strong>OE6</strong> — Producir tres publicaciones académicas: workshop zkML cross-platform, paper de plataforma cloud-native, paper completo de red DePIN.</li>
@@ -1377,7 +1377,7 @@ img {
 <ul>
 <li>Primer protocolo orientado específicamente a verificación ZK para IoT/DePIN.</li>
 <li>Roadmap incluye chains de soporte y un Verifier modular.</li>
-<li><strong>Gap:</strong> sin implementaciones de campo, sin operador K8s, sin benchmark cross-platform. Es un <em>blueprint</em>, no un sistema validado.</li>
+<li><strong>Gap:</strong> sin implementaciones de campo, sin backend K8s funcional, sin benchmark cross-platform. Es un <em>blueprint</em>, no un sistema validado.</li>
 </ul>
 <h3 id="83-depin-redes-de-infraestructura-física-descentralizada">8.3 DePIN: Redes de infraestructura física descentralizada</h3>
 <p>DePIN coordinó en 2025–2026 la construcción de infraestructura física mediante incentivos tokenizados: <strong>~$19B market cap, 250+ proyectos en CoinGecko, $1.6M/mes de revenue real en proyectos top de Solana</strong> (Frontiers in Blockchain, 2025).</p>
@@ -1445,7 +1445,7 @@ img {
 </tbody>
 </table>
 <p><strong>Lectura del cuadro:</strong> los DePINs maduros (Helium, Filecoin, Hivemapper) usan multi-witness, no zkML — porque zkML es muy reciente. Los que sí usan zkML (Inference Labs) están en datacenter. <strong>Nadie cruza zkML + edge IoT + multi-backend simultáneamente</strong>, que es el espacio de VeriFire.</p>
-<h3 id="84-kubernetes-operators-y-plataformas-multi-tenant-para-ai-workloads">8.4 Kubernetes operators y plataformas multi-tenant para AI workloads</h3>
+<h3 id="84-kubernetes-cloud-native-y-plataformas-multi-tenant-para-ai-workloads">8.4 Kubernetes cloud-native y plataformas multi-tenant para AI workloads</h3>
 <p>Operadores K8s consolidados para AI:</p>
 <table>
 <thead>
@@ -1496,8 +1496,8 @@ img {
 </ul>
 <p><strong>Gap específico respecto a VeriFire:</strong></p>
 <ul>
-<li><strong>Ningún operador existente está diseñado para proof generation:</strong> los CRDs <code>InferenceJob</code> y <code>ModelServing</code> que propone VeriFire no son extensiones de KServe, son nuevos.</li>
-<li><strong>Ningún operador está integrado nativamente con verificación on-chain:</strong> falta el bridge K8s ↔ smart contract (signing del proof, submit a Base, manejo de gas), que es parte de la contribución C3 de la tesis.</li>
+<li><strong>Ningún despliegue K8s existente integra proof generation con verificación on-chain:</strong> VeriFire orquesta Jobs nativos (sin CRD propio) desde un control plane que hace el bridge K8s ↔ smart contract (signing del proof, submit a Base, manejo de gas).</li>
+<li><strong>Ningún backend K8s está integrado nativamente con verificación on-chain:</strong> falta el bridge K8s ↔ smart contract (signing del proof, submit a Base, manejo de gas), que es parte de la contribución C3 de la tesis.</li>
 <li><strong>Multi-tenancy K8s aplicada a DePIN no está documentada:</strong> los patrones existen para SaaS B2B (CRM, observabilidad), no para redes con incentivo económico on-chain.</li>
 </ul>
 <h3 id="85-cuadro-consolidado-de-proyectos-más-cercanos">8.5 Cuadro consolidado de proyectos más cercanos</h3>
@@ -1582,7 +1582,7 @@ img {
 <ul>
 <li><strong>Fase de diseño formal</strong> (protocolo, threat model, contrato).</li>
 <li><strong>Fase experimental</strong> (benchmark cross-platform de proof generation y accuracy).</li>
-<li><strong>Fase de implementación</strong> (firmware, operador K8s, control plane SaaS, contratos).</li>
+<li><strong>Fase de implementación</strong> (firmware, worker K8s, control plane SaaS, contratos).</li>
 <li><strong>Fase de validación operacional</strong> (red piloto multi-backend con dos tenants).</li>
 <li><strong>Fase analítica</strong> (seguridad del mecanismo, modelado económico).</li>
 </ul>
@@ -1654,7 +1654,7 @@ img {
 </tr>
 <tr>
 <td><strong>3. Compute plane (proof workers)</strong></td>
-<td>K8s Operator (<code>InferenceJob</code> controller) · Worker Pods (CPU y GPU) · Model Serving (<code>ModelServing</code> CRD) · GPU Worker (Vast.ai)</td>
+<td>Job Controller (K8s API nativo) · Worker Pods (CPU y GPU) · Model Serving (Deployment) · GPU Worker (Vast.ai)</td>
 <td>Generación de proofs zkML en CPU o GPU según el job; serving de modelos para inferencia delegada</td>
 <td>KEDA + HPA con métricas custom (queue depth, GPU utilization). El operador despacha pods según resource hints del job y la afinidad CPU/GPU.</td>
 </tr>
@@ -1715,7 +1715,7 @@ img {
 
   <!-- Arrow Control → Compute (2 splits) -->
   <line x1="450" y1="310" x2="450" y2="340" stroke="#2E0F58" stroke-width="2"/>
-  <text x="465" y="328" font-size="10" fill="#6029A8">dispatch InferenceJob (CPU vs GPU según resource hints + SLA)</text>
+  <text x="465" y="328" font-size="10" fill="#6029A8">dispatch Job K8s (CPU vs GPU según resource hints + SLA)</text>
   <line x1="310" y1="340" x2="600" y2="340" stroke="#2E0F58" stroke-width="2"/>
   <line x1="310" y1="340" x2="310" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="600" y1="340" x2="600" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
@@ -1723,7 +1723,7 @@ img {
   <!-- Plane 3: Compute plane (2 sub-planes) -->
   <rect x="40" y="385" width="820" height="160" rx="12" fill="#FAFAFC" stroke="#38A169" stroke-width="2"/>
   <text x="60" y="410" font-size="13" font-weight="700" fill="#1E3A5F">3. COMPUTE PLANE (Proof Workers)</text>
-  <text x="60" y="427" font-size="11" fill="#38A169">CRDs InferenceJob · ModelServing · KEDA + HPA · NVIDIA GPU operator</text>
+  <text x="60" y="427" font-size="11" fill="#38A169">Job + Deployment nativos · KEDA + HPA · NVIDIA GPU operator</text>
 
   <g>
     <rect x="100" y="440" width="300" height="90" rx="8" fill="#FFFFFF" stroke="#3182CE" stroke-width="1.5"/>
@@ -1917,7 +1917,7 @@ img {
 </tr>
 <tr>
 <td>Job orchestration</td>
-<td>Operador K8s + CRDs <code>InferenceJob</code>, <code>ModelServing</code></td>
+<td>Jobs K8s nativos + Deployment (sin CRD propio)</td>
 <td>K8s</td>
 </tr>
 <tr>
@@ -1983,7 +1983,7 @@ img {
 <li><strong>Topología:</strong> 3 nodos RPi edge + 1 cluster k3s mínimo (3 pods) con el protocolo completo.</li>
 <li><strong>Multi-tenancy:</strong> control plane con dos tenants ficticios (&ldquo;ETAC-CBA&rdquo; y &ldquo;Defensa-Civil-AR&rdquo;) para validar aislamiento.</li>
 <li><strong>Período:</strong> 2–3 meses de operación continua en campus UNC.</li>
-<li><strong>Métricas:</strong> uptime por backend, latencia end-to-end por clase, costo de gas mensual, distribución de proofs por backend, métricas del operador K8s.</li>
+<li><strong>Métricas:</strong> uptime por backend, latencia end-to-end por clase, costo de gas mensual, distribución de proofs por backend, métricas del worker K8s.</li>
 </ul>
 <h4 id="experimento-4-seguridad-del-mecanismo-depin-multi-class-oe5">Experimento 4 — Seguridad del mecanismo DePIN multi-class (OE5)</h4>
 <ul>
@@ -1991,7 +1991,7 @@ img {
 <li><strong>Simulación de ataques:</strong> Sybil, replay, worker-malicioso, edge-impostor.</li>
 <li><strong>Análisis de degenerate cases:</strong> reuso de proofs, colusión entre cloud workers, censura del control plane.</li>
 </ul>
-<h4 id="experimento-5-escalabilidad-del-operador-kubernetes-oe6">Experimento 5 — Escalabilidad del operador Kubernetes (OE6)</h4>
+<h4 id="experimento-5-escalabilidad-del-backend-kubernetes-oe6">Experimento 5 — Escalabilidad del backend Kubernetes (OE6)</h4>
 <ul>
 <li><strong>Carga sintética:</strong> 10×, 100×, 1000× el caudal real de inferencias.</li>
 <li><strong>Variables:</strong> cold-start de pods, throughput, latencia P50/P95/P99, comportamiento del HPA.</li>
@@ -2089,7 +2089,7 @@ img {
 </tbody>
 </table>
 <h3 id="98-alcance-mínimo-defendible">9.8 Alcance mínimo defendible</h3>
-<p>Si por restricciones de tiempo o técnicas no se alcanza la versión completa, el alcance mínimo defendible exige: al menos <strong>2 backends funcionando</strong> (edge + uno más), operador K8s mínimo (kind/minikube con CRD funcional), control plane single-tenant con arquitectura preparada para multi-tenant, contrato multi-class deployado en Base Sepolia con al menos una transacción exitosa por clase, y benchmark cross-platform de al menos una arquitectura de modelo. Esa configuración reducida sigue produciendo el primer benchmark cross-platform de zkML en hardware edge real y el patrón arquitectónico DePIN multi-backend, suficiente para CACIC o un workshop internacional.</p>
+<p>Si por restricciones de tiempo o técnicas no se alcanza la versión completa, el alcance mínimo defendible exige: al menos <strong>2 backends funcionando</strong> (edge + uno más), worker K8s mínimo (kind/minikube con Job funcional), control plane single-tenant con arquitectura preparada para multi-tenant, contrato multi-class deployado en Base Sepolia con al menos una transacción exitosa por clase, y benchmark cross-platform de al menos una arquitectura de modelo. Esa configuración reducida sigue produciendo el primer benchmark cross-platform de zkML en hardware edge real y el patrón arquitectónico DePIN multi-backend, suficiente para CACIC o un workshop internacional.</p>
 <h3 id="99-estrategias-de-mitigación-técnica">9.9 Estrategias de mitigación técnica</h3>
 <p>Dos estrategias de respaldo se documentan <strong>explícitamente</strong> para preservar el aporte aún si el camino preferido falla. Cada una mantiene la verificabilidad on-chain (que es el aporte criptográfico) aunque sacrifique alguna otra propiedad (privacidad o accuracy).</p>
 <h4 id="mitigación-a-modelo-ultra-pequeño-custom-para-preservar-viabilidad-edge">Mitigación A — Modelo ultra-pequeño custom para preservar viabilidad edge</h4>
@@ -2183,7 +2183,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 </table>
 <h3 id="103-recursos-de-software">10.3 Recursos de software</h3>
 <ul>
-<li>EZKL (MIT), Foundry, ONNX Runtime, kopf o kubebuilder, FastAPI, Postgres con RLS, Helm 3, Prometheus, Grafana, OpenTelemetry, web3.py, Pillow, scikit-learn, PyTorch + ONNX export. Todos open-source, sin costo de licencia.</li>
+<li>EZKL (MIT), Foundry, ONNX Runtime, FastAPI, python-kubernetes, Postgres con RLS, Helm 3, Prometheus, Grafana, OpenTelemetry, web3.py, Pillow, scikit-learn, PyTorch + ONNX export. Todos open-source, sin costo de licencia.</li>
 </ul>
 <h3 id="104-datasets">10.4 Datasets</h3>
 <ul>
@@ -2194,7 +2194,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <li>Tesista (autor): dedicación part-time de 20–25 hs/semana durante 12 meses (compatible con el cursado de los últimos años).</li>
 <li>Director: revisión técnica quincenal y aprobación de hitos.</li>
 <li>Codirector embedded: validación del firmware y benchmark de hardware ARM.</li>
-<li>Codirector cloud-native: validación del operador K8s, multi-tenancy, arquitectura SaaS.</li>
+<li>Codirector cloud-native: validación del worker K8s, multi-tenancy, arquitectura SaaS.</li>
 <li>Colaboraciones potenciales (no bloqueantes): CONICET Córdoba / Defensa Civil CBA para validación del caso de uso, Satellites on Fire (startup CBA) para acceso a imágenes históricas etiquetadas.</li>
 </ul>
 <h3 id="107-cronograma-de-trabajo">10.7 Cronograma de trabajo</h3>
@@ -2211,7 +2211,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tr>
 <td><strong>Fase 0 — Preparación</strong></td>
 <td>1</td>
-<td>Revisión bibliográfica focal (~30 papers core, no exhaustiva); setup de hardware (2 RPi + cluster k3s mínimo o kind local); toolchain (EZKL ARM y x86, ONNX Runtime, Foundry, kopf, FastAPI); PoC: modelo toy de 3 capas → EZKL → proof generado en RPi <em>y</em> en pod K8s, ambos verificados por el mismo verifier en Base Sepolia.</td>
+<td>Revisión bibliográfica focal (~30 papers core, no exhaustiva); setup de hardware (2 RPi + cluster k3s mínimo o kind local); toolchain (EZKL ARM y x86, ONNX Runtime, Foundry, FastAPI, python-kubernetes); PoC: modelo toy de 3 capas → EZKL → proof generado en RPi <em>y</em> en pod K8s, ambos verificados por el mismo verifier en Base Sepolia.</td>
 </tr>
 <tr>
 <td><strong>Fase 1 — Benchmark cross-platform</strong></td>
@@ -2219,14 +2219,14 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <td>Curación y etiquetado del dataset; entrenamiento y cuantización de MobileNetV3-Small INT8; ejecución de Experimentos 1 + 2 sobre los 3 backends; <strong>paper parcial</strong> (workshop): <em>&ldquo;Cross-platform Benchmarking of zkML Provers across Edge, Kubernetes and GPU Backends&rdquo;</em>; diseño formal del protocolo VeriFire multi-backend.</td>
 </tr>
 <tr>
-<td><strong>Fase 2 — Protocolo, contratos y operador K8s</strong></td>
+<td><strong>Fase 2 — Protocolo, contratos y worker K8s</strong></td>
 <td>5–7</td>
-<td>Light client edge (firmware RPi); cloud worker (FastAPI service); operador Kubernetes (CRDs + Helm chart); smart contracts multi-class (Solidity/Foundry) deployados en Base Sepolia; control plane SaaS multi-tenant (API REST + dashboard mínimo); testing unitario + integración + Experimento 4 (seguridad).</td>
+<td>Light client edge (firmware RPi); cloud worker (FastAPI service); worker Kubernetes (Jobs nativos + Helm chart); smart contracts multi-class (Solidity/Foundry) deployados en Base Sepolia; control plane SaaS multi-tenant (API REST + dashboard mínimo); testing unitario + integración + Experimento 4 (seguridad).</td>
 </tr>
 <tr>
 <td><strong>Fase 3 — Red piloto multi-backend</strong></td>
 <td>8–10</td>
-<td>Despliegue: 3 RPi en campus + cluster k3s on-prem; onboarding de 2 tenants; operación continua <strong>8 semanas</strong> (Experimento 3); stress testing del operador K8s (Experimento 5); recolección y análisis de datos operacionales; iteración del protocolo.</td>
+<td>Despliegue: 3 RPi en campus + cluster k3s on-prem; onboarding de 2 tenants; operación continua <strong>8 semanas</strong> (Experimento 3); stress testing del worker K8s (Experimento 5); recolección y análisis de datos operacionales; iteración del protocolo.</td>
 </tr>
 <tr>
 <td><strong>Fase 4 — Escritura y defensa</strong></td>
@@ -2353,7 +2353,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tr>
 <td>H3</td>
 <td>7</td>
-<td>Protocolo VeriFire v1.0 + operador K8s + control plane SaaS en testnet</td>
+<td>Protocolo VeriFire v1.0 + worker K8s + control plane SaaS en testnet</td>
 </tr>
 <tr>
 <td>H4</td>
@@ -2420,10 +2420,10 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <td>Pin de versión. El protocolo es prover-agnostic.</td>
 </tr>
 <tr>
-<td>Complejidad del operador K8s subestimada</td>
+<td>KEDA o scripting K8s nativo más complejo de lo esperado</td>
 <td>Media</td>
 <td>Medio</td>
-<td>Empezar con kopf (Python) en vez de kubebuilder (Go). Si se convierte en sumidero, recortar a script + cronjobs nativos sin CRD propio.</td>
+<td>El control plane usa la K8s API directa (python-kubernetes). Si KEDA añade complejidad sin beneficio, escalar con HPA nativo + métricas simples de CPU/memoria.</td>
 </tr>
 <tr>
 <td>Multi-tenancy introduce vulnerabilidades</td>
@@ -2452,13 +2452,13 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <ul>
 <li><strong>C1 — Protocolo VeriFire multi-backend:</strong> diseño formal de un protocolo de Proof-of-Inference que admite múltiples clases de backend de cómputo bajo un mismo contrato verificador. Modelo de input signing extendido con doble firma (capture + worker) que establece un <em>binding triple</em>: entrada → cómputo → reward. Circuito zkML mínimo viable parametrizable en complejidad para correr en al menos tres clases de hardware. Interfaz del contrato verificador con clase de nodo on-chain y capability attestation.</li>
 <li><strong>C2 — Benchmark empírico cross-platform:</strong> primera evaluación sistemática (que se sepa) del trade-off zkML en múltiples clases de backend simultáneamente — proof time, peak RAM, proof size, gas cost, costo monetario por proof — sobre ARM Cortex-A72, pod Kubernetes con resource limits configurables y GPU (CUDA) Vast.ai.</li>
-<li><strong>C3 — Plataforma VeriFire SaaS de referencia (open-source):</strong> prototipo funcional end-to-end con light client edge, operador Kubernetes con CRDs y Helm chart, control plane SaaS multi-tenant, smart contracts en Base Sepolia/mainnet, observabilidad Prometheus + Grafana + OpenTelemetry, IaC con Terraform y Helm, dataset público de imágenes humo/fuego.</li>
+<li><strong>C3 — Plataforma VeriFire SaaS de referencia (open-source):</strong> prototipo funcional end-to-end con light client edge, worker Kubernetes con Jobs nativos y Helm chart, control plane SaaS multi-tenant, smart contracts en Base Sepolia/mainnet, observabilidad Prometheus + Grafana + OpenTelemetry, IaC con Terraform y Helm, dataset público de imágenes humo/fuego.</li>
 <li><strong>C4 — Metodología de diseño de circuitos zkML &ldquo;backend-aware&rdquo;:</strong> guía con reglas prácticas derivadas del benchmark — qué arquitecturas son proving-friendly en cada backend, dónde está el knee-point de cada plataforma, qué nivel de cuantización preserva la viabilidad del circuito, reglas de routing dado un modelo y un SLA de latencia.</li>
 <li><strong>C5 — Modelo arquitectónico de plataforma DePIN heterogénea:</strong> patrón de diseño reutilizable para DePINs de próxima generación, donde el contrato es agnóstico al backend y solo verifica integridad criptográfica + capability attestation.</li>
 </ul>
 <h3 id="112-aporte-técnico">11.2 Aporte técnico</h3>
 <ul>
-<li>Repositorio open-source con la implementación completa (license MIT/Apache-2): firmware, operador K8s, control plane, contratos, scripts de despliegue.</li>
+<li>Repositorio open-source con la implementación completa (license MIT/Apache-2): firmware, worker K8s, control plane, contratos, scripts de despliegue.</li>
 <li>Helm chart distribuible: cualquier operador puede instalar la plataforma con <code>helm install verifire</code>.</li>
 <li>Dataset público de imágenes etiquetadas de humo/fuego de la zona Sierras Chicas.</li>
 </ul>
@@ -2625,8 +2625,6 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <p><strong>Threat model</strong> — Descripción explícita de qué ataques un sistema pretende resistir y cuáles quedan fuera de scope.</p>
 <p><strong>Replay attack</strong> — Ataque donde un nodo reutiliza una prueba válida para cobrar rewards múltiples veces. Se previene con un registro on-chain de hashes ya usados.</p>
 <p><strong>Kubernetes (K8s)</strong> — Sistema open-source para orquestar aplicaciones en contenedores.</p>
-<p><strong>Operator (en Kubernetes)</strong> — Programa que corre dentro del cluster y gestiona automáticamente recursos custom.</p>
-<p><strong>CRD</strong> — Custom Resource Definition. Mecanismo para extender la API de Kubernetes con tipos de objeto propios.</p>
 <p><strong>Helm</strong> — Gestor de paquetes para Kubernetes (análogo a <code>apt</code> o <code>npm</code>).</p>
 <p><strong>SaaS</strong> — Software-as-a-Service. Modelo donde un proveedor opera un servicio que múltiples clientes consumen sin instalarlo localmente.</p>
 <p><strong>Multi-tenant</strong> — Arquitectura donde un único deployment del software sirve a múltiples organizaciones independientes con aislamiento entre ellas.</p>
