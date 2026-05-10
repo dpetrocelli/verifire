@@ -596,9 +596,9 @@ img {
 </table>
 <hr />
 <h2 id="1-qué-propone">1. Qué propone</h2>
-<p>Diseñar e implementar <strong>VeriFire</strong>, una plataforma SaaS multi-tenant donde cualquier nodo IoT puede demostrar criptográficamente que ejecutó correctamente un modelo de machine learning sobre datos reales — sin revelar el dato crudo. La prueba se verifica en una blockchain (Base L2) y dispara un reward económico al operador.</p>
+<p>Diseñar e implementar <strong>VeriFire</strong>, una plataforma SaaS multi-tenant donde cualquier nodo IoT puede demostrar criptográficamente que ejecutó correctamente un modelo de machine learning sobre datos reales — sin revelar el dato crudo en la cadena pública; en backends cloud/K8s el witness viaja cifrado a un worker autorizado. La prueba se verifica en una blockchain (Base L2) y dispara un reward económico al operador.</p>
 <p><strong>Caso de uso ancla:</strong> detección temprana de incendios en las Sierras de Córdoba mediante una red de cámaras de bajo costo (Raspberry Pi 4 + cámara). En 2024 se quemaron ~70.000 ha; los sistemas actuales (satélites) tienen latencia de 35–60 min — una red densa edge puede detectar humo en minutos.</p>
-<p><strong>Aporte académico real:</strong> <em>no</em> es el clasificador de incendios. Es la <strong>plataforma multi-backend</strong> que permite que el mismo protocolo zkML corra en cuatro clases de hardware (Edge ARM · Cloud CPU · K8s CPU · K8s GPU) verificadas por un único contrato on-chain.</p>
+<p><strong>Aporte académico real:</strong> <em>no</em> es el clasificador de incendios. Es la <strong>plataforma multi-backend</strong> que permite que el mismo protocolo zkML corra en cuatro clases de hardware (Edge ARM · Cloud CPU · K8s CPU · Cloud GPU) verificadas por un único contrato on-chain.</p>
 <hr />
 <h2 id="2-por-qué-es-novedoso">2. Por qué es novedoso</h2>
 <p>Cada uno de los 5 campos involucrados (Blockchain, zkML, AI/Cloud-native, SaaS multi-tenant, Edge IoT) tiene literatura madura por separado. La novedad está en la <strong>intersección de los cinco</strong>, donde no hay implementación académica publicada.</p>
@@ -653,7 +653,7 @@ img {
 <tr>
 <td>AI · Arquitectura escalable Cloud-Native + SaaS</td>
 <td>45 %</td>
-<td>Operador K8s (CRDs <code>InferenceJob</code>, <code>ModelServing</code>), KEDA + HPA, GPU pipelines, control plane multi-tenant, model registry on-chain</td>
+<td>Operador K8s (CRDs <code>InferenceJob</code>, <code>ModelServing</code>), KEDA + HPA, GPU-accelerated proving, control plane multi-tenant, model registry on-chain</td>
 </tr>
 <tr>
 <td>Edge AI / IoT</td>
@@ -699,13 +699,13 @@ img {
 </tr>
 <tr>
 <td>4</td>
-<td>K8s self-managed</td>
+<td>Cloud GPU VM</td>
 <td>GPU (CUDA)</td>
-<td>k3s on-prem · NVIDIA device plugin</td>
+<td>Vast.ai · EZKL CUDA (sin infraestructura K8s)</td>
 </tr>
 </tbody>
 </table>
-<p>La separación CPU vs GPU permite <strong>comparar el mismo modelo lado a lado</strong> y trazar la curva de aceleración — eso es justamente el aporte experimental que hoy no existe.</p>
+<p>La separación CPU vs GPU permite <strong>comparar el tiempo de proof generation lado a lado</strong> con EZKL CUDA vs CPU — un benchmark cross-hardware reproducible a bajo costo (~$30 en Vast.ai), sin la complejidad de infraestructura K8s GPU.</p>
 <hr />
 <h2 id="5-hipótesis-falsables-principales">5. Hipótesis falsables principales</h2>
 <table>
@@ -719,8 +719,8 @@ img {
 <tbody>
 <tr>
 <td>H1</td>
-<td>Speed-up GPU vs CPU crece con tamaño del modelo</td>
-<td>5×–30×</td>
+<td>Speedup EZKL CUDA vs CPU en proof generation (modelos ≤ 5 M params)</td>
+<td>2×–8×</td>
 </tr>
 <tr>
 <td>H2</td>
@@ -971,7 +971,7 @@ img {
 <h3 id="53-interés-técnico-cómputo-heterogéneo-y-plataformas-depin">5.3 Interés técnico: cómputo heterogéneo y plataformas DePIN</h3>
 <p>La mayoría de los DePINs actuales asumen una clase única de hardware (Helium = hotspots; Filecoin = storage nodes; Hivemapper = dashcams). Esto los hace rígidos: no pueden absorber operadores con GPUs ociosas, no escalan a modelos grandes, y no resisten picos de carga. Una arquitectura <strong>multi-backend con compute pluggable</strong>, validada experimentalmente, sería un patrón de diseño reutilizable para la próxima generación de DePINs.</p>
 <h3 id="54-interés-personal-y-formativo">5.4 Interés personal y formativo</h3>
-<p>La tesis articula los cuatro ejes técnicos del autor: blockchain (smart contracts, tokenomics), arquitectura cloud-native (Kubernetes operators, SaaS multi-tenant), AI escalable (model serving, GPU pipelines) y criptografía aplicada (zkML). Es un trabajo de tesis con riesgo técnico medio-alto pero alto potencial de impacto académico (publicaciones tier A) y social (transferencia al ETAC / Defensa Civil CBA).</p>
+<p>La tesis articula los cuatro ejes técnicos del autor: blockchain (smart contracts, tokenomics), arquitectura cloud-native (Kubernetes operators, SaaS multi-tenant), AI escalable (model serving, GPU-accelerated proving) y criptografía aplicada (zkML). Es un trabajo de tesis con riesgo técnico medio-alto pero alto potencial de impacto académico (publicaciones tier A) y social (transferencia al ETAC / Defensa Civil CBA).</p>
 <hr />
 <h2 id="6-descripción-del-tema-de-estudio">6. Descripción del tema de estudio</h2>
 <h3 id="61-definición-del-tema">6.1 Definición del tema</h3>
@@ -986,11 +986,11 @@ img {
 <tbody>
 <tr>
 <td>Blockchain</td>
-<td>Smart contracts verificadores multi-clase, tokenomics, replay protection, capability attestation</td>
+<td>Smart contracts verificadores multi-clase, mecanismo de reward diferenciado por clase de nodo (ERC-20 como blueprint DePIN deployable), replay protection, capability attestation</td>
 </tr>
 <tr>
 <td>AI · Arquitectura escalable cloud-native + Plataforma SaaS</td>
-<td>Operadores K8s, model serving, auto-scaling con KEDA/HPA, GPU pipelines, multi-tenant isolation, observabilidad; control plane multi-tenant, abstracción de Compute Backend, routing de jobs, SLOs por tenant</td>
+<td>Operadores K8s, model serving, auto-scaling con KEDA/HPA, GPU-accelerated proving, multi-tenant isolation, observabilidad; control plane multi-tenant, abstracción de Compute Backend, routing de jobs, SLOs por tenant (definición + Prometheus básico)</td>
 </tr>
 <tr>
 <td>Edge AI / IoT</td>
@@ -1002,6 +1002,7 @@ img {
 </tr>
 </tbody>
 </table>
+<p><strong>Nota sobre capability attestation on-chain:</strong> los datos de clase de nodo (EDGE/CLOUD/K8S), modelo y tiempo de proof podrían almacenarse solo en el Postgres del control plane. Sin embargo, el contrato necesita esta información <em>on-chain</em> para diferenciar el reward de forma trustless — si el dato viviera solo en el control plane, el operador del CP podría modificarlo para inflar el reward de cualquier nodo. Publicarlo on-chain lo convierte en un dato inmutable y verificable por cualquier observador externo.</p>
 <h3 id="62-distribución-porcentual-del-aporte">6.2 Distribución porcentual del aporte</h3>
 <table>
 <thead>
@@ -1015,12 +1016,12 @@ img {
 <tr>
 <td>Blockchain</td>
 <td>25 %</td>
-<td>Smart contract verificador multi-backend (Solidity + Foundry + Base L2); reward ERC-20 con diferenciación por clase de nodo; contrato EZKL Verifier auto-generado; protocolo on-chain (replay protection, node-class binding, event emission).</td>
+<td>Smart contract verificador multi-backend (Solidity + Foundry + Base L2); mecanismo de reward ERC-20 diferenciado por clase de nodo (EDGE &gt; CLOUD/K8S según privacidad aportada) — implementado como blueprint deployable para DePINs de producción, sin valor económico en testnet; contrato EZKL Verifier auto-generado; protocolo on-chain (replay protection, node-class binding, event emission).</td>
 </tr>
 <tr>
 <td>AI · Arquitectura Escalable Cloud-Native + Plataforma SaaS</td>
 <td>45 %</td>
-<td><strong>Capa K8s / cloud-native:</strong> operador para Proof Workers + serving de modelos (CRDs <code>InferenceJob</code> y <code>ModelServing</code>); Helm chart; auto-scaling horizontal con KEDA / HPA y métricas custom; multi-tenant isolation por namespace; model registry y versionado on-chain del modelo; observabilidad (Prometheus + Grafana + OpenTelemetry); pipelines GPU-aware. <strong>Capa SaaS / sistemas distribuidos:</strong> control plane multi-tenant (REST API + dashboard); registro y onboarding de nodos heterogéneos; abstracción &ldquo;Compute Backend&rdquo; detrás de interfaz uniforme; routing de jobs según capacidad, latencia y costo; SLOs por tenant.</td>
+<td><strong>Capa K8s / cloud-native:</strong> operador para Proof Workers + serving de modelos (CRDs <code>InferenceJob</code> y <code>ModelServing</code>); Helm chart; auto-scaling horizontal con KEDA / HPA y métricas custom; multi-tenant isolation por namespace; model registry y versionado on-chain del modelo; observabilidad (Prometheus + Grafana + OpenTelemetry); GPU-accelerated proving (EZKL CUDA, benchmark vs CPU). <strong>Capa SaaS / sistemas distribuidos:</strong> control plane multi-tenant (REST API + dashboard); registro y onboarding de nodos heterogéneos; abstracción &ldquo;Compute Backend&rdquo; detrás de interfaz uniforme; routing de jobs según capacidad, latencia y costo; SLOs por tenant (definición de latencia P99 y availability — instrumentados con Prometheus).</td>
 </tr>
 <tr>
 <td>Edge AI / IoT</td>
@@ -1048,7 +1049,8 @@ img {
 - Hardware custom: la tesis usa RPi 4 estándar como representante del edge, no diseña placas propias.
 - Modelos generativos o LLMs de visión: el trabajo se enfoca en clasificadores binarios cuantizados.
 - Multi-cadena: el contrato corre solo en Base (EVM); portar a Solana/Polkadot es trabajo futuro.
-- Política de upgrade en producción del modelo y del verifier: se documenta en la tesis (qué pasa cuando se reentrena el modelo y cambia el <code>IEZKLVerifier</code>, qué grace period existe, cómo se invalidan los proofs viejos), pero no se ejercita en operación real porque el modelo no se reentrena durante el piloto.</p>
+- Política de upgrade en producción del modelo y del verifier: se documenta en la tesis (qué pasa cuando se reentrena el modelo y cambia el <code>IEZKLVerifier</code>, qué grace period existe, cómo se invalidan los proofs viejos), pero no se ejercita en operación real porque el modelo no se reentrena durante el piloto.
+- Gobernanza de acceso permissionless: en esta versión el registro de nodos y tenants pasa por el control plane centralizado (modelo permissioned). La descentralización completa del onboarding —donde cualquier operador pudiera sumarse sin aprobación del CP— es trabajo futuro que requiere mecanismos de stake o reputación on-chain.</p>
 <h3 id="65-justificación-cuantitativa-de-la-red-piloto">6.5 Justificación cuantitativa de la red piloto</h3>
 <p>La elección de <strong>3 nodos edge + 1 cloud worker + 1 cluster K8s mínimo</strong> no es arbitraria: es el mínimo capaz de validar las propiedades centrales del sistema sin sobre-dimensionar.</p>
 <table>
@@ -1125,7 +1127,7 @@ img {
     <text x="100" y="237" fill="#1E3A5F" font-size="11" font-weight="400">EZKL · Halo2 · SNARKs</text>
 
     <text x="620" y="220" fill="#1E3A5F">AI · CLOUD-NATIVE</text>
-    <text x="620" y="237" fill="#1E3A5F" font-size="11" font-weight="400">K8s · KEDA · GPU pipelines</text>
+    <text x="620" y="237" fill="#1E3A5F" font-size="11" font-weight="400">K8s · KEDA · GPU proving</text>
 
     <text x="160" y="510" fill="#1E3A5F">PLATAFORMA SaaS</text>
     <text x="160" y="527" fill="#1E3A5F" font-size="11" font-weight="400">multi-tenant · control plane</text>
@@ -1490,7 +1492,7 @@ img {
 <tr>
 <td><strong>NVIDIA GPU Operator</strong></td>
 <td>Provisioning de GPUs en pods</td>
-<td>✅ Reutilizable para K8s self-managed GPU</td>
+<td>✅ Reutilizable para Cloud GPU VM (Vast.ai)</td>
 </tr>
 <tr>
 <td><strong>OPA Gatekeeper</strong></td>
@@ -1637,10 +1639,10 @@ img {
 </tr>
 <tr>
 <td>4</td>
-<td><strong>Kubernetes self-managed (GPU)</strong></td>
-<td>GPU (CUDA / ROCm)</td>
-<td>Cluster k3s on-prem con GPU local · Vast.ai GPU on-demand · pods con device plugin NVIDIA</td>
-<td>Proof acelerado por GPU para modelos grandes (EfficientNet-Lite4, VGG-16) que en CPU son infactibles; permite <strong>comparar el mismo modelo CPU vs GPU</strong> y trazar la curva de aceleración</td>
+<td><strong>Cloud GPU VM</strong></td>
+<td>GPU (CUDA)</td>
+<td>Vast.ai · EZKL CUDA habilitado (sin infraestructura K8s)</td>
+<td>Proof acelerado por GPU; permite <strong>comparar el mismo modelo EZKL CPU vs CUDA</strong> y trazar la curva de aceleración para modelos ≤ 5 M params</td>
 <td>Parcial + aislamiento por namespace</td>
 </tr>
 </tbody>
@@ -1687,7 +1689,7 @@ img {
 </tbody>
 </table>
 <h4 id="932-diagrama-de-servicios">9.3.2 Diagrama de servicios</h4>
-<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitectura de servicios de VeriFire en cuatro planos: data plane edge, control plane SaaS, compute plane proof workers (cloud, K8s CPU, K8s GPU) y on-chain plane Base L2." style="width:100%;max-width:900px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitectura de servicios de VeriFire en cuatro planos: data plane edge, control plane SaaS, compute plane proof workers (cloud CPU, K8s CPU, Cloud GPU VM) y on-chain plane Base L2." style="width:100%;max-width:900px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E0F58"/>
@@ -1760,9 +1762,9 @@ img {
     <text x="450" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove distributed across pods</text>
 
     <rect x="600" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#E53E3E" stroke-width="1.5"/>
-    <text x="720" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#E53E3E">3c. K8s self-managed (GPU)</text>
-    <text x="720" y="478" text-anchor="middle" font-size="10" fill="#2D3748">k3s on-prem · NVIDIA plugin</text>
-    <text x="720" y="494" text-anchor="middle" font-size="10" fill="#2D3748">RTX 3090 · DCGM metrics</text>
+    <text x="720" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#E53E3E">3c. Cloud GPU VM</text>
+    <text x="720" y="478" text-anchor="middle" font-size="10" fill="#2D3748">Vast.ai · EZKL CUDA</text>
+    <text x="720" y="494" text-anchor="middle" font-size="10" fill="#2D3748">RTX 3090 · GPU proving</text>
     <text x="720" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove with GPU acceleration</text>
   </g>
 
@@ -1807,8 +1809,8 @@ img {
 <ul>
 <li><strong>Cloud Worker (single VM):</strong> baseline, no escala — sirve como referencia de costo. El control plane lo trata como un pool fijo de capacidad.</li>
 <li><strong>K8s managed CPU (GKE Autopilot):</strong> escala con KEDA según queue depth de jobs CPU. Min 1 / max N pods según presupuesto del tenant. Costo lineal con jobs procesados.</li>
-<li><strong>K8s self-managed GPU:</strong> escala con KEDA según queue depth de jobs GPU + métricas custom de NVIDIA DCGM (GPU utilization). Pods con <code>nvidia.com/gpu: 1</code> resource request. Cluster autoscaler para nodos GPU (caros) — agresivo en scale-down.</li>
-<li><strong>Routing entre planes:</strong> el Job Router decide CPU vs GPU según resource hints del modelo y SLA del tenant. Política default: jobs con &gt; 5 M params → GPU; resto → CPU paralelizado.</li>
+<li><strong>Cloud GPU VM (Vast.ai):</strong> instancia bajo demanda con EZKL CUDA habilitado — no hay K8s ni autoscaling; el control plane la trata como un worker fijo de alta capacidad reservada para benchmarks GPU. Se activa solo para el experimento de comparación CPU vs GPU.</li>
+<li><strong>Routing entre planes:</strong> el Job Router decide CPU vs GPU según resource hints del modelo y SLA del tenant. Política default: jobs de benchmark → GPU VM; carga operacional → CPU paralelizado.</li>
 </ul>
 <h5 id="on-chain-plane">On-chain plane</h5>
 <ul>
@@ -1989,14 +1991,14 @@ img {
 <h3 id="95-diseño-experimental">9.5 Diseño experimental</h3>
 <h4 id="experimento-1-benchmark-de-proving-cross-platform-oe2">Experimento 1 — Benchmark de Proving cross-platform (OE2)</h4>
 <ul>
-<li><strong>Variable independiente:</strong> arquitectura del modelo (6 variantes) × plataforma (4 backends: Edge ARM / Cloud CPU / K8s managed CPU / K8s self-managed GPU).</li>
+<li><strong>Variable independiente:</strong> arquitectura del modelo (6 variantes) × plataforma (4 backends: Edge ARM / Cloud CPU / K8s managed CPU / Cloud GPU VM).</li>
 <li><strong>Variables dependientes:</strong> proof time, peak RAM, proof size, gas cost, costo monetario por proof, <strong>speed-up CPU↔GPU</strong> (ratio aislado dentro del runtime K8s).</li>
 <li><strong>Réplicas:</strong> 30 pruebas por celda. Total: 6 modelos × 4 backends × 30 = 720 mediciones.</li>
 <li><strong>Plataformas:</strong><ul>
 <li><strong>Edge ARM:</strong> RPi 4B 4 GB, Raspbian 64-bit.</li>
 <li><strong>Cloud CPU:</strong> GCP Compute Engine e2-small, Debian 12, 2 vCPU x86, 2 GB RAM (free tier).</li>
 <li><strong>K8s managed CPU:</strong> GKE Autopilot, 3 pods con limits 4 vCPU / 8 GB sin GPU.</li>
-<li><strong>K8s self-managed GPU:</strong> cluster k3s on-prem o Vast.ai, 1 pod con NVIDIA device plugin (RTX 3090 o equivalente).</li>
+<li><strong>Cloud GPU VM:</strong> Vast.ai, 1 instancia con EZKL CUDA habilitado (RTX 3090 o equivalente).</li>
 </ul>
 </li>
 <li><strong>Métrica:</strong> superficie de Pareto 3D accuracy / latencia / costo + curva de speed-up CPU→GPU por modelo.</li>
@@ -2029,7 +2031,7 @@ img {
 <li><strong>Aporte:</strong> primera caracterización pública del proof generation throughput en un cluster K8s real.</li>
 </ul>
 <h3 id="96-modelos-a-evaluar">9.6 Modelos a evaluar</h3>
-<p>Cada modelo se ejecuta en los <strong>cuatro backends</strong> (Edge ARM, Cloud VM CPU, K8s managed CPU, K8s self-managed GPU). La tabla muestra el proof time esperado en cada uno.</p>
+<p>Cada modelo se ejecuta en los <strong>cuatro backends</strong> (Edge ARM, Cloud VM CPU, K8s managed CPU, Cloud GPU VM). La tabla muestra el proof time esperado en cada uno.</p>
 <table>
 <thead>
 <tr>
@@ -2039,7 +2041,7 @@ img {
 <th>Edge ARM (RPi 4)</th>
 <th>Cloud CPU (GCP e2-small)</th>
 <th>K8s managed CPU (3 pods GKE)</th>
-<th>K8s self-managed GPU (1 pod, RTX 3090)</th>
+<th>Cloud GPU VM (Vast.ai, RTX 3090)</th>
 </tr>
 </thead>
 <tbody>
@@ -2175,7 +2177,7 @@ img {
   <!-- Legend -->
   <g font-size="10" fill="#2D3748">
     <circle cx="500" cy="350" r="5" fill="#E53E3E"/>
-    <text x="510" y="354">K8s GPU</text>
+    <text x="510" y="354">Cloud GPU</text>
     <circle cx="500" cy="368" r="5" fill="#3182CE"/>
     <text x="510" y="372">K8s managed CPU</text>
     <circle cx="610" cy="350" r="5" fill="#DD6B20"/>
@@ -2213,14 +2215,14 @@ img {
 <td>&lt; 30 s</td>
 </tr>
 <tr>
-<td>Proof time K8s self-managed GPU (1 pod)</td>
+<td>Proof time Cloud GPU VM (Vast.ai)</td>
 <td>&lt; 1 min para modelo edge-tier</td>
 <td>&lt; 10 s para edge-tier; &lt; 5 min para EfficientNet-Lite4</td>
 </tr>
 <tr>
-<td>Speed-up CPU → GPU (mismo modelo)</td>
+<td>Speedup EZKL CUDA vs CPU (mismo modelo)</td>
+<td>≥ 2×</td>
 <td>≥ 5×</td>
-<td>≥ 20×</td>
 </tr>
 <tr>
 <td>Accuracy clasificador</td>
@@ -2284,6 +2286,8 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <li>✅ Reward económico ajustado a la baja para reflejar el menor valor de privacidad (clase CLOUD/K8S &lt; EDGE).</li>
 </ul>
 <p><strong>Conclusión:</strong> lo que en propuestas previas era un fallback reactivo (&ldquo;si edge no aguanta, salimos por cloud&rdquo;) en VeriFire es un ciudadano de primera clase del protocolo. Eso convierte una limitación técnica en un aporte arquitectónico.</p>
+<h4 id="seguridad-sybil-resistance">Nota de seguridad — Sybil resistance</h4>
+<p>Un vector no cubierto por las mitigaciones A y B es el <strong>ataque Sybil</strong>: un operador registra muchos nodos legítimos (con proofs válidas) para drenar desproporcionadamente la treasury de rewards. El mecanismo de defensa actual es <code>authorizeWorker()</code>, que requiere aprobación explícita del owner del contrato para cada dirección de nodo; sin esa autorización, el contrato no emite reward. Este diseño permissioned es suficiente para el piloto pero no escala sin intervención manual. La introducción de stake obligatorio o reputación acumulada como barrera de entrada queda documentada como trabajo futuro.</p>
 <hr />
 <h2 id="10-recursos-involucrados-y-cronograma-de-trabajo">10. Recursos involucrados y cronograma de trabajo</h2>
 <h3 id="101-recursos-de-hardware">10.1 Recursos de hardware</h3>
@@ -2696,8 +2700,8 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tbody>
 <tr>
 <td>H1</td>
-<td>Speed-up GPU vs CPU (mismo modelo, runtime K8s) crece con el tamaño del modelo</td>
-<td>5×–30× para modelos 0.6M–13M params</td>
+<td>Speedup EZKL CUDA vs CPU en proof generation crece con el tamaño del modelo</td>
+<td>2×–8× para modelos ≤ 5 M params</td>
 <td>±50 % por modelo</td>
 </tr>
 <tr>
