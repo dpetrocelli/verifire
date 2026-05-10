@@ -556,7 +556,7 @@ img {
 <main class="layout">
   <aside class="toc-sidebar">
     <p class="toc-title">Contenidos</p>
-    <ul><li><a href="#1-qué-propone">1. Qué propone</a><ul></ul></li><li><a href="#2-por-qué-es-novedoso">2. Por qué es novedoso</a><ul></ul></li><li><a href="#3-aporte-distribuido-ficha-técnica">3. Aporte distribuido (ficha técnica)</a><ul></ul></li><li><a href="#4-cuatro-backends-un-contrato">4. Cuatro backends, un contrato</a><ul></ul></li><li><a href="#5-hipótesis-falsables-principales">5. Hipótesis falsables principales</a><ul></ul></li><li><a href="#6-cronograma-12-meses">6. Cronograma 12 meses</a><ul></ul></li><li><a href="#7-recursos-clave">7. Recursos clave</a><ul></ul></li><li><a href="#8-trabajo-previo-del-autor">8. Trabajo previo del autor</a><ul></ul></li><li><a href="#10-querés-más-detalle">9. ¿Querés más detalle?</a><ul></ul></li></ul>
+    <ul><li><a href="#1-qué-propone">1. Qué propone</a><ul></ul></li><li><a href="#2-por-qué-es-novedoso">2. Por qué es novedoso</a><ul></ul></li><li><a href="#3-aporte-distribuido-ficha-técnica">3. Aporte distribuido (ficha técnica)</a><ul></ul></li><li><a href="#4-tres-backends-un-contrato">4. Tres backends, un contrato</a><ul></ul></li><li><a href="#5-hipótesis-falsables-principales">5. Hipótesis falsables principales</a><ul></ul></li><li><a href="#6-cronograma-12-meses">6. Cronograma 12 meses</a><ul></ul></li><li><a href="#7-recursos-clave">7. Recursos clave</a><ul></ul></li><li><a href="#10-querés-más-detalle">9. ¿Querés más detalle?</a><ul></ul></li></ul>
   </aside>
 
   <article class="content">
@@ -586,7 +586,7 @@ img {
 </tr>
 <tr>
 <td><strong>Presupuesto</strong></td>
-<td>~$770–1.000 USD (cloud GCP free tier · K8s on-prem reutilizable)</td>
+<td>~$240–310 USD (RPis del laboratorio · K8s on-prem reutilizable)</td>
 </tr>
 <tr>
 <td><strong>Versión completa</strong></td>
@@ -779,23 +779,11 @@ img {
 <hr />
 <h2 id="7-recursos-clave">7. Recursos clave</h2>
 <ul>
-<li><strong>3 Raspberry Pi 4</strong> + cámaras (~$360 USD).</li>
+<li><strong>3 Raspberry Pi 4</strong> (acceso gratuito, laboratorio de Sistemas Embebidos) + cámaras (~$120 USD).</li>
 <li><strong>Cluster k3s on-prem</strong> sobre hardware reutilizado del laboratorio ($0).</li>
 <li><strong>Vast.ai GPU on-demand</strong> para experimentos GPU (~$30 USD).</li>
-<li><strong>Total: ~$770–1.000 USD</strong></li>
+<li><strong>Total: ~$240–310 USD</strong></li>
 </ul>
-<hr />
-<h2 id="8-trabajo-previo-del-autor">8. Trabajo previo del autor</h2>
-<p>Antes de presentar esta propuesta el autor cuenta con:</p>
-<ul>
-<li>PoC EZKL en RPi 4 funcional (CNN custom de 3 capas, INT8) generando y verificando proofs locales.</li>
-<li>Smart contract Solidity básico deployado en Base Sepolia, ya verificando una prueba real generada en RPi.</li>
-<li>Acceso institucional a hardware del laboratorio (RPi de Sistemas Embebidos, cluster k3s on-prem disponible).</li>
-</ul>
-<blockquote>
-<p><strong>Esto no es una propuesta especulativa:</strong> el camino crítico (proof EZKL → verifier on-chain en hardware edge real) ya está validado en versión mínima.</p>
-</blockquote>
-<hr />
 <hr />
 <h2 id="10-querés-más-detalle">10. ¿Querés más detalle?</h2>
 <table>
@@ -2135,7 +2123,7 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <tr>
 <td>Raspberry Pi 4B 4 GB</td>
 <td>3</td>
-<td>A adquirir (~$240 USD propios o beca)</td>
+<td>Acceso gratuito (laboratorio de Sistemas Embebidos)</td>
 </tr>
 <tr>
 <td>Raspberry Pi Camera Module v3</td>
