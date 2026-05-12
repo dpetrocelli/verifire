@@ -522,10 +522,13 @@ img {
         color: var(--brand-deep);
     }
     /* Hide non-active view */
-    .view-pane[data-view="summary"] { display: block; }
-    .view-pane[data-view="full"]    { display: none; }
-    body.view-full .view-pane[data-view="summary"] { display: none; }
-    body.view-full .view-pane[data-view="full"]    { display: block; }
+    .view-pane[data-view="summary"]  { display: block; }
+    .view-pane[data-view="full"]     { display: none; }
+    .view-pane[data-view="complete"] { display: none; }
+    body.view-full     .view-pane[data-view="summary"]  { display: none; }
+    body.view-full     .view-pane[data-view="full"]     { display: block; }
+    body.view-complete .view-pane[data-view="summary"]  { display: none; }
+    body.view-complete .view-pane[data-view="complete"] { display: block; }
 </style>
 
 <title>VeriFire — Propuesta de Tesis · Resumen + Completa</title>
@@ -546,7 +549,7 @@ img {
   <div class="course-bar">
     <span class="course">Tesis · Ing. en Computación · UNC</span>
     <span class="year">2026</span>
-    <div class="view-switcher" role="tablist" aria-label="Versión del documento"><button type="button" data-view="summary" class="active">Resumen</button><button type="button" data-view="full">Completa</button></div>
+    <div class="view-switcher" role="tablist" aria-label="Versión del documento"><button type="button" data-view="summary" class="active">Resumen</button><button type="button" data-view="full">Propuesta</button><button type="button" data-view="complete">Completo</button></div>
     <button class="dark-toggle" id="dark-toggle" aria-label="Alternar modo oscuro" title="Modo oscuro">🌙</button>
     <span class="instructor">Alex A. Hernando · Dir. Dr. David Petrocelli</span>
   </div>
@@ -2685,6 +2688,2303 @@ Flatten → Dense(32) → Dense(2) → Softmax
 </main>
 </div>
 
+
+<div class="view-pane" data-view="complete">
+<main class="layout">
+  <aside class="toc-sidebar">
+    <p class="toc-title">Contenidos</p>
+    <ul><li><a href="#1-título">1. Título</a><ul></ul></li><li><a href="#2-resumen">2. Resumen</a><ul></ul></li><li><a href="#3-área-temática">3. Área temática</a><ul><li><a href="#área-principal">Área principal</a></li><li><a href="#subáreas">Subáreas</a></li><li><a href="#clasificación-acm-ccs-2012">Clasificación ACM CCS 2012</a></li></ul></li><li><a href="#4-palabras-claves">4. Palabras claves</a><ul></ul></li><li><a href="#5-fundamentación-de-la-investigación">5. Fundamentación de la investigación</a><ul><li><a href="#51-interés-social-el-problema-de-los-incendios-en-córdoba">5.1 Interés social: el problema de los incendios en Córdoba</a></li><li><a href="#52-interés-científico-el-problema-de-la-confianza-en-redes-distribuidas-de-sensores">5.2 Interés científico: el problema de la confianza en redes distribuidas de sensores</a></li><li><a href="#53-interés-técnico-cómputo-heterogéneo-y-plataformas-depin">5.3 Interés técnico: cómputo heterogéneo y plataformas DePIN</a></li><li><a href="#54-interés-personal-y-formativo">5.4 Interés personal y formativo</a></li></ul></li><li><a href="#6-descripción-del-tema-de-estudio">6. Descripción del tema de estudio</a><ul><li><a href="#61-definición-del-tema">6.1 Definición del tema</a></li><li><a href="#62-distribución-porcentual-del-aporte">6.2 Distribución porcentual del aporte</a></li><li><a href="#63-límites-del-tema">6.3 Límites del tema</a></li><li><a href="#65-justificación-cuantitativa-de-la-red-piloto">6.5 Justificación cuantitativa de la red piloto</a></li><li><a href="#66-trabajo-previo-del-autor-evidencia-de-viabilidad">6.6 Trabajo previo del autor (evidencia de viabilidad)</a></li><li><a href="#67-deep-dive-del-aporte-dónde-está-la-novedad">6.7 Deep dive del aporte: dónde está la novedad</a></li></ul></li><li><a href="#7-planteamiento-del-problema-de-estudio-y-objetivos">7. Planteamiento del problema de estudio y objetivos</a><ul><li><a href="#71-pregunta-central-de-investigación">7.1 Pregunta central de investigación</a></li><li><a href="#72-preguntas-secundarias">7.2 Preguntas secundarias</a></li><li><a href="#73-objetivo-general">7.3 Objetivo general</a></li><li><a href="#74-objetivos-específicos">7.4 Objetivos específicos</a></li><li><a href="#75-justificación-del-problema">7.5 Justificación del problema</a></li></ul></li><li><a href="#8-trabajos-relacionados">8. Trabajos relacionados</a><ul><li><a href="#81-edge-ai-para-detección-de-incendios">8.1 Edge AI para detección de incendios</a></li><li><a href="#82-zkml-zero-knowledge-machine-learning">8.2 zkML: Zero-Knowledge Machine Learning</a></li><li><a href="#83-depin-redes-de-infraestructura-física-descentralizada">8.3 DePIN: Redes de infraestructura física descentralizada</a></li><li><a href="#84-kubernetes-operators-y-plataformas-multi-tenant-para-ai-workloads">8.4 Kubernetes operators y plataformas multi-tenant para AI workloads</a></li><li><a href="#85-cuadro-consolidado-de-proyectos-más-cercanos">8.5 Cuadro consolidado de proyectos más cercanos</a></li></ul></li><li><a href="#9-propuesta-metodológica">9. Propuesta metodológica</a><ul><li><a href="#91-enfoque-general">9.1 Enfoque general</a></li><li><a href="#92-arquitectura-técnica-de-la-solución">9.2 Arquitectura técnica de la solución</a></li><li><a href="#93-arquitectura-de-servicios-y-escalabilidad">9.3 Arquitectura de servicios y escalabilidad</a></li><li><a href="#94-stack-tecnológico">9.4 Stack tecnológico</a></li><li><a href="#95-diseño-experimental">9.5 Diseño experimental</a></li><li><a href="#96-modelos-a-evaluar">9.6 Modelos a evaluar</a></li><li><a href="#97-criterios-de-éxito">9.7 Criterios de éxito</a></li><li><a href="#98-alcance-mínimo-defendible">9.8 Alcance mínimo defendible</a></li><li><a href="#99-estrategias-de-mitigación-técnica">9.9 Estrategias de mitigación técnica</a></li></ul></li><li><a href="#10-recursos-involucrados-y-cronograma-de-trabajo">10. Recursos involucrados y cronograma de trabajo</a><ul><li><a href="#101-recursos-de-hardware">10.1 Recursos de hardware</a></li><li><a href="#102-recursos-de-cómputo-en-la-nube">10.2 Recursos de cómputo en la nube</a></li><li><a href="#103-recursos-de-software">10.3 Recursos de software</a></li><li><a href="#104-datasets">10.4 Datasets</a></li><li><a href="#105-recursos-humanos">10.5 Recursos humanos</a></li><li><a href="#106-presupuesto-consolidado">10.6 Presupuesto consolidado</a></li><li><a href="#107-cronograma-de-trabajo">10.7 Cronograma de trabajo</a></li><li><a href="#108-hitos-críticos">10.8 Hitos críticos</a></li><li><a href="#109-gestión-de-riesgos">10.9 Gestión de riesgos</a></li></ul></li><li><a href="#11-aportes-esperados">11. Aportes esperados</a><ul><li><a href="#111-aporte-académico">11.1 Aporte académico</a></li><li><a href="#112-aporte-técnico">11.2 Aporte técnico</a></li><li><a href="#113-aporte-social">11.3 Aporte social</a></li><li><a href="#114-aporte-económico-y-de-mercado">11.4 Aporte económico y de mercado</a></li><li><a href="#115-publicaciones-planeadas">11.5 Publicaciones planeadas</a></li><li><a href="#116-resultados-esperados-cuantitativos-hipótesis-falsables">11.6 Resultados esperados cuantitativos (hipótesis falsables)</a></li></ul></li><li><a href="#12-referencias-bibliográficas">12. Referencias bibliográficas</a><ul><li><a href="#zkml">zkML</a></li><li><a href="#edge-ai-fire-detection">Edge AI / Fire Detection</a></li><li><a href="#depin-y-blockchain-edge">DePIN y blockchain edge</a></li><li><a href="#kubernetes-y-plataformas-cloud-native">Kubernetes y plataformas cloud-native</a></li><li><a href="#contexto-local">Contexto local</a></li></ul></li><li><a href="#anexo-a-diseño-del-smart-contract-multi-class">Anexo A — Diseño del Smart Contract Multi-Class</a><ul></ul></li><li><a href="#anexo-b-preguntas-frecuentes-conceptuales">Anexo B — Preguntas frecuentes conceptuales</a><ul><li><a href="#b1-cómo-ayuda-esto-a-prevenir-incendios">B.1 ¿Cómo ayuda esto a prevenir incendios?</a></li><li><a href="#b2-una-persona-externa-puede-aportar-con-cámara-o-cómputo-y-si-muestra-un-incendio-falso">B.2 ¿Una persona externa puede aportar con cámara o cómputo? ¿Y si muestra un incendio falso?</a></li><li><a href="#b3-por-qué-se-necesitan-varias-raspberry-pi-y-no-una-sola">B.3 ¿Por qué se necesitan varias Raspberry Pi y no una sola?</a></li><li><a href="#b4-el-sistema-crea-un-token-propio-o-usa-uno-existente">B.4 ¿El sistema crea un token propio o usa uno existente?</a></li><li><a href="#b5-quién-pone-el-dinero-que-reciben-los-operadores">B.5 ¿Quién pone el dinero que reciben los operadores?</a></li><li><a href="#b6-esto-sirve-solo-para-sierras-de-córdoba-o-escala-como-saas">B.6 ¿Esto sirve solo para Sierras de Córdoba o escala como SaaS?</a></li><li><a href="#b7-por-qué-tres-backends-no-es-over-engineering">B.7 ¿Por qué tres backends? ¿No es over-engineering?</a></li><li><a href="#b8-las-imágenes-se-almacenan-en-la-blockchain">B.8 ¿Las imágenes se almacenan en la blockchain?</a></li><li><a href="#b9-para-qué-probar-la-integridad-del-cómputo-si-asumo-que-la-imagen-es-real">B.9 ¿Para qué probar la integridad del cómputo si asumo que la imagen es real?</a></li></ul></li><li><a href="#anexo-c-glosario-técnico">Anexo C — Glosario técnico</a><ul></ul></li><li><a href="#anexo-d-plan-de-difusión-open-source">Anexo D — Plan de difusión open-source</a><ul><li><a href="#d1-licenciamiento">D.1 Licenciamiento</a></li><li><a href="#d2-repositorio">D.2 Repositorio</a></li><li><a href="#d3-política-de-contribuciones">D.3 Política de contribuciones</a></li><li><a href="#d4-roadmap-post-tesis">D.4 Roadmap post-tesis</a></li><li><a href="#d5-sustentabilidad-académica">D.5 Sustentabilidad académica</a></li></ul></li></ul>
+  </aside>
+
+  <article class="content">
+    <h1>VeriFire — Propuesta de Tesis (v2)</h1>
+    <p class="doc-subtitle">Plataforma SaaS multi-backend (Edge / Cloud / Kubernetes) de inferencia verificable con zkML para redes DePIN de monitoreo ambiental — Alex Agustín Hernando, Dir. Dr. David Petrocelli</p>
+
+<p><strong>Universidad Nacional de Córdoba · FCEFyN · Ingeniería en Computación · Mayo 2026</strong></p>
+<p><strong>Título tentativo:</strong> <em>VeriFire: Plataforma SaaS multi-backend de inferencia verificable (Edge / Cloud / Kubernetes) para redes DePIN de monitoreo ambiental</em></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autor</strong></td>
+<td>Alex Agustín Hernando</td>
+</tr>
+<tr>
+<td><strong>Director</strong></td>
+<td>Dr. David Petrocelli — LICDIA UNLu / Caylent USA</td>
+</tr>
+<tr>
+<td><strong>Codirector (edge / embedded)</strong></td>
+<td>Cátedra de Sistemas Embebidos — FCEFyN UNC</td>
+</tr>
+<tr>
+<td><strong>Codirector (cloud-native / sistemas distribuidos)</strong></td>
+<td>Cátedra de Sistemas Distribuidos / Cloud Computing — FCEFyN UNC</td>
+</tr>
+<tr>
+<td><strong>Espacio curricular</strong></td>
+<td>Trabajo Final / Tesis de grado</td>
+</tr>
+<tr>
+<td><strong>Fecha</strong></td>
+<td>Mayo 2026</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-título">1. Título</h2>
+<p><em>VeriFire: Plataforma SaaS multi-backend de inferencia verificable con zkML para redes DePIN de monitoreo ambiental, con caso de uso ancla en detección temprana de incendios en las Sierras de Córdoba.</em></p>
+<hr />
+<h2 id="2-resumen">2. Resumen</h2>
+<p>Esta tesis propone el diseño, implementación y evaluación de <strong>VeriFire</strong>, una plataforma Software-as-a-Service multi-tenant que combina inferencia de machine learning verificable con pruebas zkML (Zero-Knowledge Machine Learning) para habilitar redes DePIN (Decentralized Physical Infrastructure Networks). En estas redes cada operador puede demostrar criptográficamente que ejecutó correctamente una inferencia sobre datos reales —sin revelar el dato crudo—, la prueba se verifica en cadena y activa un reward económico diferenciado por clase de nodo.</p>
+<p>El aporte central es una <strong>arquitectura desacoplada</strong> entre dónde se ejecuta el cómputo (edge IoT, cloud VM, cluster Kubernetes) y cómo se verifica (un único contrato on-chain agnóstico al backend). Un mismo protocolo de input-binding criptográfico admite tres clases de &ldquo;Compute Backend&rdquo; con distintos trade-offs de privacidad, costo y escalabilidad, todas verificadas uniformemente en una red EVM (Base L2). Esta arquitectura habilita escalar a múltiples regiones y tenants como SaaS, y a operadores de cómputo heterogéneos (desde Raspberry Pi de un hobbyista hasta clusters K8s corporativos).</p>
+<p>El <strong>caso de uso ancla</strong> es la detección temprana de incendios en las Sierras de Córdoba mediante una red de cámaras de bajo costo, problema socialmente relevante (~70.000 hectáreas quemadas en 2024). El <strong>aporte académico</strong>, sin embargo, no es el sistema de detección sino la dupla protocolo + plataforma transferible a cualquier DePIN de sensing.</p>
+<p>La metodología incluye benchmark experimental cross-platform (ARM edge vs x86 cloud GCP vs pod K8s) del trade-off accuracy / latencia / RAM / costo de gas; implementación end-to-end (firmware, operador K8s, control plane SaaS, smart contracts) en una red piloto multi-backend; análisis de seguridad del mecanismo y modelado económico del reward por clase. Los aportes esperados se publican como tres papers complementarios: workshop sobre zkML cross-platform, paper de plataforma cloud-native, y paper completo de la red DePIN.</p>
+<hr />
+<h2 id="3-área-temática">3. Área temática</h2>
+<h3 id="área-principal">Área principal</h3>
+<ul>
+<li><strong>Blockchain y aplicaciones descentralizadas (DApps).</strong></li>
+</ul>
+<h3 id="subáreas">Subáreas</h3>
+<ul>
+<li><strong>DePIN</strong> — Decentralized Physical Infrastructure Networks.</li>
+<li><strong>Inferencia verificable on-chain (zkML)</strong> — Zero-Knowledge Machine Learning aplicado a redes con incentivo económico.</li>
+<li><strong>Smart contracts y tokenomics</strong> — Solidity, Foundry, EVM, mecanismos de reward multi-clase.</li>
+<li><strong>Arquitecturas cloud-native (Kubernetes) y plataformas SaaS multi-tenant para AI</strong> — operadores K8s, model serving, auto-scaling, multi-tenancy.</li>
+<li><strong>Edge AI / IoT</strong> — TinyML cuantizado, firmware en hardware resource-constrained.</li>
+<li><strong>Criptografía aplicada</strong> — Zero-Knowledge Proofs, SNARKs, protocolos de input-binding.</li>
+</ul>
+<h3 id="clasificación-acm-ccs-2012">Clasificación ACM CCS 2012</h3>
+<ul>
+<li>Security and privacy → Cryptography → Distributed systems security</li>
+<li>Security and privacy → Cryptography → Public key (asymmetric) techniques → Digital signatures</li>
+<li>Theory of computation → Cryptographic protocols → Interactive proof systems</li>
+<li>Computer systems organization → Distributed architectures</li>
+<li>Computing methodologies → Machine learning approaches</li>
+</ul>
+<hr />
+<h2 id="4-palabras-claves">4. Palabras claves</h2>
+<p>zkML, DePIN, Kubernetes, edge AI, blockchain.</p>
+<hr />
+<h2 id="5-fundamentación-de-la-investigación">5. Fundamentación de la investigación</h2>
+<h3 id="51-interés-social-el-problema-de-los-incendios-en-córdoba">5.1 Interés social: el problema de los incendios en Córdoba</h3>
+<p>Las sierras de Córdoba concentran uno de los problemas ambientales más graves de la Argentina central:</p>
+<ul>
+<li><strong>2024:</strong> ~70.000 hectáreas de bosque nativo quemadas — más del triple de la superficie de CABA. El incendio en la zona de Capilla del Monte / San Marcos Sierras alcanzó 42.046 ha en un solo evento.</li>
+<li><strong>2025:</strong> mejora significativa (~21.000 ha afectadas, 80 % menos que 2024), atribuida a detección más temprana y coordinación mejorada del ETAC.</li>
+<li>La detección temprana es el factor diferencial crítico: un incendio detectado en sus primeros 5 minutos puede controlarse con recursos mínimos; uno detectado tarde requiere decenas de dotaciones y aviones hidrantes.</li>
+</ul>
+<p>Los sistemas actuales de detección presentan limitaciones: la detección satelital (NASA FIRMS, Copernicus, Satellites on Fire) tiene latencia de 35–60 minutos; las cámaras 360° fijas en torres ETAC tienen cobertura limitada y costo alto; los drones requieren operador y no son autónomos 24/7. <strong>No existe en Córdoba una red de sensores de bajo costo, densa, que opere 24/7 con latencia de minutos y que sea privacy-preserving.</strong></p>
+<h3 id="52-interés-científico-el-problema-de-la-confianza-en-redes-distribuidas-de-sensores">5.2 Interés científico: el problema de la confianza en redes distribuidas de sensores</h3>
+<p>Una red de sensores distribuida con incentivos económicos requiere resolver un problema fundamental: <strong>¿cómo saber que el nodo realmente ejecutó el modelo sobre datos reales y no simplemente mintió el resultado para cobrar el reward?</strong></p>
+<p>Las soluciones existentes —oráculos centralizados, multi-witness al estilo Helium, TEEs (Intel SGX / ARM TrustZone)— tienen limitaciones de privacidad, requerimiento de hardware específico, o vulnerabilidades documentadas. <strong>zkML es la única solución que preserva privacidad y provee verificabilidad sin terceros</strong>, pero hasta 2025–2026 no existe ninguna implementación evaluada en hardware edge IoT resource-constrained ni una plataforma que orqueste pruebas zkML a escala con compute heterogéneo (edge + cloud + K8s).</p>
+<h3 id="53-interés-técnico-cómputo-heterogéneo-y-plataformas-depin">5.3 Interés técnico: cómputo heterogéneo y plataformas DePIN</h3>
+<p>La mayoría de los DePINs actuales asumen una clase única de hardware (Helium = hotspots; Filecoin = storage nodes; Hivemapper = dashcams). Esto los hace rígidos: no pueden absorber operadores con GPUs ociosas, no escalan a modelos grandes, y no resisten picos de carga. Una arquitectura <strong>multi-backend con compute pluggable</strong>, validada experimentalmente, sería un patrón de diseño reutilizable para la próxima generación de DePINs.</p>
+<h3 id="54-interés-personal-y-formativo">5.4 Interés personal y formativo</h3>
+<p>La tesis articula los cuatro ejes técnicos del autor: blockchain (smart contracts, tokenomics), arquitectura cloud-native (Kubernetes operators, SaaS multi-tenant), AI escalable (model serving, GPU pipelines) y criptografía aplicada (zkML). Es un trabajo de tesis con riesgo técnico medio-alto pero alto potencial de impacto académico (publicaciones tier A) y social (transferencia al ETAC / Defensa Civil CBA).</p>
+<hr />
+<h2 id="6-descripción-del-tema-de-estudio">6. Descripción del tema de estudio</h2>
+<h3 id="61-definición-del-tema">6.1 Definición del tema</h3>
+<p>El tema central es el <strong>diseño y validación experimental de protocolos y plataformas de inferencia verificable on-chain con cómputo heterogéneo, aplicados a redes DePIN de sensing ambiental</strong>. Se ubica en la intersección de cuatro áreas:</p>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Aporte específico al tema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blockchain</td>
+<td>Smart contracts verificadores multi-clase, tokenomics, replay protection, capability attestation</td>
+</tr>
+<tr>
+<td>AI · Arquitectura escalable cloud-native + Plataforma SaaS</td>
+<td>Operadores K8s, model serving, auto-scaling con KEDA/HPA, GPU pipelines, multi-tenant isolation, observabilidad; control plane multi-tenant, abstracción de Compute Backend, routing de jobs, SLOs por tenant</td>
+</tr>
+<tr>
+<td>Edge AI / IoT</td>
+<td>TinyML cuantizado, firmware RPi, light client</td>
+</tr>
+<tr>
+<td>zkML / criptografía</td>
+<td>Circuitos SNARK (EZKL/Halo2), input-binding, doble firma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-distribución-porcentual-del-aporte">6.2 Distribución porcentual del aporte</h3>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>%</th>
+<th>Descripción del aporte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blockchain</td>
+<td>25 %</td>
+<td>Smart contract verificador multi-backend (Solidity + Foundry + Base L2); reward ERC-20 con diferenciación por clase de nodo; contrato EZKL Verifier auto-generado; protocolo on-chain (replay protection, node-class binding, event emission).</td>
+</tr>
+<tr>
+<td>AI · Arquitectura Escalable Cloud-Native + Plataforma SaaS</td>
+<td>45 %</td>
+<td><strong>Capa K8s / cloud-native:</strong> operador para Proof Workers + serving de modelos (CRDs <code>InferenceJob</code> y <code>ModelServing</code>); Helm chart; auto-scaling horizontal con KEDA / HPA y métricas custom; multi-tenant isolation por namespace; model registry y versionado on-chain del modelo; observabilidad (Prometheus + Grafana + OpenTelemetry); pipelines GPU-aware. <strong>Capa SaaS / sistemas distribuidos:</strong> control plane multi-tenant (REST API + dashboard); registro y onboarding de nodos heterogéneos; abstracción &ldquo;Compute Backend&rdquo; detrás de interfaz uniforme; routing de jobs según capacidad, latencia y costo; SLOs por tenant.</td>
+</tr>
+<tr>
+<td>Edge AI / IoT</td>
+<td>15 %</td>
+<td>TinyML (MobileNetV3 / EfficientNet-Lite cuantizados INT8); firmware RPi 4 (captura → inferencia → proof → submit); métricas accuracy / F1 / AUC-ROC; light client.</td>
+</tr>
+<tr>
+<td>zkML / Criptografía</td>
+<td>15 %</td>
+<td>Circuito SNARK de inferencia via EZKL (Halo2); protocolo de input-signing (hash binding entrada → proof) independiente del backend de cómputo; benchmark cross-platform (ARM vs x86 vs GPU); análisis del threat model criptográfico.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-límites-del-tema">6.3 Límites del tema</h3>
+<p><strong>Está incluido en el alcance:</strong>
+- Diseño formal del protocolo VeriFire (input-binding, doble firma, contrato multi-clase).
+- Implementación de referencia open-source: light client edge, cloud worker, operador K8s, control plane SaaS, smart contracts.
+- Benchmark experimental en al menos dos backends de cómputo (edge + uno más).
+- Red piloto multi-backend operacional con dos tenants ficticios.
+- Análisis de seguridad del mecanismo y modelado económico.
+- Caso de uso ancla: clasificación binaria humo / no-humo.</p>
+<p><strong>Queda fuera del alcance:</strong>
+- Despliegue a producción a escala provincial (es trabajo futuro).
+- Análisis legal/regulatorio del token. <strong>Aclaración explícita:</strong> el <code>VeriFireToken</code> es un ERC-20 de <strong>testnet (Base Sepolia)</strong>, sin valor económico, sin distribución pública, sin oferta a terceros. La tesis no genera ningún instrumento financiero regulable bajo MICA, SEC ni la CNV argentina; el token es un constructo de laboratorio análogo a una &ldquo;red privada&rdquo; en una tesis de redes.
+- Hardware custom: la tesis usa RPi 4 estándar como representante del edge, no diseña placas propias.
+- Modelos generativos o LLMs de visión: el trabajo se enfoca en clasificadores binarios cuantizados.
+- Multi-cadena: el contrato corre solo en Base (EVM); portar a Solana/Polkadot es trabajo futuro.
+- Política de upgrade en producción del modelo y del verifier: se documenta en la tesis (qué pasa cuando se reentrena el modelo y cambia el <code>IEZKLVerifier</code>, qué grace period existe, cómo se invalidan los proofs viejos), pero no se ejercita en operación real porque el modelo no se reentrena durante el piloto.</p>
+<h3 id="65-justificación-cuantitativa-de-la-red-piloto">6.5 Justificación cuantitativa de la red piloto</h3>
+<p>La elección de <strong>3 nodos edge + 1 cloud worker + 1 cluster K8s mínimo</strong> no es arbitraria: es el mínimo capaz de validar las propiedades centrales del sistema sin sobre-dimensionar.</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad a validar</th>
+<th>Por qué 3 RPi alcanzan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tolerancia a fallos del data plane</strong></td>
+<td>Con 3 nodos podemos simular caída del 33 % (1 nodo offline) y verificar que el control plane y los otros 2 siguen operativos sin degradación visible.</td>
+</tr>
+<tr>
+<td><strong>Multi-witness mínimo para alertas</strong></td>
+<td>3 cámaras geo-distribuidas en el campus permiten implementar el quórum básico &ldquo;≥ 2 nodos coinciden en humo&rdquo; para descartar input-fraud (un solo nodo gritando &ldquo;fuego&rdquo;).</td>
+</tr>
+<tr>
+<td><strong>Heterogeneidad operacional</strong></td>
+<td>Cada RPi puede correr una clase distinta del clasificador (custom CNN, MobileNetV3-Tiny, MobileNetV3-Small) para validar que el routing y la verificación toleran heterogeneidad de modelo dentro del mismo tenant.</td>
+</tr>
+<tr>
+<td><strong>Routing entre clases de backend</strong></td>
+<td>Con 3 capture nodes + cloud + K8s, el Job Router enfrenta el caso real &ldquo;cuándo conviene enviar a cloud vs procesar local&rdquo;: eso solo se puede observar con ≥ 3 nodos pidiendo cómputo simultáneo.</td>
+</tr>
+<tr>
+<td><strong>Aislamiento multi-tenant</strong></td>
+<td>2 tenants × 3 nodos = 6 endpoints diferentes contra el mismo control plane, suficiente para validar RLS en Postgres y namespace isolation en K8s.</td>
+</tr>
+</tbody>
+</table>
+<p>Escalar a 5 o 10 nodos no agrega <em>propiedades</em> nuevas que validar — solo agrega más datos a las mismas mediciones. Por eso la red piloto se acota a 3 RPi y el resto se documenta como trabajo futuro.</p>
+<h3 id="66-trabajo-previo-del-autor-evidencia-de-viabilidad">6.6 Trabajo previo del autor (evidencia de viabilidad)</h3>
+<p>Antes de presentar esta propuesta, el autor cuenta con los siguientes assets que reducen el riesgo técnico:</p>
+<ul>
+<li><strong>PoC EZKL en RPi 4</strong> funcional (modelo CNN custom de 3 capas, INT8) que genera y verifica proofs localmente — demuestra que el toolchain ARM+EZKL es operativo en el hardware target.</li>
+<li><strong>Smart contract Solidity</strong> básico (Verifier auto-generado por EZKL + reward simple) deployado en Base Sepolia, ya verificando una prueba real generada en RPi.</li>
+<li><strong>Familiaridad con Kubernetes y operadores</strong> vía cursado de la diplomatura LICDIA y experiencia previa con Helm/k3s.</li>
+<li><strong>Acceso institucional</strong> a hardware de laboratorio (RPi de cátedra de Sistemas Embebidos, cluster k3s on-prem disponible en FCEFyN).</li>
+</ul>
+<blockquote>
+<p>Esta no es una propuesta especulativa: el camino crítico (proof EZKL → verifier on-chain en hardware edge real) ya está validado en versión mínima. El trabajo de tesis consiste en <strong>escalar y completar</strong> esa base con multi-backend, multi-tenant SaaS, operador K8s, y benchmark sistemático.</p>
+</blockquote>
+<h3 id="67-deep-dive-del-aporte-dónde-está-la-novedad">6.7 Deep dive del aporte: dónde está la novedad</h3>
+<p>Cada uno de los cinco campos involucrados (Blockchain, AI/Cloud-native, SaaS, Edge AI/IoT, zkML) tiene literatura madura por separado. La novedad de esta tesis <strong>no está dentro de ningún campo individual</strong> sino en la <strong>intersección de los cinco</strong>, donde no hay implementación académica publicada.</p>
+<h4 id="diagrama-de-intersecciones-venn-de-cinco-campos">Diagrama de intersecciones (Venn de cinco campos)</h4>
+<svg viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de Venn de cinco campos: Blockchain, zkML, AI Cloud-native, Plataforma SaaS, Edge AI. La intersección central es el aporte de la tesis." style="width:100%;max-width:720px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;">
+  <defs>
+    <radialGradient id="gBlockchain" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7E3FBF" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#7E3FBF" stop-opacity="0.18"/>
+    </radialGradient>
+    <radialGradient id="gZkml" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3182CE" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#3182CE" stop-opacity="0.18"/>
+    </radialGradient>
+    <radialGradient id="gAi" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38A169" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#38A169" stop-opacity="0.18"/>
+    </radialGradient>
+    <radialGradient id="gSaas" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#DD6B20" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#DD6B20" stop-opacity="0.18"/>
+    </radialGradient>
+    <radialGradient id="gEdge" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E53E3E" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#E53E3E" stop-opacity="0.18"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Five overlapping circles arranged in a pentagon -->
+  <circle cx="360" cy="160" r="170" fill="url(#gBlockchain)" stroke="#7E3FBF" stroke-width="2"/>
+  <circle cx="210" cy="260" r="170" fill="url(#gZkml)" stroke="#3182CE" stroke-width="2"/>
+  <circle cx="510" cy="260" r="170" fill="url(#gAi)" stroke="#38A169" stroke-width="2"/>
+  <circle cx="270" cy="420" r="170" fill="url(#gSaas)" stroke="#DD6B20" stroke-width="2"/>
+  <circle cx="450" cy="420" r="170" fill="url(#gEdge)" stroke="#E53E3E" stroke-width="2"/>
+
+  <!-- Labels for each field -->
+  <g font-family="'Inter', sans-serif" font-weight="700" font-size="15" text-anchor="middle">
+    <text x="360" y="55" fill="#2E0F58">BLOCKCHAIN</text>
+    <text x="360" y="72" fill="#2E0F58" font-size="11" font-weight="400">smart contracts · DePIN · tokenomics</text>
+
+    <text x="100" y="220" fill="#1E3A5F">zkML / CRIPTO</text>
+    <text x="100" y="237" fill="#1E3A5F" font-size="11" font-weight="400">EZKL · Halo2 · SNARKs</text>
+
+    <text x="620" y="220" fill="#1E3A5F">AI · CLOUD-NATIVE</text>
+    <text x="620" y="237" fill="#1E3A5F" font-size="11" font-weight="400">K8s · KEDA · GPU pipelines</text>
+
+    <text x="160" y="510" fill="#1E3A5F">PLATAFORMA SaaS</text>
+    <text x="160" y="527" fill="#1E3A5F" font-size="11" font-weight="400">multi-tenant · control plane</text>
+
+    <text x="560" y="510" fill="#1E3A5F">EDGE AI / IoT</text>
+    <text x="560" y="527" fill="#1E3A5F" font-size="11" font-weight="400">RPi · TinyML · sensores físicos</text>
+  </g>
+
+  <!-- Center: the intersection -->
+  <circle cx="360" cy="300" r="44" fill="#FFFFFF" stroke="#2E0F58" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <text x="360" y="295" text-anchor="middle" font-family="'Inter', sans-serif" font-size="22" fill="#2E0F58" font-weight="700">★</text>
+  <text x="360" y="316" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#2E0F58" font-weight="700">APORTE</text>
+  <text x="360" y="328" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#2E0F58">tesis</text>
+</svg>
+<blockquote>
+<p><strong>Lectura del diagrama:</strong> cada bolita es un campo con literatura propia y madura. La estrella ★ central marca el espacio de los <strong>cinco</strong> simultáneamente — donde no hay implementación académica publicada y donde se ubica el aporte de esta tesis.</p>
+</blockquote>
+<h4 id="lo-que-ya-existe-y-no-es-el-aporte">Lo que ya existe (y <em>no</em> es el aporte)</h4>
+<table>
+<thead>
+<tr>
+<th>Intersección</th>
+<th>Quién la ocupa</th>
+<th>Por qué no alcanza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blockchain ∩ zkML</td>
+<td>Inference Labs (Bittensor), zkVerify, Modulus Labs</td>
+<td>Datacenter only, no edge, no multi-backend, no SaaS multi-tenant</td>
+</tr>
+<tr>
+<td>Blockchain ∩ DePIN ∩ IoT</td>
+<td>Helium, Hivemapper, Geodnet</td>
+<td>Sin verificabilidad criptográfica del cómputo (multi-witness ≠ zkML)</td>
+</tr>
+<tr>
+<td>AI ∩ Cloud-native ∩ K8s</td>
+<td>KServe, Kubeflow, Ray Operator</td>
+<td>No hay integración con verificación on-chain ni proof generation pipelines</td>
+</tr>
+<tr>
+<td>Edge AI ∩ IoT ∩ TinyML</td>
+<td>ForestGuard, MobileNetV2 fire detection</td>
+<td>Sin blockchain, sin verificabilidad, sin compute heterogéneo</td>
+</tr>
+<tr>
+<td>zkML ∩ Edge</td>
+<td>(literatura agnóstica)</td>
+<td>Surveys identifican explícitamente la ausencia de evaluaciones edge IoT resource-constrained</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lo-que-esta-tesis-ocupa-por-primera-vez">Lo que esta tesis ocupa por primera vez</h4>
+<p>La intersección <strong>★ donde se cruzan los cinco campos</strong>, materializada en cinco contribuciones (C1–C5) que se detallan en §11.1:</p>
+<ol>
+<li><strong>Protocolo zkML multi-backend</strong> con doble firma (Blockchain ∩ zkML ∩ Cloud-native).</li>
+<li><strong>Benchmark cross-platform</strong> en cuatro clases de hardware (zkML ∩ Edge ∩ Cloud-native ∩ AI).</li>
+<li><strong>Plataforma SaaS de referencia</strong> open-source (Cloud-native ∩ SaaS ∩ Blockchain ∩ Edge).</li>
+<li><strong>Metodología de circuitos zkML &ldquo;backend-aware&rdquo;</strong> (zkML ∩ AI ∩ Edge).</li>
+<li><strong>Patrón arquitectónico DePIN heterogéneo</strong> (Blockchain ∩ Cloud-native ∩ SaaS).</li>
+</ol>
+<h4 id="por-qué-esta-intersección-es-difícil-y-por-qué-nadie-la-ocupó-todavía">Por qué esta intersección es difícil (y por qué nadie la ocupó todavía)</h4>
+<ul>
+<li><strong>Cross-disciplinar:</strong> requiere dominar cinco campos que normalmente viven en silos académicos distintos (criptografía, sistemas distribuidos, ML embebido, blockchain, cloud-native).</li>
+<li><strong>Hardware-in-the-loop:</strong> la mayoría de los papers de zkML no tocan hardware real; los que lo hacen no abordan multi-backend.</li>
+<li><strong>Costo experimental:</strong> correr 4 backends × 6 modelos × 30 réplicas + red piloto operacional 2–3 meses requiere una inversión coordinada que rara vez se justifica para un solo paper.</li>
+<li><strong>Caso de uso anclado en realidad:</strong> muchas propuestas teóricas no se molestan en validar contra un dominio social concreto (incendios CBA), lo cual deja la novedad sin &ldquo;pegada&rdquo; práctica.</li>
+</ul>
+<h4 id="riesgo-controlado-del-aporte">Riesgo controlado del aporte</h4>
+<p>Si por motivos técnicos no se logra la versión completa, el aporte se preserva con dos backends (alcance mínimo defendible §9.8) — sigue siendo la primera intersección publicada de los campos. La granularidad del benchmark se reduce, pero la categoría de aporte sobrevive.</p>
+<hr />
+<h2 id="7-planteamiento-del-problema-de-estudio-y-objetivos">7. Planteamiento del problema de estudio y objetivos</h2>
+<h3 id="71-pregunta-central-de-investigación">7.1 Pregunta central de investigación</h3>
+<blockquote>
+<p>¿Es viable diseñar un protocolo y plataforma SaaS multi-tenant de inferencia verificable on-chain (Proof-of-Inference) que admita backends de cómputo heterogéneos (edge ARM resource-constrained, cloud x86 VM, Kubernetes), preservando privacidad y verificabilidad uniformes; y cuál es el trade-off cuantificable entre accuracy del modelo, latencia de generación del proof, consumo de recursos y costo on-chain en cada clase de backend?</p>
+</blockquote>
+<h3 id="72-preguntas-secundarias">7.2 Preguntas secundarias</h3>
+<ul>
+<li><strong>Q1 — Edge:</strong> ¿Qué arquitecturas de modelo TinyML son proving-friendly en EZKL sobre ARM Cortex-A72?</li>
+<li><strong>Q2 — Cross-platform:</strong> ¿Cómo escala el proof time entre ARM edge, x86 cloud VM y pod K8s para el mismo modelo y dataset? ¿Hay un knee-point donde edge deja de ser viable?</li>
+<li><strong>Q3 — Plataforma:</strong> ¿La abstracción &ldquo;Compute Backend&rdquo; introduce overhead significativo (control plane latency, queueing, encryption del witness) respecto a una solución específica por backend?</li>
+<li><strong>Q4 — Privacidad:</strong> ¿El binding criptográfico extendido (input-sig + worker-sig) es suficiente para el threat model de un DePIN multi-backend, o el modo cloud/K8s requiere capas adicionales (TEE, MPC)?</li>
+<li><strong>Q5 — Tokenomics:</strong> ¿Qué rango de precios del token y diferenciación de reward por clase son necesarios para que cada backend tenga incentivo positivo dado su costo operacional real?</li>
+<li><strong>Q6 — Operacional K8s:</strong> ¿Cuánto auto-scaling consigue el operador VeriFire frente a picos de eventos? ¿Qué métricas operan bien como leading indicator del scaling?</li>
+</ul>
+<h3 id="73-objetivo-general">7.3 Objetivo general</h3>
+<p>Diseñar, implementar y evaluar empíricamente una plataforma SaaS multi-tenant de inferencia verificable on-chain con backends de cómputo heterogéneos, validando un caso de uso real de detección temprana de incendios en las Sierras de Córdoba, y produciendo una metodología y un patrón arquitectónico transferibles a otras redes DePIN de sensing ambiental.</p>
+<h3 id="74-objetivos-específicos">7.4 Objetivos específicos</h3>
+<ol>
+<li><strong>OE1</strong> — Formalizar el protocolo VeriFire multi-backend (input-binding, doble firma, contrato multi-clase) y su threat model.</li>
+<li><strong>OE2</strong> — Realizar el primer benchmark cross-platform (ARM edge / x86 cloud / Kubernetes) de proof generation con EZKL para clasificadores binarios cuantizados.</li>
+<li><strong>OE3</strong> — Implementar la plataforma de referencia open-source: light client edge, cloud worker, operador Kubernetes (CRDs + Helm chart), control plane SaaS multi-tenant, smart contracts.</li>
+<li><strong>OE4</strong> — Desplegar y operar una red piloto multi-backend (3 RPi + cloud worker GCP + cluster K8s mínimo) durante 2–3 meses con dos tenants ficticios.</li>
+<li><strong>OE5</strong> — Analizar la seguridad del mecanismo (Sybil, replay, worker malicioso) y modelar las condiciones económicas para que cada clase de backend tenga incentivo positivo.</li>
+<li><strong>OE6</strong> — Producir tres publicaciones académicas: workshop zkML cross-platform, paper de plataforma cloud-native, paper completo de red DePIN.</li>
+</ol>
+<h3 id="75-justificación-del-problema">7.5 Justificación del problema</h3>
+<ul>
+<li><strong>¿Qué se va a investigar?</strong> Cómo construir y evaluar una plataforma de inferencia verificable on-chain que admita cómputo heterogéneo manteniendo verificabilidad y privacidad.</li>
+<li><strong>¿Por qué?</strong> Porque ningún DePIN actual resuelve simultáneamente verificabilidad criptográfica + cómputo pluggable + multi-tenancy SaaS, y ese gap impide que las redes de sensing escalen.</li>
+<li><strong>¿Para qué?</strong> Para producir un patrón de diseño reutilizable y un benchmark empírico que sirva de referencia a futuras redes DePIN, y para validar el modelo en un caso socialmente relevante.</li>
+<li><strong>¿A quiénes va dirigida la solución?</strong> A operadores de redes DePIN (técnico), a la comunidad académica (zkML, sistemas distribuidos), y a organismos como ETAC / Defensa Civil CBA (impacto social).</li>
+</ul>
+<hr />
+<h2 id="8-trabajos-relacionados">8. Trabajos relacionados</h2>
+<p>Esta sección hace un <em>deep dive</em> en los cinco campos relevantes. Para cada trabajo: ficha técnica concreta (año, hardware, métricas), qué <em>sí</em> resuelve y, sobre todo, <strong>qué gap deja abierto</strong> respecto a la propuesta de esta tesis.</p>
+<h3 id="81-edge-ai-para-detección-de-incendios">8.1 Edge AI para detección de incendios</h3>
+<p>La literatura de detección de incendios en edge es <strong>madura pero no verificable</strong>. Los sistemas existentes optimizan accuracy y latencia de inferencia local, pero asumen que el operador del nodo es honesto.</p>
+<table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Año</th>
+<th>Hardware</th>
+<th>Modelo</th>
+<th>Accuracy</th>
+<th>Latencia</th>
+<th>Verificable on-chain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edge MobileNetV2 (PMC 2025)</td>
+<td>2025</td>
+<td>RPi 5</td>
+<td>MobileNetV2 cuantizado</td>
+<td>97.98 %</td>
+<td>0.77 s</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>ForestGuard (IJSRA 2025)</td>
+<td>2025</td>
+<td>RPi 4B + cámara</td>
+<td>Fusión acústico-óptica</td>
+<td>~93 %</td>
+<td>tiempo real</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>YOLOv8 + BM688</td>
+<td>2024</td>
+<td>RPi 4</td>
+<td>YOLOv8 nano</td>
+<td>~95 %</td>
+<td>1–2 s</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>ForestProtector (arXiv 2501.09926)</td>
+<td>2025</td>
+<td>Jetson Nano + RPi</td>
+<td>RL + CNN</td>
+<td>Alta</td>
+<td>variable</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>TinyML Real-Time Bench (arXiv 2509.04721)</td>
+<td>2025</td>
+<td>múltiples MCUs</td>
+<td>varios</td>
+<td>n/a</td>
+<td>3.47–14.98 ms/frame</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lo que estos sistemas resuelven:</strong></p>
+<ul>
+<li>Detección rápida y precisa en hardware barato (RPi 4 / Jetson Nano).</li>
+<li>Footprint del modelo de 286–536 KB post-cuantización INT8, lo cual hace viable el despliegue masivo.</li>
+<li>Operación 24/7 con latencia sub-segundo de inferencia.</li>
+</ul>
+<p><strong>Lo que dejan abierto (gap específico):</strong></p>
+<ul>
+<li><strong>Sin verificabilidad criptográfica del cómputo:</strong> un nodo malicioso puede hardcodear <code>resultado = 1</code> durante una ola de calor para cobrar reward, o nunca correr el modelo y devolver ruido — y nadie puede detectarlo.</li>
+<li><strong>Sin integración blockchain:</strong> las alertas viven en un servidor central; no hay incentivo económico distribuido.</li>
+<li><strong>Sin compute heterogéneo:</strong> asumen una clase única de hardware. Si el modelo crece (de MobileNet a EfficientNet-Lite4), el sistema simplemente no funciona — no tiene fallback a cloud o cluster.</li>
+</ul>
+<p>VeriFire suma exactamente esas tres dimensiones (verificabilidad ZK, blockchain con reward por clase, multi-backend) sobre el mismo problema base.</p>
+<h3 id="82-zkml-zero-knowledge-machine-learning">8.2 zkML: Zero-Knowledge Machine Learning</h3>
+<p>Frameworks principales en 2025–2026:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Backend ZK</th>
+<th>Velocidad relativa</th>
+<th>RAM típica</th>
+<th>Edge-friendly</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EZKL</strong></td>
+<td>Halo2 (Plonkish)</td>
+<td>Baseline</td>
+<td>Media (1–8 GB)</td>
+<td>Sí (con modelos chicos)</td>
+<td>Producción, MIT</td>
+</tr>
+<tr>
+<td>zkPyTorch</td>
+<td>Custom (Marzo 2025)</td>
+<td>VGG-16 en 2.2 s</td>
+<td>Alta (32+ GB)</td>
+<td>No</td>
+<td>Research</td>
+</tr>
+<tr>
+<td>Lagrange DeepProve-1</td>
+<td>Custom (Agosto 2025)</td>
+<td>LLM completo (GPT-2)</td>
+<td>Muy alta (128+ GB)</td>
+<td>No</td>
+<td>Producción datacenter</td>
+</tr>
+<tr>
+<td>RISC Zero zkVM</td>
+<td>RISC-V</td>
+<td>65.88× más lento que EZKL</td>
+<td>Muy alta</td>
+<td>No</td>
+<td>Producción</td>
+</tr>
+<tr>
+<td>Circom + Groth16</td>
+<td>R1CS</td>
+<td>Lento</td>
+<td>Media</td>
+<td>Marginal</td>
+<td>Maduro</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Por qué EZKL es la elección de la tesis:</strong></p>
+<ul>
+<li>Convierte modelos ONNX directamente a circuitos Halo2; no requiere reescribir el modelo.</li>
+<li>Genera el contrato verificador en Solidity automáticamente (<code>ezkl create-evm-verifier</code>), lo cual cierra el loop on-chain sin código manual.</li>
+<li>Es 65.88× más rápido que RISC Zero zkVM y 2.92× más rápido que Orion (medido en benchmarks oficiales del equipo EZKL, 2025).</li>
+<li>License MIT, comunidad activa, releases mensuales.</li>
+</ul>
+<p><strong>Limitación reportada en la literatura zkML:</strong></p>
+<ul>
+<li>Modelos grandes (&gt;10 M params) pueden requerir <strong>128 GB+ RAM</strong> para generar el proof. Esto hace <strong>obligatorio</strong> el uso de TinyML cuantizado para on-device proving — o bien delegar a backends potentes (cloud/K8s/GPU), que es justamente la idea de VeriFire.</li>
+<li>El survey de Springer Nature (2026) y arXiv 2502.18535 (Feb 2025) identifican explícitamente la <strong>ausencia de evaluaciones hardware-in-the-loop en dispositivos edge IoT resource-constrained</strong>. Citando textualmente: &ldquo;all current zkML benchmarks assume datacenter or desktop x86 hardware&rdquo;.</li>
+</ul>
+<p><strong>Caso de referencia: Inference Labs (Bittensor Subnet 2).</strong></p>
+<ul>
+<li>Métricas reportadas: 160M+ pruebas zkML generadas en producción durante 2024–2025.</li>
+<li>Hardware: GPUs de datacenter (A100/H100).</li>
+<li>Caso de uso: validar inferencias de modelos de Bittensor sobre prompts de usuarios.</li>
+<li><strong>Gap respecto a VeriFire:</strong> Inference Labs no toca edge ni IoT, no tiene un caso de uso ambiental, y no maneja multi-tenancy SaaS. Demuestra que zkML <em>escala</em>, pero no en el régimen resource-constrained.</li>
+</ul>
+<p><strong>Caso de referencia: zkVerify (2025).</strong></p>
+<ul>
+<li>Primer protocolo orientado específicamente a verificación ZK para IoT/DePIN.</li>
+<li>Roadmap incluye chains de soporte y un Verifier modular.</li>
+<li><strong>Gap:</strong> sin implementaciones de campo, sin operador K8s, sin benchmark cross-platform. Es un <em>blueprint</em>, no un sistema validado.</li>
+</ul>
+<h3 id="83-depin-redes-de-infraestructura-física-descentralizada">8.3 DePIN: Redes de infraestructura física descentralizada</h3>
+<p>DePIN coordinó en 2025–2026 la construcción de infraestructura física mediante incentivos tokenizados: <strong>~$19B market cap, 250+ proyectos en CoinGecko, $1.6M/mes de revenue real en proyectos top de Solana</strong> (Frontiers in Blockchain, 2025).</p>
+<h4 id="mecanismos-de-verificación-de-trabajo-físico-popw-por-proyecto">Mecanismos de verificación de trabajo físico (PoPW) por proyecto</h4>
+<table>
+<thead>
+<tr>
+<th>Proyecto</th>
+<th>Mecanismo</th>
+<th>Hardware</th>
+<th>Verificabilidad del cómputo</th>
+<th>Gap respecto a VeriFire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Helium</strong></td>
+<td>Proof-of-Coverage (multi-witness RF)</td>
+<td>Hotspots LoRaWAN</td>
+<td>Multi-testigo geográfico — no verifica cómputo, solo presencia</td>
+<td>Sin inferencia; sin zkML</td>
+</tr>
+<tr>
+<td><strong>Filecoin</strong></td>
+<td>Proof-of-Replication + Proof-of-Spacetime</td>
+<td>Storage nodes</td>
+<td>Verifica que los datos están almacenados, no que se computó algo</td>
+<td>Aplicable solo a storage, no a sensing</td>
+</tr>
+<tr>
+<td><strong>Geodnet / Wingbits</strong></td>
+<td>Location Oracle (GPS + multi-testigo)</td>
+<td>Receptores GNSS / ADS-B</td>
+<td>Verifica posición, no cómputo</td>
+<td>Sin inferencia; sin verificabilidad criptográfica</td>
+</tr>
+<tr>
+<td><strong>Hivemapper</strong></td>
+<td>Multi-witness + verificación off-chain por humanos</td>
+<td>Dashcams</td>
+<td>Crowd verification — no criptográfica</td>
+<td>Centralizado en el verificador</td>
+</tr>
+<tr>
+<td><strong>Quakecore (peaq)</strong></td>
+<td>Sensores sísmicos + aggregation</td>
+<td>Acelerómetros IoT</td>
+<td>Multi-testigo + ML server-side</td>
+<td>Sin zkML, sin edge AI verificable</td>
+</tr>
+<tr>
+<td><strong>Inference Labs (Bittensor)</strong></td>
+<td>zkML server-side</td>
+<td>GPUs datacenter</td>
+<td>✅ Verifica cómputo con ZK</td>
+<td>Datacenter only, sin edge, sin multi-tenant</td>
+</tr>
+<tr>
+<td><strong>zkVerify</strong></td>
+<td>Verificación ZK genérica</td>
+<td>Agnóstico</td>
+<td>✅ Diseño</td>
+<td>Sin implementación de campo, sin K8s</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lectura del cuadro:</strong> los DePINs maduros (Helium, Filecoin, Hivemapper) usan multi-witness, no zkML — porque zkML es muy reciente. Los que sí usan zkML (Inference Labs) están en datacenter. <strong>Nadie cruza zkML + edge IoT + multi-backend simultáneamente</strong>, que es el espacio de VeriFire.</p>
+<h3 id="84-kubernetes-operators-y-plataformas-multi-tenant-para-ai-workloads">8.4 Kubernetes operators y plataformas multi-tenant para AI workloads</h3>
+<p>Operadores K8s consolidados para AI:</p>
+<table>
+<thead>
+<tr>
+<th>Operador / framework</th>
+<th>Función</th>
+<th>¿Aplicable a proof generation?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>KServe / KFServing</strong></td>
+<td>Model serving (inferencia)</td>
+<td>Sirve inferencias, no genera proofs</td>
+</tr>
+<tr>
+<td><strong>Kubeflow Pipelines</strong></td>
+<td>Pipelines de entrenamiento ML</td>
+<td>Pipelines de training, no proving</td>
+</tr>
+<tr>
+<td><strong>Ray Operator</strong></td>
+<td>Distributed compute (Ray on K8s)</td>
+<td>Sí en teoría — ningún proyecto lo usó para zkML público</td>
+</tr>
+<tr>
+<td><strong>KEDA</strong></td>
+<td>Event-driven autoscaling</td>
+<td>✅ Reutilizable como dependencia</td>
+</tr>
+<tr>
+<td><strong>NVIDIA GPU Operator</strong></td>
+<td>Provisioning de GPUs en pods</td>
+<td>✅ Reutilizable para K8s self-managed GPU</td>
+</tr>
+<tr>
+<td><strong>OPA Gatekeeper</strong></td>
+<td>Policy engine multi-tenant</td>
+<td>✅ Reutilizable para aislamiento por tenant</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Patrones de multi-tenancy SaaS sobre K8s</strong> (Burns 2023, Dobies 2020):</p>
+<ul>
+<li>Namespace-per-tenant + NetworkPolicies + ResourceQuotas.</li>
+<li>RLS en Postgres + tenant_id propagado en headers.</li>
+<li>Métricas Prometheus etiquetadas por tenant para billing.</li>
+</ul>
+<p><strong>Gap específico respecto a VeriFire:</strong></p>
+<ul>
+<li><strong>Ningún operador existente está diseñado para proof generation:</strong> los CRDs <code>InferenceJob</code> y <code>ModelServing</code> que propone VeriFire no son extensiones de KServe, son nuevos.</li>
+<li><strong>Ningún operador está integrado nativamente con verificación on-chain:</strong> falta el bridge K8s ↔ smart contract (signing del proof, submit a Base, manejo de gas), que es parte de la contribución C3 de la tesis.</li>
+<li><strong>Multi-tenancy K8s aplicada a DePIN no está documentada:</strong> los patrones existen para SaaS B2B (CRM, observabilidad), no para redes con incentivo económico on-chain.</li>
+</ul>
+<h3 id="85-cuadro-consolidado-de-proyectos-más-cercanos">8.5 Cuadro consolidado de proyectos más cercanos</h3>
+<p>Resumen comparativo de los cinco proyectos individuales más cercanos al espacio de VeriFire, dimensión por dimensión:</p>
+<table>
+<thead>
+<tr>
+<th>Proyecto</th>
+<th style="text-align: center;">Edge IoT</th>
+<th style="text-align: center;">zkML</th>
+<th style="text-align: center;">Cloud + K8s</th>
+<th style="text-align: center;">SaaS multi-tenant</th>
+<th style="text-align: center;">Blockchain</th>
+<th style="text-align: center;">Caso de uso real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Helium</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⚠️ parcial</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Inference Labs (Bittensor)</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ datacenter</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td><strong>ForestGuard / Edge MobileNet</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>zkVerify</strong></td>
+<td style="text-align: center;">⚠️ blueprint</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Satellites on Fire (AR)</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ centralizado</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>VeriFire (esta tesis)</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusión del estado del arte:</strong></p>
+<blockquote>
+<p>El espacio en el que cae esta tesis — <em>zkML + edge IoT + cloud + Kubernetes + DePIN + SaaS multi-tenant + caso de uso real validado</em> — <strong>no tiene implementación académica publicada</strong>. Cada uno de los seis ejes existe individualmente (y bien) en la literatura; ningún trabajo combina los seis. Esa intersección es el aporte (C1–C5, §11.1).</p>
+</blockquote>
+<hr />
+<h2 id="9-propuesta-metodológica">9. Propuesta metodológica</h2>
+<h3 id="91-enfoque-general">9.1 Enfoque general</h3>
+<p>Investigación <strong>aplicada de tipo design science</strong>: se construye un artefacto (protocolo + plataforma), se evalúa empíricamente con métricas cuantitativas, y se generaliza el resultado en forma de patrón arquitectónico y benchmark publicable. La metodología combina:</p>
+<ul>
+<li><strong>Fase de diseño formal</strong> (protocolo, threat model, contrato).</li>
+<li><strong>Fase experimental</strong> (benchmark cross-platform de proof generation y accuracy).</li>
+<li><strong>Fase de implementación</strong> (firmware, operador K8s, control plane SaaS, contratos).</li>
+<li><strong>Fase de validación operacional</strong> (red piloto multi-backend con dos tenants).</li>
+<li><strong>Fase analítica</strong> (seguridad del mecanismo, modelado económico).</li>
+</ul>
+<h3 id="92-arquitectura-técnica-de-la-solución">9.2 Arquitectura técnica de la solución</h3>
+<p><strong>Cuatro backends, un protocolo, un contrato.</strong> La separación entre backends <em>CPU-based</em> y <em>GPU-based</em> es deliberada: permite cuantificar el impacto del acelerador en el proof time del mismo modelo y traza una curva de costo-rendimiento que es parte del aporte (C2).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Backend</th>
+<th>Clase de cómputo</th>
+<th>Hardware típico</th>
+<th>Rol</th>
+<th>Privacidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Edge (ARM)</strong></td>
+<td>CPU ARM (proof on-device)</td>
+<td>Raspberry Pi 4/5, Jetson Nano</td>
+<td>Captura + inferencia + proof on-device</td>
+<td>Máxima</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Cloud VM (CPU)</strong></td>
+<td>x86 CPU</td>
+<td>GCP Compute Engine free tier (e2-micro / e2-small, AMD/Intel)</td>
+<td>Proof en CPU x86 con más RAM que el edge; el nodo edge envía el witness firmado</td>
+<td>Parcial</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Kubernetes managed (CPU)</strong></td>
+<td>x86 CPU paralelizado</td>
+<td>GKE Autopilot o EKS (workers CPU-only)</td>
+<td>Proof distribuido entre pods CPU, auto-escalable, multi-tenant; representa el caso típico &ldquo;cluster corporativo sin GPU&rdquo;</td>
+<td>Parcial + aislamiento por namespace</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Kubernetes self-managed (GPU)</strong></td>
+<td>GPU (CUDA / ROCm)</td>
+<td>Cluster k3s on-prem con GPU local · Vast.ai GPU on-demand · pods con device plugin NVIDIA</td>
+<td>Proof acelerado por GPU para modelos grandes (EfficientNet-Lite4, VGG-16) que en CPU son infactibles; permite <strong>comparar el mismo modelo CPU vs GPU</strong> y trazar la curva de aceleración</td>
+<td>Parcial + aislamiento por namespace</td>
+</tr>
+</tbody>
+</table>
+<p>El control plane SaaS hace de orquestador (registro, capability attestation, routing, dashboard). El contrato verificador on-chain es agnóstico al backend y diferencia el reward según la clase declarada.</p>
+<p><strong>Por qué cuatro backends y no tres:</strong> la dimensión <em>CPU vs GPU</em> es ortogonal a la dimensión <em>edge vs cloud vs cluster</em>. Sin la cuarta clase no se puede medir cuánto acelera la GPU el proof generation respecto a un cluster CPU equivalente con el mismo modelo. Esa medición es justamente la que habilita decir &ldquo;para modelos &gt; N parámetros, K8s+GPU es la única clase viable&rdquo; — y eso es un resultado publicable.</p>
+<h3 id="93-arquitectura-de-servicios-y-escalabilidad">9.3 Arquitectura de servicios y escalabilidad</h3>
+<p>La plataforma VeriFire se organiza en <strong>cuatro planos de servicio</strong> desplegados como microservicios independientes, cada uno con su modelo de escalabilidad y su responsabilidad acotada. La separación responde al principio de loose coupling: cualquier plano puede actualizarse, escalarse o reemplazarse sin tocar a los otros.</p>
+<h4 id="931-planos-de-servicio">9.3.1 Planos de servicio</h4>
+<table>
+<thead>
+<tr>
+<th>Plano</th>
+<th>Servicios principales</th>
+<th>Responsabilidad</th>
+<th>Modelo de escalabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Data plane (edge)</strong></td>
+<td>Light client (firmware RPi)</td>
+<td>Captura, firma de entrada, inferencia local opcional, envío del witness al control plane</td>
+<td>Horizontal por adición de dispositivos físicos. Cada nuevo capture node se onboardea contra su tenant en el control plane.</td>
+</tr>
+<tr>
+<td><strong>2. Control plane (SaaS)</strong></td>
+<td>API Gateway · Tenant Service · Node Registry · Job Router · Notification Service · Dashboard (web)</td>
+<td>Orquestación multi-tenant: registro y autenticación de nodos, capability attestation, ruteo de jobs según SLA del tenant, dashboard</td>
+<td>Horizontal stateless detrás de load balancer. Postgres con RLS para aislamiento por tenant; Redis para cache/queue. Auto-scaling por CPU + RPS.</td>
+</tr>
+<tr>
+<td><strong>3. Compute plane (proof workers)</strong></td>
+<td>Cloud Worker Service (CPU) · K8s Operator (<code>InferenceJob</code> controller) · Worker Pods (CPU y GPU) · Model Serving (<code>ModelServing</code> CRD)</td>
+<td>Generación de proofs zkML en CPU o GPU según el job; serving de modelos para inferencia delegada</td>
+<td>KEDA + HPA con métricas custom (queue depth, GPU utilization). El operador despacha pods según resource hints del job y la afinidad CPU/GPU.</td>
+</tr>
+<tr>
+<td><strong>4. On-chain plane (blockchain)</strong></td>
+<td>Smart contract <code>VeriFireNetwork</code> (Base L2) · Verifier EZKL · Indexer (The Graph o subgraph propio) · Notification Webhook</td>
+<td>Verificación criptográfica final, emisión de rewards, registro inmutable de eventos, indexado para consultas off-chain rápidas</td>
+<td>Escala con el L2: Base soporta ~1000 TPS y fees &lt;&lt; 1 cent. El indexer cachea eventos para que el dashboard no consulte el RPC en cada request.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="932-diagrama-de-servicios">9.3.2 Diagrama de servicios</h4>
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitectura de servicios de VeriFire en cuatro planos: data plane edge, control plane SaaS, compute plane proof workers (cloud, K8s CPU, K8s GPU) y on-chain plane Base L2." style="width:100%;max-width:900px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E0F58"/>
+    </marker>
+  </defs>
+
+  <!-- Plane 1: Data plane -->
+  <rect x="40" y="30" width="820" height="100" rx="12" fill="#F1E8FA" stroke="#7E3FBF" stroke-width="2"/>
+  <text x="60" y="55" font-size="13" font-weight="700" fill="#2E0F58">1. DATA PLANE (Edge)</text>
+  <text x="60" y="72" font-size="11" fill="#6029A8">Captura · firma de entrada · push del witness</text>
+  <g>
+    <rect x="120" y="85" width="160" height="34" rx="6" fill="#FFFFFF" stroke="#7E3FBF"/>
+    <text x="200" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#2E0F58">Capture Node 1 (RPi)</text>
+    <rect x="370" y="85" width="160" height="34" rx="6" fill="#FFFFFF" stroke="#7E3FBF"/>
+    <text x="450" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#2E0F58">Capture Node 2 (RPi)</text>
+    <rect x="620" y="85" width="160" height="34" rx="6" fill="#FFFFFF" stroke="#7E3FBF"/>
+    <text x="700" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#2E0F58">Capture Node N (RPi)</text>
+  </g>
+
+  <!-- Arrow Data → Control -->
+  <line x1="450" y1="130" x2="450" y2="170" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="465" y="155" font-size="10" fill="#6029A8">MQTT / HTTPS · witness firmado, cifrado al pubkey del worker</text>
+
+  <!-- Plane 2: Control plane -->
+  <rect x="40" y="180" width="820" height="130" rx="12" fill="#EBF4FF" stroke="#3182CE" stroke-width="2"/>
+  <text x="60" y="205" font-size="13" font-weight="700" fill="#1E3A5F">2. CONTROL PLANE (SaaS multi-tenant)</text>
+  <text x="60" y="222" font-size="11" fill="#2C5282">stateless services + Postgres con RLS · auto-scaling HPA por CPU + RPS</text>
+  <g font-size="11" font-weight="600" fill="#1E3A5F">
+    <rect x="60" y="240" width="135" height="30" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="127" y="260" text-anchor="middle">API Gateway</text>
+    <rect x="210" y="240" width="135" height="30" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="277" y="260" text-anchor="middle">Tenant Service</text>
+    <rect x="360" y="240" width="135" height="30" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="427" y="260" text-anchor="middle">Node Registry</text>
+    <rect x="510" y="240" width="135" height="30" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="577" y="260" text-anchor="middle">Job Router (SLA)</text>
+    <rect x="660" y="240" width="180" height="30" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="750" y="260" text-anchor="middle">Dashboard · Notification</text>
+
+    <rect x="60" y="275" width="285" height="24" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="202" y="291" text-anchor="middle" font-size="10">Postgres (RLS multi-tenant) + read replicas</text>
+    <rect x="360" y="275" width="200" height="24" rx="5" fill="#FFFFFF" stroke="#3182CE"/>
+    <text x="460" y="291" text-anchor="middle" font-size="10">Redis (cache + queue)</text>
+  </g>
+
+  <!-- Arrow Control → Compute (3 splits) -->
+  <line x1="450" y1="310" x2="450" y2="340" stroke="#2E0F58" stroke-width="2"/>
+  <text x="465" y="328" font-size="10" fill="#6029A8">dispatch InferenceJob (CPU vs GPU según resource hints + SLA)</text>
+  <line x1="160" y1="340" x2="740" y2="340" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="160" y1="340" x2="160" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="340" x2="450" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="740" y1="340" x2="740" y2="375" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Plane 3: Compute plane (3 sub-planes) -->
+  <rect x="40" y="385" width="820" height="160" rx="12" fill="#FAFAFC" stroke="#38A169" stroke-width="2"/>
+  <text x="60" y="410" font-size="13" font-weight="700" fill="#1E3A5F">3. COMPUTE PLANE (Proof Workers)</text>
+  <text x="60" y="427" font-size="11" fill="#38A169">CRDs InferenceJob · ModelServing · KEDA + HPA · NVIDIA GPU operator</text>
+
+  <g>
+    <rect x="60" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#DD6B20" stroke-width="1.5"/>
+    <text x="180" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#DD6B20">3a. Cloud Worker (CPU)</text>
+    <text x="180" y="478" text-anchor="middle" font-size="10" fill="#2D3748">GCP free tier · single VM</text>
+    <text x="180" y="494" text-anchor="middle" font-size="10" fill="#2D3748">baseline · pool fijo</text>
+    <text x="180" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove with x86 CPU</text>
+
+    <rect x="330" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#3182CE" stroke-width="1.5"/>
+    <text x="450" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#3182CE">3b. K8s managed (CPU)</text>
+    <text x="450" y="478" text-anchor="middle" font-size="10" fill="#2D3748">GKE Autopilot · 3 pods</text>
+    <text x="450" y="494" text-anchor="middle" font-size="10" fill="#2D3748">KEDA scale on queue depth</text>
+    <text x="450" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove distributed across pods</text>
+
+    <rect x="600" y="440" width="240" height="90" rx="8" fill="#FFFFFF" stroke="#E53E3E" stroke-width="1.5"/>
+    <text x="720" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#E53E3E">3c. K8s self-managed (GPU)</text>
+    <text x="720" y="478" text-anchor="middle" font-size="10" fill="#2D3748">k3s on-prem · NVIDIA plugin</text>
+    <text x="720" y="494" text-anchor="middle" font-size="10" fill="#2D3748">RTX 3090 · DCGM metrics</text>
+    <text x="720" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#6C757D">prove with GPU acceleration</text>
+  </g>
+
+  <!-- Arrows Compute → On-chain -->
+  <line x1="180" y1="530" x2="180" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="450" y1="530" x2="450" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="720" y1="530" x2="720" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="180" y1="565" x2="720" y2="565" stroke="#2E0F58" stroke-width="2"/>
+  <line x1="450" y1="565" x2="450" y2="600" stroke="#2E0F58" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="465" y="585" font-size="10" fill="#6029A8">submitInference(proof, sigInput, sigWorker, class)</text>
+
+  <!-- Plane 4: On-chain -->
+  <rect x="40" y="610" width="820" height="90" rx="12" fill="#2E0F58" stroke="#7E3FBF" stroke-width="2"/>
+  <text x="60" y="635" font-size="13" font-weight="700" fill="#FFFFFF">4. ON-CHAIN PLANE (Base L2)</text>
+  <text x="60" y="652" font-size="11" fill="#C9A9F0">verificación criptográfica · reward por clase · indexado para dashboards</text>
+  <g font-size="11" font-weight="600" fill="#2E0F58">
+    <rect x="60" y="665" width="200" height="28" rx="5" fill="#C9A9F0"/>
+    <text x="160" y="683" text-anchor="middle">VeriFireNetwork.sol</text>
+    <rect x="280" y="665" width="180" height="28" rx="5" fill="#C9A9F0"/>
+    <text x="370" y="683" text-anchor="middle">EZKL Verifier</text>
+    <rect x="480" y="665" width="160" height="28" rx="5" fill="#C9A9F0"/>
+    <text x="560" y="683" text-anchor="middle">Reward (multi-class)</text>
+    <rect x="660" y="665" width="180" height="28" rx="5" fill="#C9A9F0"/>
+    <text x="750" y="683" text-anchor="middle">Subgraph indexer</text>
+  </g>
+</svg>
+<h4 id="933-estrategias-de-escalabilidad-por-plano">9.3.3 Estrategias de escalabilidad por plano</h4>
+<h5 id="data-plane-edge">Data plane (edge)</h5>
+<ul>
+<li>Escala <strong>linealmente con el número de nodos físicos</strong>. El control plane mantiene un registro distribuido por tenant; no hay cuello de botella centralizado en el data plane.</li>
+<li>Cada nodo opera en <em>push mode</em>: no necesita polling.</li>
+<li>Tolerancia a fallos: los witnesses no enviados se persisten en SD local hasta que la conectividad se restaura.</li>
+</ul>
+<h5 id="control-plane-saas">Control plane (SaaS)</h5>
+<ul>
+<li><strong>Stateless services</strong> (API Gateway, Tenant, Node Registry, Job Router, Notification) detrás de un Application Load Balancer; auto-scaling con HPA por CPU + RPS. Target: P95 &lt; 200 ms para endpoints sincrónicos.</li>
+<li><strong>Postgres</strong> como cuello de botella natural; mitigado con read replicas para queries de dashboard, partitioning por <code>tenant_id</code>, RLS para aislamiento, connection pooling con PgBouncer.</li>
+<li><strong>Redis</strong> como cache de tenant config (TTL 60 s) y queue ligera para notification dispatch.</li>
+<li><strong>Multi-tenancy:</strong> namespace lógico por tenant, RLS en Postgres, rate-limit por tenant en el API Gateway, métricas Prometheus etiquetadas por <code>tenant_id</code>.</li>
+</ul>
+<h5 id="compute-plane-proof-workers">Compute plane (proof workers)</h5>
+<ul>
+<li><strong>Cloud Worker (single VM):</strong> baseline, no escala — sirve como referencia de costo. El control plane lo trata como un pool fijo de capacidad.</li>
+<li><strong>K8s managed CPU (GKE Autopilot):</strong> escala con KEDA según queue depth de jobs CPU. Min 1 / max N pods según presupuesto del tenant. Costo lineal con jobs procesados.</li>
+<li><strong>K8s self-managed GPU:</strong> escala con KEDA según queue depth de jobs GPU + métricas custom de NVIDIA DCGM (GPU utilization). Pods con <code>nvidia.com/gpu: 1</code> resource request. Cluster autoscaler para nodos GPU (caros) — agresivo en scale-down.</li>
+<li><strong>Routing entre planes:</strong> el Job Router decide CPU vs GPU según resource hints del modelo y SLA del tenant. Política default: jobs con &gt; 5 M params → GPU; resto → CPU paralelizado.</li>
+</ul>
+<h5 id="on-chain-plane">On-chain plane</h5>
+<ul>
+<li>Escala con la capacidad de Base L2 (~1000 TPS, fees sub-cent). En picos de eventos (humo simultáneo en muchos nodos), el control plane puede <em>batchear</em> submissions vía un contrato relayer (no implementado en la versión mínima, queda como trabajo futuro).</li>
+<li><strong>Indexer</strong> (subgraph propio o The Graph hosted) cachea todos los eventos <code>InferenceVerified</code> y <code>AlertEmitted</code>; el dashboard consulta el indexer, no el nodo RPC. Esto desacopla el TPS de lectura del TPS de escritura.</li>
+</ul>
+<h4 id="934-slos-por-tenant">9.3.4 SLOs por tenant</h4>
+<p>Cada tenant tiene un SLA configurable que se traduce en SLOs internos del sistema. La plataforma expone los SLIs y permite al tenant definir el target.</p>
+<table>
+<thead>
+<tr>
+<th>SLO</th>
+<th>SLI</th>
+<th>Target default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latencia end-to-end (alerta)</td>
+<td>Tiempo desde captura hasta evento <code>AlertEmitted</code> on-chain</td>
+<td>P95 &lt; 90 s para clase EDGE; &lt; 60 s para CLOUD/K8s</td>
+</tr>
+<tr>
+<td>Disponibilidad del control plane</td>
+<td>Uptime del API Gateway</td>
+<td>99.5 % mensual</td>
+</tr>
+<tr>
+<td>Throughput de proofs</td>
+<td>Proofs verificados / hora por tenant</td>
+<td>Configurable según tier de pago</td>
+</tr>
+<tr>
+<td>Tasa de error de verificación</td>
+<td>Proofs rechazados on-chain / proofs submitted</td>
+<td>&lt; 0.1 %</td>
+</tr>
+<tr>
+<td>Tiempo de auto-scaling K8s</td>
+<td>Tiempo desde queue depth &gt; umbral hasta pod ready</td>
+<td>&lt; 60 s</td>
+</tr>
+</tbody>
+</table>
+<p>Los SLOs se monitorean con error budgets. Si un tenant agota su error budget, el Job Router degrada gracefully (rate-limit, no rechazo total).</p>
+<h4 id="935-failure-modes-y-resiliencia">9.3.5 Failure modes y resiliencia</h4>
+<table>
+<thead>
+<tr>
+<th>Falla</th>
+<th>Impacto</th>
+<th>Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nodo edge offline</td>
+<td>Pierde inferencias durante el outage</td>
+<td>Buffer local en SD; reenvío al volver. No bloquea la red.</td>
+</tr>
+<tr>
+<td>Control plane API down</td>
+<td>Edge no puede pushear; jobs en cola se acumulan</td>
+<td>API stateless con múltiples réplicas; circuit breaker hacia Postgres. RTO target: &lt; 5 min.</td>
+</tr>
+<tr>
+<td>Postgres del control plane down</td>
+<td>Sin onboarding de nodos; routing degradado</td>
+<td>Read replica failover automático; el data path puede operar con cache Redis durante 60 s.</td>
+</tr>
+<tr>
+<td>K8s worker pod muere mid-proof</td>
+<td>El job se pierde si no era idempotent</td>
+<td>Operador implementa retry con backoff exponencial; jobs son idempotent por <code>proofHash</code>.</td>
+</tr>
+<tr>
+<td>Base L2 RPC lento o fuera</td>
+<td>No se publican rewards</td>
+<td>Reintentos con backoff; los proofs quedan en queue local del worker hasta que el RPC vuelve.</td>
+</tr>
+<tr>
+<td>Worker malicioso (compute plane)</td>
+<td>Genera proofs falsos</td>
+<td>El verifier on-chain rechaza; sin reward. La firma <code>sigWorker</code> lo asocia y el control plane lo desautoriza vía <code>authorizeWorker(false)</code>.</td>
+</tr>
+<tr>
+<td>Compromiso del control plane</td>
+<td>Censura selectiva o ruteo malicioso</td>
+<td>Cada tenant puede correr su propio control plane (open-source, federated mode). El contrato on-chain es la fuente de verdad final.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="936-observabilidad">9.3.6 Observabilidad</h4>
+<ul>
+<li><strong>Métricas:</strong> Prometheus con scrape de cada microservicio + exporters de Postgres/Redis/NVIDIA. Etiquetadas por <code>tenant_id</code>, <code>node_class</code>, <code>model_id</code>.</li>
+<li><strong>Logs:</strong> stdout estructurado (JSON) → Loki o GCP Cloud Logging. Correlación por <code>request_id</code> end-to-end.</li>
+<li><strong>Trazas:</strong> OpenTelemetry desde el edge (light client) hasta el contrato on-chain (transaction hash como span attribute).</li>
+<li><strong>Dashboards Grafana:</strong> uno global (operador de la plataforma) + uno per-tenant (cliente del SaaS).</li>
+<li><strong>Alerting:</strong> SLO burn-rate alerts vía PagerDuty / webhook configurable por tenant.</li>
+</ul>
+<h3 id="94-stack-tecnológico">9.4 Stack tecnológico</h3>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Tecnología</th>
+<th>Backend(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Captura</td>
+<td>PiCamera2</td>
+<td>Edge</td>
+</tr>
+<tr>
+<td>Signing entrada</td>
+<td><code>cryptography</code> + secp256k1</td>
+<td>Edge (siempre)</td>
+</tr>
+<tr>
+<td>Inference</td>
+<td>ONNX Runtime (ARM/x86/CUDA)</td>
+<td>All</td>
+</tr>
+<tr>
+<td>zkML Prover</td>
+<td>EZKL (Halo2)</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Signing worker</td>
+<td>secp256k1</td>
+<td>Cloud / K8s</td>
+</tr>
+<tr>
+<td>Job orchestration</td>
+<td>Operador K8s + CRDs <code>InferenceJob</code>, <code>ModelServing</code></td>
+<td>K8s</td>
+</tr>
+<tr>
+<td>Auto-scaling</td>
+<td>KEDA + HPA con métricas custom (queue depth)</td>
+<td>K8s</td>
+</tr>
+<tr>
+<td>Control plane</td>
+<td>FastAPI (Python) + Postgres con RLS multi-tenant</td>
+<td>SaaS</td>
+</tr>
+<tr>
+<td>On-chain submitter</td>
+<td>web3.py</td>
+<td>Control Plane / Worker</td>
+</tr>
+<tr>
+<td>Smart Contract</td>
+<td>Solidity 0.8.x + Foundry</td>
+<td>On-chain</td>
+</tr>
+<tr>
+<td>L2 Chain</td>
+<td>Base (OP Stack)</td>
+<td>On-chain</td>
+</tr>
+<tr>
+<td>Observabilidad</td>
+<td>Prometheus + Grafana + OpenTelemetry</td>
+<td>All</td>
+</tr>
+<tr>
+<td>IaC</td>
+<td>Terraform + Helm</td>
+<td>Cloud / K8s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="95-diseño-experimental">9.5 Diseño experimental</h3>
+<h4 id="experimento-1-benchmark-de-proving-cross-platform-oe2">Experimento 1 — Benchmark de Proving cross-platform (OE2)</h4>
+<ul>
+<li><strong>Variable independiente:</strong> arquitectura del modelo (6 variantes) × plataforma (4 backends: Edge ARM / Cloud CPU / K8s managed CPU / K8s self-managed GPU).</li>
+<li><strong>Variables dependientes:</strong> proof time, peak RAM, proof size, gas cost, costo monetario por proof, <strong>speed-up CPU↔GPU</strong> (ratio aislado dentro del runtime K8s).</li>
+<li><strong>Réplicas:</strong> 30 pruebas por celda. Total: 6 modelos × 4 backends × 30 = 720 mediciones.</li>
+<li><strong>Plataformas:</strong><ul>
+<li><strong>Edge ARM:</strong> RPi 4B 4 GB, Raspbian 64-bit.</li>
+<li><strong>Cloud CPU:</strong> GCP Compute Engine e2-small, Debian 12, 2 vCPU x86, 2 GB RAM (free tier).</li>
+<li><strong>K8s managed CPU:</strong> GKE Autopilot, 3 pods con limits 4 vCPU / 8 GB sin GPU.</li>
+<li><strong>K8s self-managed GPU:</strong> cluster k3s on-prem o Vast.ai, 1 pod con NVIDIA device plugin (RTX 3090 o equivalente).</li>
+</ul>
+</li>
+<li><strong>Métrica:</strong> superficie de Pareto 3D accuracy / latencia / costo + curva de speed-up CPU→GPU por modelo.</li>
+<li><strong>Aporte:</strong> primera comparación lado-a-lado de zkML en estas cuatro clases de hardware, separando la contribución del <em>acelerador GPU</em> vs la <em>paralelización entre pods CPU</em> vs el <em>baseline single-host</em>.</li>
+</ul>
+<h4 id="experimento-2-accuracy-del-clasificador">Experimento 2 — Accuracy del clasificador</h4>
+<ul>
+<li><strong>Train/val/test split:</strong> 70/15/15 sobre dataset combinado (D-Fire + Kaggle Fire Detection + imágenes propias de Sierras Chicas).</li>
+<li><strong>Métricas:</strong> Accuracy, Precision, Recall, F1, AUC-ROC.</li>
+<li><strong>Ablation:</strong> INT8 vs FP32; énfasis en minimizar falsos negativos.</li>
+</ul>
+<h4 id="experimento-3-integración-end-to-end-multi-backend-oe4">Experimento 3 — Integración end-to-end multi-backend (OE4)</h4>
+<ul>
+<li><strong>Topología:</strong> 3 nodos RPi edge + 1 cloud worker GCP + 1 cluster k3s mínimo (3 pods) con el protocolo completo.</li>
+<li><strong>Multi-tenancy:</strong> control plane con dos tenants ficticios (&ldquo;ETAC-CBA&rdquo; y &ldquo;Defensa-Civil-AR&rdquo;) para validar aislamiento.</li>
+<li><strong>Período:</strong> 2–3 meses de operación continua en campus UNC.</li>
+<li><strong>Métricas:</strong> uptime por backend, latencia end-to-end por clase, costo de gas mensual, distribución de proofs por backend, métricas del operador K8s.</li>
+</ul>
+<h4 id="experimento-4-seguridad-del-mecanismo-depin-multi-class-oe5">Experimento 4 — Seguridad del mecanismo DePIN multi-class (OE5)</h4>
+<ul>
+<li><strong>Modelado económico:</strong> ¿qué reward por clase para que cada backend tenga incentivo?</li>
+<li><strong>Simulación de ataques:</strong> Sybil, replay, worker-malicioso, edge-impostor.</li>
+<li><strong>Análisis de degenerate cases:</strong> reuso de proofs, colusión entre cloud workers, censura del control plane.</li>
+</ul>
+<h4 id="experimento-5-escalabilidad-del-operador-kubernetes-oe6">Experimento 5 — Escalabilidad del operador Kubernetes (OE6)</h4>
+<ul>
+<li><strong>Carga sintética:</strong> 10×, 100×, 1000× el caudal real de inferencias.</li>
+<li><strong>Variables:</strong> cold-start de pods, throughput, latencia P50/P95/P99, comportamiento del HPA.</li>
+<li><strong>Comparación:</strong> cluster k3s on-prem vs managed (GKE Autopilot).</li>
+<li><strong>Aporte:</strong> primera caracterización pública del proof generation throughput en un cluster K8s real.</li>
+</ul>
+<h3 id="96-modelos-a-evaluar">9.6 Modelos a evaluar</h3>
+<p>Cada modelo se ejecuta en los <strong>cuatro backends</strong> (Edge ARM, Cloud VM CPU, K8s managed CPU, K8s self-managed GPU). La tabla muestra el proof time esperado en cada uno.</p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Params</th>
+<th>Accuracy target</th>
+<th>Edge ARM (RPi 4)</th>
+<th>Cloud CPU (GCP e2-small)</th>
+<th>K8s managed CPU (3 pods GKE)</th>
+<th>K8s self-managed GPU (1 pod, RTX 3090)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom CNN 3-layer INT8</td>
+<td>~200K</td>
+<td>~82 %</td>
+<td>~1–3 min</td>
+<td>~10–20 s</td>
+<td>~5–10 s</td>
+<td>~2–5 s</td>
+</tr>
+<tr>
+<td>MobileNetV3-Tiny INT8</td>
+<td>~600K</td>
+<td>~88 %</td>
+<td>~3–8 min</td>
+<td>~30 s–1 min</td>
+<td>~10–20 s</td>
+<td>~3–8 s</td>
+</tr>
+<tr>
+<td>MobileNetV3-Small INT8</td>
+<td>~2.5M</td>
+<td>~94 %</td>
+<td>~10–20 min</td>
+<td>~2–4 min</td>
+<td>~30 s–1 min</td>
+<td>~10–20 s</td>
+</tr>
+<tr>
+<td>EfficientNet-Lite0 INT8</td>
+<td>~4.7M</td>
+<td>~97 %</td>
+<td>~25–45 min (riesgo OOM)</td>
+<td>~5–10 min</td>
+<td>~1–3 min</td>
+<td>~30 s–1 min</td>
+</tr>
+<tr>
+<td>EfficientNet-Lite4 INT8</td>
+<td>~13M</td>
+<td>~98 %</td>
+<td>❌ infactible</td>
+<td>~15–30 min</td>
+<td>~5–10 min</td>
+<td>~1–2 min</td>
+</tr>
+<tr>
+<td>VGG-16 (referencia ablation)</td>
+<td>~138M</td>
+<td>—</td>
+<td>❌</td>
+<td>❌ o ~hr</td>
+<td>~30–60 min</td>
+<td>~5–10 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lectura horizontal de la tabla:</strong> las dos últimas columnas comparan <em>el mismo modelo en CPU vs GPU</em> dentro del mismo runtime (Kubernetes), aislando el efecto del acelerador. Las columnas 4 y 5 (Edge ARM vs Cloud CPU) aíslan el efecto de la arquitectura del CPU. Las columnas 5 y 6 (Cloud CPU vs K8s managed CPU) aíslan el efecto de la paralelización entre pods.</p>
+<h5 id="visualización-esperada-del-trade-off-esquemática">Visualización esperada del trade-off (esquemática)</h5>
+<p>El siguiente <em>placeholder</em> muestra cómo se proyecta el frente de Pareto sobre los dos ejes principales (proof time vs accuracy). Cada punto es un par modelo×backend; la línea punteada es el frente de Pareto. La forma exacta se confirma en Experimento 1 (mes 4).</p>
+<svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Frente de Pareto esquemático: accuracy vs proof time para 6 modelos en 4 backends." style="width:100%;max-width:720px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#2E0F58">Frente de Pareto esperado: Accuracy vs Proof time (log)</text>
+  <text x="360" y="46" text-anchor="middle" font-size="10" fill="#6C757D">Color = backend · Tamaño = params del modelo</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="380" x2="680" y2="380" stroke="#2D3748" stroke-width="1.5"/>
+  <line x1="80" y1="380" x2="80" y2="80" stroke="#2D3748" stroke-width="1.5"/>
+
+  <!-- X-axis labels (log scale: 1s, 10s, 1min, 10min, 1h) -->
+  <g font-size="10" fill="#6C757D" text-anchor="middle">
+    <line x1="140" y1="378" x2="140" y2="384" stroke="#2D3748"/>
+    <text x="140" y="398">1 s</text>
+    <line x1="240" y1="378" x2="240" y2="384" stroke="#2D3748"/>
+    <text x="240" y="398">10 s</text>
+    <line x1="380" y1="378" x2="380" y2="384" stroke="#2D3748"/>
+    <text x="380" y="398">1 min</text>
+    <line x1="500" y1="378" x2="500" y2="384" stroke="#2D3748"/>
+    <text x="500" y="398">10 min</text>
+    <line x1="620" y1="378" x2="620" y2="384" stroke="#2D3748"/>
+    <text x="620" y="398">1 h</text>
+  </g>
+  <text x="380" y="425" text-anchor="middle" font-size="11" font-weight="600" fill="#2D3748">Proof time (escala log)</text>
+
+  <!-- Y-axis labels -->
+  <g font-size="10" fill="#6C757D" text-anchor="end">
+    <line x1="76" y1="100" x2="80" y2="100" stroke="#2D3748"/>
+    <text x="72" y="104">98 %</text>
+    <line x1="76" y1="180" x2="80" y2="180" stroke="#2D3748"/>
+    <text x="72" y="184">94 %</text>
+    <line x1="76" y1="260" x2="80" y2="260" stroke="#2D3748"/>
+    <text x="72" y="264">88 %</text>
+    <line x1="76" y1="340" x2="80" y2="340" stroke="#2D3748"/>
+    <text x="72" y="344">82 %</text>
+  </g>
+  <text x="30" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#2D3748" transform="rotate(-90 30 220)">Accuracy F1</text>
+
+  <!-- Data points: each (model, backend) -->
+  <!-- GPU (red) -->
+  <circle cx="160" cy="345" r="5" fill="#E53E3E"/>
+  <circle cx="180" cy="265" r="6" fill="#E53E3E"/>
+  <circle cx="220" cy="185" r="8" fill="#E53E3E"/>
+  <circle cx="280" cy="125" r="10" fill="#E53E3E"/>
+  <circle cx="370" cy="95" r="12" fill="#E53E3E"/>
+
+  <!-- K8s CPU (blue) -->
+  <circle cx="220" cy="345" r="5" fill="#3182CE"/>
+  <circle cx="270" cy="265" r="6" fill="#3182CE"/>
+  <circle cx="340" cy="185" r="8" fill="#3182CE"/>
+  <circle cx="430" cy="125" r="10" fill="#3182CE"/>
+  <circle cx="540" cy="95" r="12" fill="#3182CE"/>
+
+  <!-- Cloud single VM CPU (orange) -->
+  <circle cx="280" cy="345" r="5" fill="#DD6B20"/>
+  <circle cx="350" cy="265" r="6" fill="#DD6B20"/>
+  <circle cx="430" cy="185" r="8" fill="#DD6B20"/>
+  <circle cx="520" cy="125" r="10" fill="#DD6B20"/>
+
+  <!-- Edge ARM (purple) -->
+  <circle cx="380" cy="345" r="5" fill="#7E3FBF"/>
+  <circle cx="460" cy="265" r="6" fill="#7E3FBF"/>
+  <circle cx="540" cy="185" r="8" fill="#7E3FBF"/>
+  <circle cx="610" cy="125" r="10" fill="#7E3FBF" opacity="0.4"/>
+  <text x="615" y="120" font-size="9" fill="#E53E3E">⚠ riesgo OOM</text>
+
+  <!-- Pareto frontier (dashed) -->
+  <path d="M 160 345 Q 200 300 220 185 Q 260 130 280 125 Q 320 100 370 95"
+        fill="none" stroke="#2E0F58" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="395" y="80" font-size="10" font-style="italic" fill="#2E0F58">frente de Pareto</text>
+
+  <!-- Legend -->
+  <g font-size="10" fill="#2D3748">
+    <circle cx="500" cy="350" r="5" fill="#E53E3E"/>
+    <text x="510" y="354">K8s GPU</text>
+    <circle cx="500" cy="368" r="5" fill="#3182CE"/>
+    <text x="510" y="372">K8s managed CPU</text>
+    <circle cx="610" cy="350" r="5" fill="#DD6B20"/>
+    <text x="620" y="354">Cloud VM CPU</text>
+    <circle cx="610" cy="368" r="5" fill="#7E3FBF"/>
+    <text x="620" y="372">Edge ARM</text>
+  </g>
+</svg>
+<blockquote>
+<p><strong>Nota:</strong> este gráfico es una proyección esperada basada en literatura zkML 2024–2025 y benchmarks de EZKL en x86. Los datos reales se obtienen en el Experimento 1 (mes 4). El frente de Pareto típicamente <em>sube</em> con GPU + cluster, pero el costo monetario por punto del frente puede invertir el orden — esa tensión es uno de los hallazgos esperados de la tesis.</p>
+</blockquote>
+<h3 id="97-criterios-de-éxito">9.7 Criterios de éxito</h3>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Mínimo viable</th>
+<th>Objetivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proof time edge ARM (RPi 4)</td>
+<td>&lt; 30 min para algún modelo</td>
+<td>&lt; 5 min para al menos un modelo</td>
+</tr>
+<tr>
+<td>Proof time cloud CPU (GCP e2-small)</td>
+<td>&lt; 5 min para modelo edge-tier</td>
+<td>&lt; 1 min</td>
+</tr>
+<tr>
+<td>Proof time K8s managed CPU (3 pods)</td>
+<td>&lt; 2 min para modelo edge-tier</td>
+<td>&lt; 30 s</td>
+</tr>
+<tr>
+<td>Proof time K8s self-managed GPU (1 pod)</td>
+<td>&lt; 1 min para modelo edge-tier</td>
+<td>&lt; 10 s para edge-tier; &lt; 5 min para EfficientNet-Lite4</td>
+</tr>
+<tr>
+<td>Speed-up CPU → GPU (mismo modelo)</td>
+<td>≥ 5×</td>
+<td>≥ 20×</td>
+</tr>
+<tr>
+<td>Accuracy clasificador</td>
+<td>F1 ≥ 0.85</td>
+<td>F1 ≥ 0.92</td>
+</tr>
+<tr>
+<td>RAM pico proving edge</td>
+<td>&lt; 3.5 GB</td>
+<td>&lt; 2 GB</td>
+</tr>
+<tr>
+<td>Gas verificación</td>
+<td>&lt; 500k gas</td>
+<td>&lt; 200k gas</td>
+</tr>
+<tr>
+<td>Uptime red piloto</td>
+<td>≥ 90 %</td>
+<td>≥ 95 %</td>
+</tr>
+<tr>
+<td>Multi-tenancy</td>
+<td>2 tenants aislados sin cross-leak</td>
+<td>Tests automatizados de aislamiento</td>
+</tr>
+<tr>
+<td>Auto-scaling K8s</td>
+<td>Responde a 10× en &lt; 2 min</td>
+<td>Responde a 100× en &lt; 1 min</td>
+</tr>
+</tbody>
+</table>
+<h3 id="98-alcance-mínimo-defendible">9.8 Alcance mínimo defendible</h3>
+<p>Si por restricciones de tiempo o técnicas no se alcanza la versión completa, el alcance mínimo defendible exige: al menos <strong>2 backends funcionando</strong> (edge + uno más), operador K8s mínimo (kind/minikube con CRD funcional), control plane single-tenant con arquitectura preparada para multi-tenant, contrato multi-class deployado en Base Sepolia con al menos una transacción exitosa por clase, y benchmark cross-platform de al menos una arquitectura de modelo. Esa configuración reducida sigue produciendo el primer benchmark cross-platform de zkML en hardware edge real y el patrón arquitectónico DePIN multi-backend, suficiente para CACIC o un workshop internacional.</p>
+<h3 id="99-estrategias-de-mitigación-técnica">9.9 Estrategias de mitigación técnica</h3>
+<p>Dos estrategias de respaldo se documentan <strong>explícitamente</strong> para preservar el aporte aún si el camino preferido falla. Cada una mantiene la verificabilidad on-chain (que es el aporte criptográfico) aunque sacrifique alguna otra propiedad (privacidad o accuracy).</p>
+<h4 id="mitigación-a-modelo-ultra-pequeño-custom-para-preservar-viabilidad-edge">Mitigación A — Modelo ultra-pequeño custom para preservar viabilidad edge</h4>
+<p><strong>Cuándo se activa:</strong> si el benchmark muestra que ningún modelo estándar (incluyendo MobileNetV3-Tiny INT8) genera proof en RPi 4 en menos de 30 minutos con los recursos disponibles, hay riesgo de que el caso EDGE quede sin demostración funcional. Esa es justamente la propiedad de privacidad full que diferencia EDGE de los otros backends; perderla diluye el aporte.</p>
+<p><strong>Qué hacemos:</strong> diseñar y entrenar una CNN custom mínima:</p>
+<div class="codehilite"><pre><span></span><code>Input: 64×64 pixels (grayscale o RGB reducido)
+Conv2D(8 filters, 3×3) → BatchNorm → ReLU
+Conv2D(16 filters, 3×3) → BatchNorm → ReLU → MaxPool
+Flatten → Dense(32) → Dense(2) → Softmax
+</code></pre></div>
+
+<ul>
+<li><strong>Parámetros:</strong> ~50K–100K (vs 200K de la &ldquo;Custom CNN 3-layer&rdquo; del benchmark estándar).</li>
+<li><strong>Proof time target en RPi 4:</strong> &lt; 3 minutos.</li>
+<li><strong>Trade-off:</strong> accuracy probablemente cae a ~80–85 % (vs 88 % del MobileNet-Tiny). Suficiente para PoC del protocolo, no para producción.</li>
+</ul>
+<p><strong>Por qué es válido como mitigación y no como solución principal:</strong> un accuracy de 80 % es bajo para detección de incendios en producción (alto falso negativo). Pero el aporte de la tesis no es el clasificador — es el protocolo y la plataforma. Mostrar que el modelo más chico imaginable también funciona end-to-end refuerza el patrón arquitectónico, sin pretender que ese modelo sea desplegable.</p>
+<h4 id="mitigación-b-arquitectura-split-ya-integrada-como-casos-bc-del-protocolo">Mitigación B — Arquitectura split (ya integrada como casos B/C del protocolo)</h4>
+<p><strong>Cuándo se activa:</strong> automáticamente, en operación normal de la plataforma. No es un fallback de emergencia: es el comportamiento default cuando el modelo a ejecutar no es proving-friendly en el backend del nodo edge.</p>
+<p><strong>Qué hacemos:</strong> el nodo edge genera el witness firmado y lo envía cifrado al backend Cloud o K8s, que produce el proof y firma el resultado. La doble firma (<code>sigInput</code> del capture node + <code>sigWorker</code> del proof generator) preserva el binding criptográfico <strong>entrada → cómputo → reward</strong>; el verifier on-chain es el mismo y rechaza cualquier proof inválido independientemente de dónde se generó.</p>
+<p><strong>Trade-off explícito:</strong></p>
+<ul>
+<li>✅ Verificabilidad on-chain íntegra.</li>
+<li>✅ Binding criptográfico preservado (el worker no puede falsificar <code>sigInput</code>).</li>
+<li>⚠️ Privacidad reducida: el worker ve el witness (no el frame crudo si se envía solo el embedding, pero sí información derivada).</li>
+<li>✅ Reward económico ajustado a la baja para reflejar el menor valor de privacidad (clase CLOUD/K8S &lt; EDGE).</li>
+</ul>
+<p><strong>Conclusión:</strong> lo que en propuestas previas era un fallback reactivo (&ldquo;si edge no aguanta, salimos por cloud&rdquo;) en VeriFire es un ciudadano de primera clase del protocolo. Eso convierte una limitación técnica en un aporte arquitectónico.</p>
+<hr />
+<h2 id="10-recursos-involucrados-y-cronograma-de-trabajo">10. Recursos involucrados y cronograma de trabajo</h2>
+<h3 id="101-recursos-de-hardware">10.1 Recursos de hardware</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Cantidad</th>
+<th>¿Se cuenta con él?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi 4B 4 GB</td>
+<td>3</td>
+<td>A adquirir (~$240 USD propios o beca)</td>
+</tr>
+<tr>
+<td>Raspberry Pi Camera Module v3</td>
+<td>3</td>
+<td>A adquirir (~$120 USD)</td>
+</tr>
+<tr>
+<td>MicroSD 64 GB + case + PSU</td>
+<td>3</td>
+<td>A adquirir</td>
+</tr>
+<tr>
+<td>Cluster K8s on-prem (3 nodos viejos, ≥ 8 GB RAM c/u)</td>
+<td>1</td>
+<td>Hardware reutilizado del laboratorio</td>
+</tr>
+<tr>
+<td>(Alt.) Cluster managed GKE Autopilot</td>
+<td>—</td>
+<td>Si no alcanza on-prem; ~$200 USD con créditos</td>
+</tr>
+<tr>
+<td>Conectividad outdoor (SIM 4G)</td>
+<td>3 (opc.)</td>
+<td>WiFi del campus en fase inicial; SIM solo si despliega afuera</td>
+</tr>
+</tbody>
+</table>
+<h3 id="102-recursos-de-cómputo-en-la-nube">10.2 Recursos de cómputo en la nube</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Costo</th>
+<th>¿Se cuenta con él?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCP Compute Engine e2-micro / e2-small (cloud worker base)</td>
+<td>$0 (free tier always-free + créditos $300 GCP)</td>
+<td>Sí — cuenta personal con free tier</td>
+</tr>
+<tr>
+<td>Vast.ai GPU on-demand para ablation (~30 hs)</td>
+<td>~$30 USD</td>
+<td>Créditos existentes</td>
+</tr>
+<tr>
+<td>Base Sepolia (testnet)</td>
+<td>$0</td>
+<td>Pública</td>
+</tr>
+<tr>
+<td>Base mainnet (gas fees deploy + experimentos)</td>
+<td>&lt; $60 USD</td>
+<td>Wallet personal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="103-recursos-de-software">10.3 Recursos de software</h3>
+<ul>
+<li>EZKL (MIT), Foundry, ONNX Runtime, kopf o kubebuilder, FastAPI, Postgres con RLS, Helm 3, Prometheus, Grafana, OpenTelemetry, web3.py, Pillow, scikit-learn, PyTorch + ONNX export. Todos open-source, sin costo de licencia.</li>
+</ul>
+<h3 id="104-datasets">10.4 Datasets</h3>
+<ul>
+<li>D-Fire dataset (público, Kaggle), Fire Detection Dataset (Kaggle), imágenes propias etiquetadas de Sierras Chicas (a recolectar).</li>
+</ul>
+<h3 id="105-recursos-humanos">10.5 Recursos humanos</h3>
+<ul>
+<li>Tesista (autor): dedicación part-time de 20–25 hs/semana durante 12 meses (compatible con el cursado de los últimos años).</li>
+<li>Director: revisión técnica quincenal y aprobación de hitos.</li>
+<li>Codirector embedded: validación del firmware y benchmark de hardware ARM.</li>
+<li>Codirector cloud-native: validación del operador K8s, multi-tenancy, arquitectura SaaS.</li>
+<li>Colaboraciones potenciales (no bloqueantes): CONICET Córdoba / Defensa Civil CBA para validación del caso de uso, Satellites on Fire (startup CBA) para acceso a imágenes históricas etiquetadas.</li>
+</ul>
+<h3 id="106-presupuesto-consolidado">10.6 Presupuesto consolidado</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Costo (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3× RPi 4B 4 GB</td>
+<td>$240</td>
+</tr>
+<tr>
+<td>3× Cámaras + accesorios</td>
+<td>$120</td>
+</tr>
+<tr>
+<td>Conectividad 4G (opcional, 3 meses)</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Cloud worker GCP (e2-small free tier)</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Vast.ai GPU on-demand</td>
+<td>~$30</td>
+</tr>
+<tr>
+<td>Cluster K8s managed (alternativa, 3 meses)</td>
+<td>~$200 (o $0 on-prem)</td>
+</tr>
+<tr>
+<td>Gas fees (Base mainnet)</td>
+<td>&lt; $60</td>
+</tr>
+<tr>
+<td>Dominio / hosting del control plane</td>
+<td>$30</td>
+</tr>
+<tr>
+<td><strong>Total estimado</strong></td>
+<td><strong>~$770–1.000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="107-cronograma-de-trabajo">10.7 Cronograma de trabajo</h3>
+<p><strong>Duración total: 12 meses</strong> distribuidos en 5 fases comprimidas. Asumiendo dedicación part-time de <strong>20–25 hs/semana</strong> (compatible con el cursado de los últimos años de Ing. en Computación), las 5 fases caben en un año calendario. La <strong>versión mínima defendible (§9.8)</strong> cabe en <strong>8–9 meses</strong> si fuera necesario adelantar la defensa.</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Meses</th>
+<th>Entregables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fase 0 — Preparación</strong></td>
+<td>1</td>
+<td>Revisión bibliográfica focal (~30 papers core, no exhaustiva); setup de hardware (2 RPi + cluster k3s mínimo o kind local); toolchain (EZKL ARM y x86, ONNX Runtime, Foundry, kopf, FastAPI); PoC: modelo toy de 3 capas → EZKL → proof generado en RPi <em>y</em> en pod K8s, ambos verificados por el mismo verifier en Base Sepolia.</td>
+</tr>
+<tr>
+<td><strong>Fase 1 — Benchmark cross-platform</strong></td>
+<td>2–4</td>
+<td>Curación y etiquetado del dataset; fine-tuning de las 6 arquitecturas; ejecución de Experimentos 1 + 2 sobre los 4 backends; <strong>paper parcial</strong> (workshop): <em>&ldquo;Cross-platform Benchmarking of zkML Provers across Edge, Cloud and Kubernetes Backends&rdquo;</em>; diseño formal del protocolo VeriFire multi-backend.</td>
+</tr>
+<tr>
+<td><strong>Fase 2 — Protocolo, contratos y operador K8s</strong></td>
+<td>5–7</td>
+<td>Light client edge (firmware RPi); cloud worker (FastAPI service); operador Kubernetes (CRDs + Helm chart); smart contracts multi-class (Solidity/Foundry) deployados en Base Sepolia; control plane SaaS multi-tenant (API REST + dashboard mínimo); testing unitario + integración + Experimento 4 (seguridad).</td>
+</tr>
+<tr>
+<td><strong>Fase 3 — Red piloto multi-backend</strong></td>
+<td>8–10</td>
+<td>Despliegue: 3 RPi en campus + 1 cloud worker GCP + cluster k3s on-prem; onboarding de 2 tenants; operación continua <strong>8 semanas</strong> (Experimento 3); stress testing del operador K8s (Experimento 5); recolección y análisis de datos operacionales; iteración del protocolo.</td>
+</tr>
+<tr>
+<td><strong>Fase 4 — Escritura y defensa</strong></td>
+<td>11–12</td>
+<td>Escritura de la tesis completa (en paralelo con Fase 3 desde mes 9); submisión paper completo a IEEE IoT Journal o ACM SenSys; submisión paper de plataforma a ACM SoCC o KubeCon poster; preparación de la defensa y defensa final.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Margen de seguridad:</strong> las fases 1 y 2 solapan parcialmente (el diseño formal del protocolo se puede empezar mientras corre el benchmark). Si una fase se retrasa 2–3 semanas, el cronograma absorbe el corrimiento sin tocar la defensa, recortando del alcance opcional definido en §9.8.</p>
+<h4 id="diagrama-de-gantt">Diagrama de Gantt</h4>
+<svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cronograma Gantt de 12 meses con 5 fases solapadas y 6 hitos críticos." style="width:100%;max-width:880px;height:auto;display:block;margin:1.5rem auto;background:#FAFAFC;border-radius:12px;font-family:'Inter',sans-serif;">
+  <!-- Title -->
+  <text x="440" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#2E0F58">Cronograma 12 meses · 5 fases · 6 hitos</text>
+
+  <!-- Month grid -->
+  <g font-size="10" fill="#6C757D" text-anchor="middle">
+    <line x1="180" y1="48" x2="180" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="240" y1="48" x2="240" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="300" y1="48" x2="300" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="360" y1="48" x2="360" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="420" y1="48" x2="420" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="480" y1="48" x2="480" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="540" y1="48" x2="540" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="600" y1="48" x2="600" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="660" y1="48" x2="660" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="720" y1="48" x2="720" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="780" y1="48" x2="780" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <line x1="840" y1="48" x2="840" y2="310" stroke="#ECE7F3" stroke-width="0.8"/>
+    <text x="150" y="62" font-weight="600" fill="#2E0F58">M1</text>
+    <text x="210" y="62">M2</text>
+    <text x="270" y="62">M3</text>
+    <text x="330" y="62">M4</text>
+    <text x="390" y="62">M5</text>
+    <text x="450" y="62">M6</text>
+    <text x="510" y="62">M7</text>
+    <text x="570" y="62">M8</text>
+    <text x="630" y="62">M9</text>
+    <text x="690" y="62">M10</text>
+    <text x="750" y="62">M11</text>
+    <text x="810" y="62">M12</text>
+  </g>
+
+  <!-- Fases (rows) -->
+  <g font-size="11" font-weight="600" fill="#1E3A5F">
+    <text x="20" y="92">Fase 0 — Preparación</text>
+    <rect x="120" y="78" width="60" height="22" rx="4" fill="#7E3FBF" opacity="0.85"/>
+
+    <text x="20" y="132">Fase 1 — Benchmark cross-platform</text>
+    <rect x="180" y="118" width="180" height="22" rx="4" fill="#3182CE" opacity="0.85"/>
+
+    <text x="20" y="172">Fase 2 — Protocolo + K8s + contratos</text>
+    <rect x="360" y="158" width="180" height="22" rx="4" fill="#38A169" opacity="0.85"/>
+    <!-- overlap with fase 1 -->
+    <rect x="300" y="158" width="60" height="22" rx="4" fill="#38A169" opacity="0.4"/>
+
+    <text x="20" y="212">Fase 3 — Red piloto multi-backend</text>
+    <rect x="540" y="198" width="180" height="22" rx="4" fill="#DD6B20" opacity="0.85"/>
+
+    <text x="20" y="252">Fase 4 — Escritura + defensa</text>
+    <rect x="720" y="238" width="120" height="22" rx="4" fill="#E53E3E" opacity="0.85"/>
+    <!-- overlap with fase 3 (writing in parallel) -->
+    <rect x="630" y="238" width="90" height="22" rx="4" fill="#E53E3E" opacity="0.4"/>
+  </g>
+
+  <!-- Hitos (diamonds) -->
+  <g>
+    <polygon points="180,290 192,278 204,290 192,302" fill="#2E0F58"/>
+    <text x="192" y="324" text-anchor="middle" font-size="9" font-weight="700" fill="#2E0F58">H1</text>
+
+    <polygon points="348,290 360,278 372,290 360,302" fill="#2E0F58"/>
+    <text x="360" y="324" text-anchor="middle" font-size="9" font-weight="700" fill="#2E0F58">H2</text>
+
+    <polygon points="528,290 540,278 552,290 540,302" fill="#2E0F58"/>
+    <text x="540" y="324" text-anchor="middle" font-size="9" font-weight="700" fill="#2E0F58">H3</text>
+
+    <polygon points="708,290 720,278 732,290 720,302" fill="#2E0F58"/>
+    <text x="720" y="324" text-anchor="middle" font-size="9" font-weight="700" fill="#2E0F58">H4</text>
+
+    <polygon points="768,290 780,278 792,290 780,302" fill="#2E0F58"/>
+    <text x="780" y="324" text-anchor="middle" font-size="9" font-weight="700" fill="#2E0F58">H5</text>
+
+    <polygon points="828,290 840,278 852,290 840,302" fill="#E53E3E"/>
+    <text x="840" y="324" text-anchor="middle" font-size="9" font-weight="700" fill="#E53E3E">H6</text>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="9" fill="#6C757D">
+    <rect x="120" y="338" width="14" height="10" fill="#7E3FBF" opacity="0.85"/>
+    <text x="138" y="347">Fase 0</text>
+    <rect x="190" y="338" width="14" height="10" fill="#3182CE" opacity="0.85"/>
+    <text x="208" y="347">Fase 1</text>
+    <rect x="260" y="338" width="14" height="10" fill="#38A169" opacity="0.85"/>
+    <text x="278" y="347">Fase 2</text>
+    <rect x="330" y="338" width="14" height="10" fill="#DD6B20" opacity="0.85"/>
+    <text x="348" y="347">Fase 3</text>
+    <rect x="400" y="338" width="14" height="10" fill="#E53E3E" opacity="0.85"/>
+    <text x="418" y="347">Fase 4</text>
+    <rect x="470" y="338" width="14" height="10" fill="#38A169" opacity="0.4"/>
+    <text x="488" y="347">solapamiento</text>
+    <polygon points="570,343 578,335 586,343 578,351" fill="#2E0F58"/>
+    <text x="595" y="347">Hito crítico (defensa = H6)</text>
+  </g>
+</svg>
+<h3 id="108-hitos-críticos">10.8 Hitos críticos</h3>
+<table>
+<thead>
+<tr>
+<th>Hito</th>
+<th>Mes</th>
+<th>Entregable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>1</td>
+<td>PoC: proof funcional en RPi <em>y</em> en pod K8s, ambos verificados on-chain</td>
+</tr>
+<tr>
+<td>H2</td>
+<td>4</td>
+<td>Benchmark cross-platform completo (4 backends × 6 modelos) + workshop paper submited</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>7</td>
+<td>Protocolo VeriFire v1.0 + operador K8s + control plane SaaS en testnet</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>10</td>
+<td>Red piloto multi-backend operacional 8 semanas con 2 tenants</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>11</td>
+<td>Paper completo submited a venue primario</td>
+</tr>
+<tr>
+<td>H6</td>
+<td>12</td>
+<td>Defensa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="109-gestión-de-riesgos">10.9 Gestión de riesgos</h3>
+<table>
+<thead>
+<tr>
+<th>Riesgo</th>
+<th>Probabilidad</th>
+<th>Impacto</th>
+<th>Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EZKL demasiado lento en RPi 4 (&gt; 60 min/proof para todos los modelos)</td>
+<td>Media</td>
+<td>Medio</td>
+<td>El backend cloud/K8s absorbe la carga; en multi-backend, edge lento no es bloqueante — pasa a ser un dato más del benchmark.</td>
+</tr>
+<tr>
+<td>RAM insuficiente edge (OOM durante proving)</td>
+<td>Media</td>
+<td>Bajo</td>
+<td>El cloud asume el job; el control plane rutea por capacidad.</td>
+</tr>
+<tr>
+<td>Degradación de accuracy por cuantización extrema</td>
+<td>Baja</td>
+<td>Medio</td>
+<td>Mixed-precision (INT8 convoluciones, FP16 capas críticas).</td>
+</tr>
+<tr>
+<td>Costo de gas demasiado alto</td>
+<td>Baja</td>
+<td>Medio</td>
+<td>Base tiene fees &lt;&lt; 1 cent. Fallback: off-chain verification + on-chain commitment.</td>
+</tr>
+<tr>
+<td>Logística outdoor</td>
+<td>Alta</td>
+<td>Bajo</td>
+<td>Fase 3 empieza en campus UNC; Sierras Chicas opcional.</td>
+</tr>
+<tr>
+<td>EZKL introduce breaking changes</td>
+<td>Baja</td>
+<td>Medio</td>
+<td>Pin de versión. El protocolo es prover-agnostic.</td>
+</tr>
+<tr>
+<td>Complejidad del operador K8s subestimada</td>
+<td>Media</td>
+<td>Medio</td>
+<td>Empezar con kopf (Python) en vez de kubebuilder (Go). Si se convierte en sumidero, recortar a script + cronjobs nativos sin CRD propio.</td>
+</tr>
+<tr>
+<td>Multi-tenancy introduce vulnerabilidades</td>
+<td>Media</td>
+<td>Alto</td>
+<td>tenant_id en todas las tablas, RLS en Postgres, tests de cross-tenant data leak antes de Fase 3.</td>
+</tr>
+<tr>
+<td>Costo cloud/K8s excede presupuesto</td>
+<td>Baja</td>
+<td>Medio</td>
+<td>GCP free tier para cloud worker; k3s on-prem para cluster; spot instances para Vast.ai.</td>
+</tr>
+<tr>
+<td>Encryption del witness añade latencia</td>
+<td>Baja</td>
+<td>Bajo</td>
+<td>Hybrid encryption (RSA-OAEP + AES-GCM); medición y reporte explícito.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-aportes-esperados">11. Aportes esperados</h2>
+<h3 id="111-aporte-académico">11.1 Aporte académico</h3>
+<p><strong>Cinco contribuciones originales (C1–C5):</strong></p>
+<ul>
+<li><strong>C1 — Protocolo VeriFire multi-backend:</strong> diseño formal de un protocolo de Proof-of-Inference que admite múltiples clases de backend de cómputo bajo un mismo contrato verificador. Modelo de input signing extendido con doble firma (capture + worker) que establece un <em>binding triple</em>: entrada → cómputo → reward. Circuito zkML mínimo viable parametrizable en complejidad para correr en al menos tres clases de hardware. Interfaz del contrato verificador con clase de nodo on-chain y capability attestation.</li>
+<li><strong>C2 — Benchmark empírico cross-platform:</strong> primera evaluación sistemática (que se sepa) del trade-off zkML en múltiples clases de backend simultáneamente — proof time, peak RAM, proof size, gas cost, costo monetario por proof — sobre ARM Cortex-A72, x86 cloud VM y pod Kubernetes con resource limits configurables.</li>
+<li><strong>C3 — Plataforma VeriFire SaaS de referencia (open-source):</strong> prototipo funcional end-to-end con light client edge, operador Kubernetes con CRDs y Helm chart, control plane SaaS multi-tenant, smart contracts en Base Sepolia/mainnet, observabilidad Prometheus + Grafana + OpenTelemetry, IaC con Terraform y Helm, dataset público de imágenes humo/fuego.</li>
+<li><strong>C4 — Metodología de diseño de circuitos zkML &ldquo;backend-aware&rdquo;:</strong> guía con reglas prácticas derivadas del benchmark — qué arquitecturas son proving-friendly en cada backend, dónde está el knee-point de cada plataforma, qué nivel de cuantización preserva la viabilidad del circuito, reglas de routing dado un modelo y un SLA de latencia.</li>
+<li><strong>C5 — Modelo arquitectónico de plataforma DePIN heterogénea:</strong> patrón de diseño reutilizable para DePINs de próxima generación, donde el contrato es agnóstico al backend y solo verifica integridad criptográfica + capability attestation.</li>
+</ul>
+<h3 id="112-aporte-técnico">11.2 Aporte técnico</h3>
+<ul>
+<li>Repositorio open-source con la implementación completa (license MIT/Apache-2): firmware, operador K8s, control plane, contratos, scripts de despliegue.</li>
+<li>Helm chart distribuible: cualquier operador puede instalar la plataforma con <code>helm install verifire</code>.</li>
+<li>Dataset público de imágenes etiquetadas de humo/fuego de la zona Sierras Chicas.</li>
+</ul>
+<h3 id="113-aporte-social">11.3 Aporte social</h3>
+<ul>
+<li>Caso de uso transferible al ETAC / Defensa Civil de Córdoba para detección temprana de incendios, reduciendo la latencia de detección de 35–60 min (satelital) a minutos (red densa edge).</li>
+<li>Modelo de negocio compatible con financiamiento público (un municipio o Defensa Civil paga un fee por acceso a alertas) o financiamiento descentralizado (DePIN puro), cuyas condiciones de sustentabilidad la tesis modela formalmente.</li>
+</ul>
+<h3 id="114-aporte-económico-y-de-mercado">11.4 Aporte económico y de mercado</h3>
+<ul>
+<li>Habilitación de un mercado bilateral de cómputo verificable para sensing: oferta (operadores edge + operadores K8s/cloud con capacidad ociosa) y demanda (municipios, aseguradoras, ONGs ambientales) coordinadas vía smart contract.</li>
+<li>Validación de una arquitectura SaaS escalable para DePIN, replicable a otros dominios de sensing (calidad de aire, ruido, tráfico, plagas agrícolas, monitoreo de fauna).</li>
+</ul>
+<h3 id="115-publicaciones-planeadas">11.5 Publicaciones planeadas</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Mes</th>
+<th>Venue</th>
+<th>Título tentativo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>NeurIPS Workshop on TrustML / similar</td>
+<td><em>&ldquo;Cross-platform Benchmarking of zkML Provers across Edge, Cloud and Kubernetes Backends&rdquo;</em></td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>ACM SoCC o KubeCon poster</td>
+<td><em>&ldquo;A Multi-Backend DePIN Architecture: Verifiable Inference with Pluggable Compute&rdquo;</em></td>
+</tr>
+<tr>
+<td>3</td>
+<td>11</td>
+<td>IEEE IoT Journal o ACM SenSys</td>
+<td><em>&ldquo;VeriFire: A Multi-Backend SaaS Platform for Verifiable Inference in DePIN Sensor Networks&rdquo;</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="116-resultados-esperados-cuantitativos-hipótesis-falsables">11.6 Resultados esperados cuantitativos (hipótesis falsables)</h3>
+<p>A diferencia de una propuesta de &ldquo;experimento abierto&rdquo;, la tesis se compromete con <strong>hipótesis cuantificables</strong> que pueden ser confirmadas o refutadas por los experimentos. Las bandas reflejan incertidumbre razonable basada en la literatura existente de zkML.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Hipótesis</th>
+<th>Métrica esperada</th>
+<th>Banda de incertidumbre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>Speed-up GPU vs CPU (mismo modelo, runtime K8s) crece con el tamaño del modelo</td>
+<td>5×–30× para modelos 0.6M–13M params</td>
+<td>±50 % por modelo</td>
+</tr>
+<tr>
+<td>H2</td>
+<td>Knee-point edge: hay un tamaño máximo de modelo viable en RPi 4</td>
+<td>~2–5M params (proof time &lt; 30 min, RAM &lt; 3.5 GB)</td>
+<td>sensible a versión EZKL</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>Pareto front accuracy / latencia: existe un modelo dominante para edge</td>
+<td>MobileNetV3-Tiny INT8 esperado en el frente</td>
+<td>accuracy ≥ 88 %, proof &lt; 8 min</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>Costo por proof verificado on-chain (Base L2)</td>
+<td>&lt; $0.005 USD por verificación</td>
+<td>factor 2× según gas price</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>Tamaño del proof EZKL on-chain</td>
+<td>10–50 KB</td>
+<td>depende del circuito</td>
+</tr>
+<tr>
+<td>H6</td>
+<td>Auto-scaling K8s frente a 100× pico de carga</td>
+<td>tiempo a estabilizar &lt; 60 s</td>
+<td>depende del cluster</td>
+</tr>
+<tr>
+<td>H7</td>
+<td>Overhead del control plane SaaS vs solución dedicada</td>
+<td>&lt; 200 ms P95 latency adicional</td>
+<td>medible en Experimento 1</td>
+</tr>
+<tr>
+<td>H8</td>
+<td>Falsos negativos del clasificador en humo controlado</td>
+<td>&lt; 5 %</td>
+<td>crítico para caso de uso</td>
+</tr>
+<tr>
+<td>H9</td>
+<td>Multi-tenancy: aislamiento entre tenants A y B</td>
+<td>0 cross-tenant leaks en 30 tests automáticos</td>
+<td>binario: 0 o falla</td>
+</tr>
+<tr>
+<td>H10</td>
+<td>Mínimo reward económico para sustentabilidad del nodo EDGE</td>
+<td>$0.50–$1.50 USD / día por nodo activo</td>
+<td>depende de costo eléctrico local</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretación de los resultados:</strong> si <strong>H1, H2 y H4 se confirman</strong>, el aporte C2 (benchmark cross-platform) es un resultado publicable independientemente del resto. Si <strong>H6 y H7 se confirman</strong>, el aporte C3 (plataforma SaaS) es defendible. Si alguna hipótesis se refuta, el resultado negativo también es publicable — eso es lo que diferencia ciencia de ingeniería.</p>
+<hr />
+<h2 id="12-referencias-bibliográficas">12. Referencias bibliográficas</h2>
+<p><em>(Formato IEEE — versión preliminar; se ampliará durante la revisión sistemática de la Fase 0.)</em></p>
+<h3 id="zkml">zkML</h3>
+<p>[1] Y. Zhang et al., &ldquo;A Survey of Zero-Knowledge Proof Based Verifiable Machine Learning,&rdquo; <em>arXiv preprint arXiv:2502.18535</em>, Feb. 2025.</p>
+<p>[2] Springer Nature, &ldquo;A survey of zero-knowledge proof based verifiable machine learning,&rdquo; <em>Artif. Intell. Rev.</em>, 2026.</p>
+<p>[3] EZKL Team, &ldquo;Benchmarking ZKML Frameworks,&rdquo; <em>blog.ezkl.xyz</em>, 2025. [Online]. Available: https://blog.ezkl.xyz/post/benchmarks/</p>
+<p>[4] EZKL Team, &ldquo;State of EZKL: 2025,&rdquo; <em>blog.ezkl.xyz</em>, 2025. [Online]. Available: https://blog.ezkl.xyz/post/state_of_ezkl/</p>
+<p>[5] ICME, &ldquo;The Definitive Guide to ZKML (2025),&rdquo; <em>blog.icme.io</em>, 2025.</p>
+<p>[6] Lagrange Labs, &ldquo;DeepProve-1: First zkML System to Prove Full LLM Inference,&rdquo; <em>lagrange.dev/blog</em>, 2025.</p>
+<p>[7] &ldquo;On-chain zero-knowledge machine learning: An overview and comparison,&rdquo; <em>ScienceDirect</em>, 2024.</p>
+<h3 id="edge-ai-fire-detection">Edge AI / Fire Detection</h3>
+<p>[8] &ldquo;Edge-Based Autonomous Fire and Smoke Detection Using MobileNetV2,&rdquo; <em>PMC</em>, 2025. PMC12567645.</p>
+<p>[9] &ldquo;ForestGuard: An IP66 Edge-AI Raspberry Pi Node for Illegal Logging and Early Fire/Smoke Detection,&rdquo; <em>IJSRA</em>, 2025.</p>
+<p>[10] &ldquo;ForestProtector: IoT Architecture with Deep RL for Wildfire Monitoring,&rdquo; <em>arXiv preprint arXiv:2501.09926</em>, 2025.</p>
+<p>[11] &ldquo;Tiny Machine Learning and On-Device Inference: A Survey,&rdquo; <em>PMC</em>, 2025.</p>
+<p>[12] &ldquo;Real-Time Performance Benchmarking of TinyML Models,&rdquo; <em>arXiv preprint arXiv:2509.04721</em>, 2025.</p>
+<h3 id="depin-y-blockchain-edge">DePIN y blockchain edge</h3>
+<p>[13] &ldquo;Decentralized physical infrastructure networks (DePIN) tokenomics,&rdquo; <em>Frontiers in Blockchain</em>, 2025.</p>
+<p>[14] &ldquo;Blockchain-Enabled Edge Intelligence for IoT,&rdquo; <em>MDPI Future Internet</em>, vol. 13, no. 2, 2021.</p>
+<p>[15] &ldquo;Secure blockchain integrated deep learning framework for IoT edge intelligence,&rdquo; <em>Scientific Reports</em>, Nov. 2025.</p>
+<p>[16] zkVerify Team, &ldquo;2025: Year in Review,&rdquo; <em>zkverify.io/blog</em>, 2025.</p>
+<h3 id="kubernetes-y-plataformas-cloud-native">Kubernetes y plataformas cloud-native</h3>
+<p>[17] B. Burns et al., <em>Kubernetes Patterns: Reusable Elements for Designing Cloud Native Applications</em>, 2nd ed. O&rsquo;Reilly Media, 2023.</p>
+<p>[18] J. Dobies, J. Wood, <em>Kubernetes Operators: Automating the Container Orchestration Platform</em>, O&rsquo;Reilly Media, 2020.</p>
+<p>[19] CNCF, &ldquo;KEDA: Kubernetes Event-driven Autoscaling,&rdquo; <em>keda.sh</em>, 2025.</p>
+<p>[20] OpenTelemetry, &ldquo;Observability Framework,&rdquo; <em>opentelemetry.io</em>, 2025.</p>
+<h3 id="contexto-local">Contexto local</h3>
+<p>[21] &ldquo;En 2024 se quemaron casi 70.000 hectáreas de bosque nativo en Córdoba,&rdquo; <em>elDiarioAR</em>, 2024.</p>
+<p>[22] &ldquo;La startup argentina que detecta incendios forestales antes que la NASA,&rdquo; <em>Perfil</em>, 2024.</p>
+<p>[23] &ldquo;Informe sobre incendios forestales en Córdoba, septiembre 2024,&rdquo; <em>Defensoría del Pueblo de la Nación</em>, 2024.</p>
+<p>[24] &ldquo;Córdoba redujo más del 80 % la superficie afectada en 2025,&rdquo; <em>La Ranchada</em>, 2025.</p>
+<hr />
+<h2 id="anexo-a-diseño-del-smart-contract-multi-class">Anexo A — Diseño del Smart Contract Multi-Class</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">// SPDX-License-Identifier: MIT</span>
+<span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.20</span><span class="p">;</span>
+
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;@openzeppelin/contracts/token/ERC20/ERC20.sol&quot;</span><span class="p">;</span>
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;@openzeppelin/contracts/access/Ownable.sol&quot;</span><span class="p">;</span>
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;./IEZKLVerifier.sol&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Auto-generado por EZKL</span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">VeriFireNetwork</span><span class="w"> </span><span class="kt">is</span><span class="w"> </span>ERC20<span class="p">,</span><span class="w"> </span>Ownable<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="k">public </span><span class="nv">constant</span><span class="w"> </span>VERSION<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">;</span>
+
+<span class="w">    </span>IEZKLVerifier<span class="w"> </span><span class="kt">public</span><span class="w"> </span>verifier<span class="p">;</span>
+<span class="w">    </span><span class="kt">bytes32</span><span class="w"> </span><span class="k">public </span><span class="nv">modelHash</span><span class="p">;</span><span class="w">        </span><span class="c1">// hash on-chain del modelo ONNX activo</span>
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="k">public </span><span class="nv">modelVersion</span><span class="p">;</span><span class="w">     </span><span class="c1">// monotonic</span>
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="k">public </span><span class="nv">verifierActivatedAt</span><span class="p">;</span><span class="w">  </span><span class="c1">// grace period</span>
+
+<span class="w">    </span><span class="kt">enum</span><span class="w"> </span><span class="nv">NodeClass</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>EDGE<span class="p">,</span><span class="w"> </span>CLOUD<span class="p">,</span><span class="w"> </span>K8S<span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span>NodeClass<span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>rewardPositive<span class="p">;</span>
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span>NodeClass<span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>rewardUptime<span class="p">;</span>
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">mapping</span><span class="p">(</span>NodeClass<span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">)))</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>authorizedWorkers<span class="p">;</span>
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>nodeUptime<span class="p">;</span>
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">bytes32</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>usedProofs<span class="p">;</span>
+
+<span class="w">    </span><span class="kt">event</span><span class="w"> </span><span class="nv">InferenceVerified</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>captureNode<span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>workerNode<span class="p">,</span><span class="w"> </span>NodeClass<span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nv">positive</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">timestamp</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">event</span><span class="w"> </span><span class="nv">AlertEmitted</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>captureNode<span class="p">,</span><span class="w"> </span>NodeClass<span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">timestamp</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">event</span><span class="w"> </span><span class="nv">WorkerAuthorized</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>captureNode<span class="p">,</span><span class="w"> </span>NodeClass<span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="nv">worker</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">event</span><span class="w"> </span><span class="nv">VerifierUpgraded</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>oldVerifier<span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>newVerifier<span class="p">,</span><span class="w"> </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">newModelHash</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">newModelVersion</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">event</span><span class="w"> </span><span class="nv">RewardsUpdated</span><span class="p">(</span>NodeClass<span class="w"> </span>indexed<span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">positive</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">uptime</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">constructor</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">_verifier</span><span class="p">)</span><span class="w"> </span>ERC20<span class="p">(</span><span class="s2">&quot;VeriFireToken&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;VFT&quot;</span><span class="p">)</span><span class="w"> </span>Ownable<span class="p">(</span><span class="k">msg.sender</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>verifier<span class="w"> </span><span class="o">=</span><span class="w"> </span>IEZKLVerifier<span class="p">(</span>_verifier<span class="p">);</span>
+<span class="w">        </span>rewardPositive<span class="p">[</span>NodeClass<span class="p">.</span>EDGE<span class="p">]</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="err">12</span>e18<span class="p">;</span>
+<span class="w">        </span>rewardPositive<span class="p">[</span>NodeClass<span class="p">.</span>CLOUD<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">10</span>e18<span class="p">;</span>
+<span class="w">        </span>rewardPositive<span class="p">[</span>NodeClass<span class="p">.</span>K8S<span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="err">9</span>e18<span class="p">;</span>
+<span class="w">        </span>rewardUptime<span class="p">[</span>NodeClass<span class="p">.</span>EDGE<span class="p">]</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">.</span><span class="err">2</span>e18<span class="p">;</span>
+<span class="w">        </span>rewardUptime<span class="p">[</span>NodeClass<span class="p">.</span>CLOUD<span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">.</span><span class="err">0</span>e18<span class="p">;</span>
+<span class="w">        </span>rewardUptime<span class="p">[</span>NodeClass<span class="p">.</span>K8S<span class="p">]</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">.</span><span class="err">9</span>e18<span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">authorizeWorker</span><span class="p">(</span>NodeClass<span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="nv">worker</span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>class<span class="w"> </span><span class="o">!=</span><span class="w"> </span>NodeClass<span class="p">.</span>EDGE<span class="p">,</span><span class="w"> </span><span class="s2">&quot;Edge proves on-device&quot;</span><span class="p">);</span>
+<span class="w">        </span>authorizedWorkers<span class="p">[</span><span class="k">msg.sender</span><span class="p">][</span>class<span class="p">][</span>worker<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">true</span><span class="p">;</span>
+<span class="w">        </span>emit<span class="w"> </span>WorkerAuthorized<span class="p">(</span><span class="k">msg.sender</span><span class="p">,</span><span class="w"> </span>class<span class="p">,</span><span class="w"> </span>worker<span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">submitInference</span><span class="p">(</span>
+<span class="w">        </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">calldata</span><span class="w"> </span>proof<span class="p">,</span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span>calldata<span class="w"> </span>publicInputs<span class="p">,</span>
+<span class="w">        </span><span class="kt">address</span><span class="w"> </span><span class="nv">captureNode</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">calldata</span><span class="w"> </span>sigInput<span class="p">,</span>
+<span class="w">        </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">calldata</span><span class="w"> </span>sigWorker<span class="p">,</span>
+<span class="w">        </span>NodeClass<span class="w"> </span>class
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">proofHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keccak256</span><span class="p">(</span>proof<span class="p">);</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span><span class="o">!</span>usedProofs<span class="p">[</span>proofHash<span class="p">],</span><span class="w"> </span><span class="s2">&quot;Proof already used&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>publicInputs<span class="p">.</span>length<span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m m-Decimal">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Bad public inputs&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">if</span><span class="w"> </span><span class="p">(</span>class<span class="w"> </span><span class="o">==</span><span class="w"> </span>NodeClass<span class="p">.</span>EDGE<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">require</span><span class="p">(</span>captureNode<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Edge must be self-submitted&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="kt">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">require</span><span class="p">(</span>authorizedWorkers<span class="p">[</span>captureNode<span class="p">][</span>class<span class="p">][</span><span class="k">msg.sender</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;Worker not authorized&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">inputHashMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">(</span>publicInputs<span class="p">[</span><span class="m m-Decimal">0</span><span class="p">]);</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>_verifySignature<span class="p">(</span>inputHashMsg<span class="p">,</span><span class="w"> </span>sigInput<span class="p">,</span><span class="w"> </span>captureNode<span class="p">),</span><span class="w"> </span><span class="s2">&quot;Bad input sig&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">workerMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keccak256</span><span class="p">(</span>abi<span class="p">.</span>encodePacked<span class="p">(</span>proofHash<span class="p">,</span><span class="w"> </span>publicInputs<span class="p">,</span><span class="w"> </span>class<span class="p">));</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>_verifySignature<span class="p">(</span>workerMsg<span class="p">,</span><span class="w"> </span>sigWorker<span class="p">,</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;Bad worker sig&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>verifier<span class="p">.</span>verify<span class="p">(</span>proof<span class="p">,</span><span class="w"> </span>publicInputs<span class="p">),</span><span class="w"> </span><span class="s2">&quot;Invalid zkML proof&quot;</span><span class="p">);</span>
+
+<span class="w">        </span>usedProofs<span class="p">[</span>proofHash<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">true</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nv">positive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>publicInputs<span class="p">[</span><span class="m m-Decimal">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">;</span>
+<span class="w">        </span>nodeUptime<span class="p">[</span>captureNode<span class="p">]</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">reward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>positive<span class="w"> </span><span class="o">?</span><span class="w"> </span>rewardPositive<span class="p">[</span>class<span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span>rewardUptime<span class="p">[</span>class<span class="p">];</span>
+<span class="w">        </span>_mint<span class="p">(</span>captureNode<span class="p">,</span><span class="w"> </span>reward<span class="p">);</span>
+
+<span class="w">        </span><span class="kt">if</span><span class="w"> </span><span class="p">(</span>positive<span class="p">)</span><span class="w"> </span>emit<span class="w"> </span>AlertEmitted<span class="p">(</span>captureNode<span class="p">,</span><span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="k">block.timestamp</span><span class="p">);</span>
+<span class="w">        </span>emit<span class="w"> </span>InferenceVerified<span class="p">(</span>captureNode<span class="p">,</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">,</span><span class="w"> </span>class<span class="p">,</span><span class="w"> </span>positive<span class="p">,</span><span class="w"> </span><span class="k">block.timestamp</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_verifySignature</span><span class="p">(</span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">hash</span><span class="p">,</span><span class="w"> </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">calldata</span><span class="w"> </span>sig<span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="nv">expected</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">internal</span><span class="w"> </span>pure<span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* OpenZeppelin ECDSA */</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">setRewards</span><span class="p">(</span>NodeClass<span class="w"> </span>class<span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">positive</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">uptime</span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span>onlyOwner<span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>rewardPositive<span class="p">[</span>class<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>positive<span class="p">;</span>
+<span class="w">        </span>rewardUptime<span class="p">[</span>class<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uptime<span class="p">;</span>
+<span class="w">        </span>emit<span class="w"> </span>RewardsUpdated<span class="p">(</span>class<span class="p">,</span><span class="w"> </span>positive<span class="p">,</span><span class="w"> </span>uptime<span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// @notice Upgrade del verifier ON-chain cuando se reentrena el modelo.</span>
+<span class="w">    </span><span class="c1">/// @dev Establece el nuevo verifier y registra el hash y versión del modelo.</span>
+<span class="w">    </span><span class="c1">///      Los nodos tienen GRACE_PERIOD para actualizar antes de que sus</span>
+<span class="w">    </span><span class="c1">///      proofs viejos sean rechazados off-chain por el control plane.</span>
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">upgradeVerifier</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">newVerifier</span><span class="p">,</span><span class="w"> </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">newModelHash</span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span>onlyOwner<span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">address</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">address</span><span class="p">(</span>verifier<span class="p">);</span>
+<span class="w">        </span>verifier<span class="w"> </span><span class="o">=</span><span class="w"> </span>IEZKLVerifier<span class="p">(</span>newVerifier<span class="p">);</span>
+<span class="w">        </span>modelHash<span class="w"> </span><span class="o">=</span><span class="w"> </span>newModelHash<span class="p">;</span>
+<span class="w">        </span>modelVersion<span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">;</span>
+<span class="w">        </span>verifierActivatedAt<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">block.timestamp</span><span class="p">;</span>
+<span class="w">        </span>emit<span class="w"> </span>VerifierUpgraded<span class="p">(</span>old<span class="p">,</span><span class="w"> </span>newVerifier<span class="p">,</span><span class="w"> </span>newModelHash<span class="p">,</span><span class="w"> </span>modelVersion<span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Notas de diseño del contrato:</strong></p>
+<ul>
+<li><strong>Versionado on-chain:</strong> <code>string public constant VERSION = "1.0.0"</code> permite a indexers y dashboards declarar la versión del protocolo de manera auditable.</li>
+<li><strong>Doble firma:</strong> <code>sigInput</code> (capture node) + <code>sigWorker</code> (proof generator) cierra el binding triple entrada → cómputo → reward.</li>
+<li><strong>Reward al capture node:</strong> quien aporta el sensor físico cobra; el reparto con el worker (cloud/K8s) se acuerda off-chain. Simplifica el contrato y se alinea con la práctica DePIN.</li>
+<li><strong>Replay protection:</strong> <code>usedProofs[proofHash]</code> rechaza pruebas reutilizadas.</li>
+<li><strong>Capability attestation:</strong> <code>authorizedWorkers[captureNode][class][worker]</code> impide que un worker malicioso intercepte witnesses ajenos.</li>
+<li><strong>Upgrade del verifier:</strong> <code>upgradeVerifier(newVerifier, newModelHash)</code> rota el verificador y registra el hash + versión del modelo en cadena. Emite evento <code>VerifierUpgraded</code> que los indexers y dashboards consumen para invalidar proofs anteriores fuera del grace period.</li>
+<li><strong>Ownable:</strong> acceso administrativo pensado para transferir a un multisig o DAO en producción.</li>
+</ul>
+<h4 id="política-de-upgrade-del-modelo-post-tesis">Política de upgrade del modelo (post-tesis)</h4>
+<p>Cuando el modelo se reentrene (más imágenes de Sierras CBA, nuevas zonas geográficas, modelos con mejor accuracy), los proofs generados con el modelo viejo no pueden seguir siendo aceptados — pero la transición no puede romper la red:</p>
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th>Quién hace qué</th>
+<th>Duración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T0 — Anuncio</strong></td>
+<td>Owner emite <code>VerifierUpgraded</code>; indexer + dashboard avisan a todos los tenants</td>
+<td>inmediato</td>
+</tr>
+<tr>
+<td><strong>T0 → T0+72h — Grace period</strong></td>
+<td>Verifier <em>acepta proofs de ambas versiones</em> (viejo y nuevo). Los nodos descargan el nuevo modelo ONNX vía CDN del control plane y reentrenan circuitos EZKL locales</td>
+<td>72 horas</td>
+</tr>
+<tr>
+<td><strong>T0+72h — Cutover</strong></td>
+<td>El control plane rechaza off-chain submissions con <code>modelVersion</code> viejo; on-chain el contrato sigue verificando criptográficamente, pero el indexer marca esos eventos como deprecated</td>
+<td>discreto</td>
+</tr>
+<tr>
+<td><strong>T0+30d — Limpieza</strong></td>
+<td>Si &gt; 99 % de los nodos migraron, se puede <code>setVerifier</code> a un contrato que solo acepte la versión nueva</td>
+<td>configurable</td>
+</tr>
+</tbody>
+</table>
+<p>El <code>modelHash</code> on-chain permite a cualquier auditor externo verificar <strong>qué modelo exacto</strong> se usó en cualquier inferencia histórica — propiedad útil para forensics regulatorios o disputas legales.</p>
+<hr />
+<h2 id="anexo-b-preguntas-frecuentes-conceptuales">Anexo B — Preguntas frecuentes conceptuales</h2>
+<h3 id="b1-cómo-ayuda-esto-a-prevenir-incendios">B.1 ¿Cómo ayuda esto a prevenir incendios?</h3>
+<p>No previene — detecta temprano. La diferencia es crítica: un incendio detectado en los primeros 5 minutos se puede apagar con una motobomba y 2 personas. El sistema de referencia actual (satélites) tarda 35–60 min; una red densa de cámaras edge puede detectar humo en minutos, 24/7, sin operador.</p>
+<h3 id="b2-una-persona-externa-puede-aportar-con-cámara-o-cómputo-y-si-muestra-un-incendio-falso">B.2 ¿Una persona externa puede aportar con cámara o cómputo? ¿Y si muestra un incendio falso?</h3>
+<p>Sí — ese es el modelo DePIN. Sin zkML el problema sería trivial: cualquier nodo podría mandar &ldquo;humo&rdquo; sin haber corrido el modelo. Con zkML el contrato no acepta el resultado sin prueba matemática. Lo que sí es posible es input fraud (mostrar una imagen guardada de fuego al sensor), que se mitiga con multi-testigo (si un solo nodo grita &ldquo;fuego&rdquo; y los vecinos no, la alerta se marca como sospechosa).</p>
+<h3 id="b3-por-qué-se-necesitan-varias-raspberry-pi-y-no-una-sola">B.3 ¿Por qué se necesitan varias Raspberry Pi y no una sola?</h3>
+<p>Para la tesis: con un solo nodo no se puede medir el comportamiento de la red (uptime distribuido, coordinación, fallas). Con 3 RPi + cloud worker + cluster K8s se hacen experimentos reales de red multi-backend. Para el caso de uso: una cámara cubre un ángulo limitado de un cerro; la visión es que muchas personas pongan cámaras formando una red densa.</p>
+<h3 id="b4-el-sistema-crea-un-token-propio-o-usa-uno-existente">B.4 ¿El sistema crea un token propio o usa uno existente?</h3>
+<p>Para la tesis crea un token propio (<code>VeriFireToken</code>, ERC-20) sin valor económico real, igual que una tesis de redes crea una red privada. Si escalara a producción, la decisión sería usar un token existente (USDC, ETH) o emitir uno con distribución real.</p>
+<h3 id="b5-quién-pone-el-dinero-que-reciben-los-operadores">B.5 ¿Quién pone el dinero que reciben los operadores?</h3>
+<p>La pregunta más incómoda del modelo DePIN. Tres modelos posibles: emisión inflacionaria (token sin demanda no vale), consumidores pagan (un municipio o aseguradora paga por las alertas — sostenible pero requiere clientes), subsidio inicial (centralizado). La tesis modela formalmente bajo qué condiciones el sistema es autosustentable.</p>
+<h3 id="b6-esto-sirve-solo-para-sierras-de-córdoba-o-escala-como-saas">B.6 ¿Esto sirve solo para Sierras de Córdoba o escala como SaaS?</h3>
+<p>Escala — esa es la razón de la arquitectura SaaS multi-tenant. Cualquier organización (provincia, municipio, ONG, universidad de otro país) puede onboardearse como tenant, configurar sus backends, ver su dashboard aislado y recibir alertas. Sierras Chicas es el caso de uso ancla; el aporte académico es la plataforma.</p>
+<h3 id="b7-por-qué-tres-backends-no-es-over-engineering">B.7 ¿Por qué tres backends? ¿No es over-engineering?</h3>
+<p>No, es la respuesta a tres limitaciones reales de los DePIN actuales: modelos grandes infactibles en hardware barato (los corre cloud/K8s), operadores con GPU ociosa que no pueden contribuir (ahora sí), picos de carga que colapsan edge (cloud absorbe el overflow). El alcance mínimo defendible recorta a 2 backends para controlar el riesgo.</p>
+<h3 id="b8-las-imágenes-se-almacenan-en-la-blockchain">B.8 ¿Las imágenes se almacenan en la blockchain?</h3>
+<p>No. Solo va on-chain: hash de la imagen (32 bytes), resultado (1 byte), proof (~10–50 KB), firmas (~130 bytes). El frame queda en el RPi y se descarta.</p>
+<h3 id="b9-para-qué-probar-la-integridad-del-cómputo-si-asumo-que-la-imagen-es-real">B.9 ¿Para qué probar la integridad del cómputo si asumo que la imagen es real?</h3>
+<p>Porque son dos propiedades distintas. zkML resuelve <strong>integridad del cómputo</strong> (corrí el modelo acordado sobre alguna imagen) pero no <strong>autenticidad de la entrada</strong> (la imagen vino del sensor físico ahora). Sin zkML un nodo podría hardcodear <code>resultado=1</code> durante una ola de calor para cobrar el reward alto. La tesis declara explícitamente el límite del threat model.</p>
+<hr />
+<h2 id="anexo-c-glosario-técnico">Anexo C — Glosario técnico</h2>
+<p><strong>Blockchain</strong> — Base de datos compartida entre miles de computadoras que nadie controla individualmente.</p>
+<p><strong>Smart contract</strong> — Programa que vive dentro de la blockchain y se ejecuta automáticamente cuando se cumplen ciertas condiciones.</p>
+<p><strong>ERC-20</strong> — Estándar para crear tokens digitales en redes compatibles con Ethereum.</p>
+<p><strong>Base (L2)</strong> — Red blockchain construida sobre Ethereum con transacciones mucho más baratas y rápidas.</p>
+<p><strong>DePIN</strong> — Decentralized Physical Infrastructure Network. Modelo donde personas comunes contribuyen con hardware físico a una red compartida y reciben tokens automáticamente.</p>
+<p><strong>ONNX</strong> — Formato estándar para guardar modelos de machine learning (como un PDF de redes neuronales).</p>
+<p><strong>TinyML</strong> — Rama del ML que optimiza modelos para correr en dispositivos de muy bajos recursos (cuantización, pruning).</p>
+<p><strong>Cuantización (INT8)</strong> — Compresión que guarda los pesos como enteros de 8 bits en vez de flotantes de 32 bits (4× reducción, &lt; 5 % pérdida de accuracy en clasificación binaria).</p>
+<p><strong>MobileNetV3</strong> — Red neuronal convolucional para edge: ~2.5M parámetros (vs ~25M en ResNet o ~138M en VGG-16).</p>
+<p><strong>ZKP / Zero-Knowledge Proof</strong> — Técnica criptográfica para probar que sabés algo sin revelar el detalle.</p>
+<p><strong>zkML</strong> — Aplicación de ZKPs a machine learning. Permite probar que un modelo fue ejecutado correctamente sobre cierta entrada sin revelar la entrada.</p>
+<p><strong>EZKL</strong> — Herramienta open-source que implementa zkML: convierte modelos ONNX en circuitos Halo2 y exporta el verifier como contrato Solidity.</p>
+<p><strong>Halo2</strong> — Sistema de pruebas ZK del equipo de Zcash, backend criptográfico de EZKL.</p>
+<p><strong>SNARK / zk-SNARK</strong> — Tipo de ZKP con propiedades deseables: prueba pequeña (Succinct), verificable rápido (Non-interactive), sin revelar info privada (Argument of Knowledge).</p>
+<p><strong>Circuito aritmético</strong> — Representación matemática de un programa como ecuaciones sobre números, forma en que los sistemas ZK &ldquo;entienden&rdquo; el cómputo.</p>
+<p><strong>Hash (SHA-256)</strong> — Función que toma cualquier dato y produce un número fijo. Imposible reconstruir el original desde el hash.</p>
+<p><strong>Proof / Witness</strong> — En zkML el <em>witness</em> son los datos privados que el prover conoce (imagen, pesos, cálculos intermedios); el <em>proof</em> es la prueba pública compacta. Solo el proof sale del nodo.</p>
+<p><strong>Solidity</strong> — Lenguaje de programación para smart contracts en redes EVM.</p>
+<p><strong>Foundry</strong> — Suite de herramientas para desarrollo de smart contracts en Solidity (compilador + tests + deploy).</p>
+<p><strong>Raspberry Pi 4</strong> — Computadora de placa única (~$80 USD), procesador ARM Cortex-A72 4 núcleos 1.8 GHz, hasta 8 GB RAM.</p>
+<p><strong>ARM Cortex-A72</strong> — Procesador ARM optimizado para eficiencia energética. Los benchmarks de EZKL existentes son en x86; esta tesis benchmarkea ARM por primera vez.</p>
+<p><strong>Threat model</strong> — Descripción explícita de qué ataques un sistema pretende resistir y cuáles quedan fuera de scope.</p>
+<p><strong>Replay attack</strong> — Ataque donde un nodo reutiliza una prueba válida para cobrar rewards múltiples veces. Se previene con un registro on-chain de hashes ya usados.</p>
+<p><strong>Kubernetes (K8s)</strong> — Sistema open-source para orquestar aplicaciones en contenedores.</p>
+<p><strong>Operator (en Kubernetes)</strong> — Programa que corre dentro del cluster y gestiona automáticamente recursos custom.</p>
+<p><strong>CRD</strong> — Custom Resource Definition. Mecanismo para extender la API de Kubernetes con tipos de objeto propios.</p>
+<p><strong>Helm</strong> — Gestor de paquetes para Kubernetes (análogo a <code>apt</code> o <code>npm</code>).</p>
+<p><strong>SaaS</strong> — Software-as-a-Service. Modelo donde un proveedor opera un servicio que múltiples clientes consumen sin instalarlo localmente.</p>
+<p><strong>Multi-tenant</strong> — Arquitectura donde un único deployment del software sirve a múltiples organizaciones independientes con aislamiento entre ellas.</p>
+<p><strong>HPA</strong> — Horizontal Pod Autoscaler. Componente nativo de K8s que escala el número de pods según métricas.</p>
+<p><strong>KEDA</strong> — Kubernetes Event-Driven Autoscaling. Extiende HPA para escalar según eventos externos (queue depth, mensajes pendientes, etc.).</p>
+<p><strong>Row-Level Security (RLS)</strong> — Característica de Postgres que define políticas a nivel de fila para controlar qué registros ve cada usuario.</p>
+<p><strong>Backend (de cómputo)</strong> — En esta tesis, una clase de hardware donde se puede generar el proof zkML: edge (RPi), cloud (VM x86), o Kubernetes (cluster de pods).</p>
+<hr />
+<hr />
+<h2 id="anexo-d-plan-de-difusión-open-source">Anexo D — Plan de difusión open-source</h2>
+<p>VeriFire se libera bajo el principio de que <strong>el aporte académico se multiplica si la comunidad puede continuar el trabajo</strong>. Esta sección define cómo se publica el repositorio para que sobreviva a la defensa de la tesis.</p>
+<h3 id="d1-licenciamiento">D.1 Licenciamiento</h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Licencia</th>
+<th>Razón</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart contracts (Solidity)</td>
+<td><strong>MIT</strong></td>
+<td>Estándar en Ethereum / Base; permite forks comerciales sin retribución obligatoria</td>
+</tr>
+<tr>
+<td>Operador K8s + Helm chart</td>
+<td><strong>Apache 2.0</strong></td>
+<td>Estándar CNCF; cláusula de patentes</td>
+</tr>
+<tr>
+<td>Light client edge (Python)</td>
+<td><strong>MIT</strong></td>
+<td>Compatible con dependencias upstream</td>
+</tr>
+<tr>
+<td>Control plane SaaS (Python/FastAPI)</td>
+<td><strong>MIT</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Dataset etiquetado de humo/fuego (Sierras CBA)</td>
+<td><strong>CC BY 4.0</strong></td>
+<td>Atribución requerida; uso comercial permitido</td>
+</tr>
+<tr>
+<td>Tesis (texto del documento)</td>
+<td><strong>CC BY-NC-SA 4.0</strong></td>
+<td>Académica: atribución, no comercial, share-alike</td>
+</tr>
+</tbody>
+</table>
+<h3 id="d2-repositorio">D.2 Repositorio</h3>
+<ul>
+<li><strong>Host:</strong> GitHub bajo organización <code>licdia-unlu</code> o <code>verifire-network</code> (a definir con el director).</li>
+<li><strong>Estructura monorepo:</strong>
+  <code>verifire/
+  ├── contracts/        (Foundry, Solidity)
+  ├── edge-client/      (Python, RPi firmware)
+  ├── cloud-worker/     (Python, FastAPI)
+  ├── k8s-operator/     (Python kopf + Helm chart)
+  ├── control-plane/    (Python FastAPI + Postgres + dashboard)
+  ├── benchmarks/       (scripts de Experimento 1)
+  ├── datasets/         (referencias y scripts de descarga)
+  ├── docs/             (ADRs, runbooks, threat model)
+  └── README.md</code></li>
+<li><strong>CI/CD:</strong> GitHub Actions con workflows para tests unitarios (pytest, foundry test), build de imágenes Docker, publish del Helm chart a un registry público (ghcr.io).</li>
+</ul>
+<h3 id="d3-política-de-contribuciones">D.3 Política de contribuciones</h3>
+<ul>
+<li><strong>CONTRIBUTING.md</strong> define proceso: fork → branch → PR → 1 reviewer del equipo core + CI passing.</li>
+<li><strong>Code of Conduct:</strong> Contributor Covenant 2.1.</li>
+<li><strong>Issue templates:</strong> bug report / feature request / question.</li>
+<li><strong>Security policy (SECURITY.md):</strong> disclosure responsable de vulnerabilidades del contrato a <code>security@verifire.example</code> (alias del director / autor).</li>
+</ul>
+<h3 id="d4-roadmap-post-tesis">D.4 Roadmap post-tesis</h3>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Plazo post-defensa</th>
+<th>Objetivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1 — Stabilization</strong></td>
+<td>0–3 meses</td>
+<td>Bugfixes reportados durante la defensa; release v1.1.0; documentación operacional para self-hosting</td>
+</tr>
+<tr>
+<td><strong>R2 — Community onboarding</strong></td>
+<td>3–9 meses</td>
+<td>Talks en CACIC, ETHGlobal AR, KubeCon LATAM; demo pública en testnet; convenio con Defensa Civil CBA si se concreta</td>
+</tr>
+<tr>
+<td><strong>R3 — Production hardening</strong></td>
+<td>9–18 meses</td>
+<td>Auditoría externa del contrato (Trail of Bits / Spearbit nivel pro-bono académico); soporte multi-cadena (Optimism, Polygon zkEVM); SDK cliente en TypeScript/Go</td>
+</tr>
+<tr>
+<td><strong>R4 — Federación de tenants</strong></td>
+<td>18+ meses</td>
+<td>Modo federated del control plane (cada tenant puede correr su propia instancia); gobernanza descentralizada de parámetros económicos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="d5-sustentabilidad-académica">D.5 Sustentabilidad académica</h3>
+<ul>
+<li>Las publicaciones (§11.5) actúan como ancla científica: cada paper cita el repositorio.</li>
+<li>Trabajos futuros derivados del repo (otros tesistas, pasantes, contributors externos) se publican como <strong>issues etiquetados <code>good-first-thesis</code></strong> con scope acotado y mentoring.</li>
+<li>El director y/o el autor mantienen el rol de <em>maintainer</em> durante al menos 12 meses post-defensa para asegurar continuidad.</li>
+</ul>
+<hr />
+<p><em>Documento preparado: mayo 2026. Versión 2.</em></p>
+  </article>
+</main>
+</div>
+
+
+
 <footer class="unlu-footer">
   LICDIA · Departamento de Ciencias Básicas · Universidad Nacional de Luján<br>
   <a href="https://licdia.unlu.edu.ar/blockchain-dev/">licdia.unlu.edu.ar/blockchain-dev</a>
@@ -2693,16 +4993,12 @@ Flatten → Dense(32) → Dense(2) → Softmax
 <script>
 (function () {
     function applyView(v) {
-        if (v === 'full') {
-            document.body.classList.add('view-full');
-        } else {
-            document.body.classList.remove('view-full');
-        }
+        document.body.classList.remove('view-full', 'view-complete');
+        if (v === 'full')     document.body.classList.add('view-full');
+        if (v === 'complete') document.body.classList.add('view-complete');
         document.querySelectorAll('.view-switcher button').forEach(function (b) {
             b.classList.toggle('active', b.dataset.view === v);
         });
-        // Sync TOC: only the active pane's TOC links should be visible.
-        // Simpler approach: highlight by syncing all switchers if there's > 1.
         try { localStorage.setItem('verifire-view', v); } catch (e) {}
         if (history.replaceState) {
             var h = '#view=' + v;
@@ -2710,11 +5006,11 @@ Flatten → Dense(32) → Dense(2) → Softmax
         }
     }
     function initialView() {
-        var m = location.hash.match(/view=(summary|full)/);
+        var m = location.hash.match(/view=(summary|full|complete)/);
         if (m) return m[1];
         try {
             var stored = localStorage.getItem('verifire-view');
-            if (stored === 'full' || stored === 'summary') return stored;
+            if (stored === 'full' || stored === 'summary' || stored === 'complete') return stored;
         } catch (e) {}
         return 'summary';
     }
